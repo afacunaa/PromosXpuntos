@@ -1,4 +1,4 @@
-package CLASSES
+package promosxpuntosapp
 
 class ShopRecord {
     Date date

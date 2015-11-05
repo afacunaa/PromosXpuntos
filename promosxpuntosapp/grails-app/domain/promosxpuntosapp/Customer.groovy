@@ -1,4 +1,4 @@
-package CLASSES
+package promosxpuntosapp
 
 class Customer extends User{
     String identification
