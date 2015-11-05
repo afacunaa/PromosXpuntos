@@ -92,13 +92,17 @@
 </section>
 
 <!-- Four -->
-<section id="four" class="wrapper style4 special">
+<section id="subscribe" class="wrapper style4 special">
     <div class="inner">
         <header class="major narrow">
             <h2>Suscribete</h2>
             <p>Ipsum dolor tempus commodo adipiscing</p>
         </header>
-        <g:uploadForm controller="StandardUser" action="save" accept-charset="UTF-8" role="form" class="form-signup">
+        <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+        <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+        </g:if>
+        <g:uploadForm controller="standardUser" action="save" accept-charset="UTF-8" role="form" class="form-signup">
 
             <div class="container 75%">
                 <div class="row uniform 50%">
