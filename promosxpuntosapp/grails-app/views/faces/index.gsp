@@ -38,44 +38,14 @@
 
 <!-- Banner -->
 <section id="banner">
-    <img src="images/logotipo.png" alt="promosxpuntos" width="300px"/>
+    <img src="images/logotipo.png" alt="promosxpuntos" width="250px"/>
     <p>Magna feugiat lorem dolor egestas</p>
     <ul class="actions">
         <li><a href="#two" class="button big special">Ingresa</a></li>
     </ul>
 </section>
 
-<!-- One -->
-<section id="one" class="wrapper style1">
-    <div class="inner">
-        <article class="feature left">
-            <span class="image"><img src="images/pic01.jpg" alt="" width="500px"/></span>
-            <div class="content">
-                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
-                <ul class="actions">
-                    <li>
-                        <a href="#" class="button alt">Ipsum</a>
-                    </li>
-                </ul>
-            </div>
-        </article>
-        <article class="feature right">
-            <span class="image"><img src="images/pic02.jpg" alt="" width="500px"/></span>
-            <div class="content">
-                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
-                <ul class="actions">
-                    <li>
-                        <a href="#" class="button alt">Lorem</a>
-                    </li>
-                </ul>
-            </div>
-        </article>
-    </div>
-</section>
-
-<section class="wrapper style1" style="padding: 0; margin: 0;" align="center">
+<section class="wrapper style1" align="center">
     <header class="major narrow">
         <h2>Encuentranos</h2>
         <p>Ipsum dolor tempus commodo adipiscing</p>
