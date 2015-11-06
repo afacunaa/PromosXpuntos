@@ -19,17 +19,17 @@
 
 <!-- Header -->
 <header id="header" class="alt">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="">Promos x Puntos</a></h1>
     <a href="#nav">Menu</a>
 </header>
 
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="index.html">Principal</a></li>
-        <li><a href="users-module.html">usuarios</a></li>
-        <li><a href="#four">Registrar usuario</a></li>
-        <li><a href="customers.html">Para Empresas</a></li>
+        <li><a href="">Principal</a></li>
+        <li><a href="users-module">usuarios</a></li>
+        <li><a href="#subscribe">Registrar usuario</a></li>
+        <li><a href="customersIndex">Para empresas</a></li>
         <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
             <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
         </g:each>
@@ -86,7 +86,7 @@
             <p>Ipsum dolor tempus commodo turpis adipiscing Tempor placerat sed amet accumsan</p>
         </header>
         <ul class="actions">
-            <li><a href="customers.html" class="button big alt">PromosXPuntos para Empresas</a></li>
+            <li><a href="customersIndex" class="button big alt">PromosXPuntos para Empresas</a></li>
         </ul>
     </div>
 </section>
