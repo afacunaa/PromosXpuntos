@@ -10,10 +10,7 @@
     <title>Promos x Puntos</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+    <asset:stylesheet src="template.css"/>
 </head>
 <body class="landing">
 
@@ -38,7 +35,7 @@
 
 <!-- Banner -->
 <section id="banner">
-    <img src="images/logotipo.png" alt="promosxpuntos" width="250px"/>
+    <asset:image src="logotipo.png"/>
     <p>Magna feugiat lorem dolor egestas</p>
     <ul class="actions">
         <li><a href="#two" class="button big special">Ingresa</a></li>
@@ -96,9 +93,7 @@
     <div class="inner">
         <header class="major narrow">
             <h2>Suscribete</h2>
-            <p>Ipsum dolor tempus commodo adipiscing</p>
         </header>
-        <h1><g:message code="default.list.label" args="[entityName]" /></h1>
         <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
         </g:if>
@@ -206,11 +201,10 @@
 </footer>
 
 <!-- Scripts -->
-<script src="js/jquery.min.js"></script>
-<script src="js/skel.min.js"></script>
-<script src="js/util.js"></script>
-<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
-<script src="js/main.js"></script>
+<asset:javascript src="jquery.min.js"/>
+<asset:javascript src="skel.min.js"/>
+<asset:javascript src="util.js"/>
+<asset:javascript src="main.js"/>
 
 </body>
 </html>

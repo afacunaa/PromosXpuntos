@@ -30,7 +30,7 @@ class StandardUserController {
         }
 
         if (standardUserInstance.hasErrors()) {
-            respond standardUserInstance.errors, view: '/faces/index.gsp#subscribe'
+            respond standardUserInstance.errors, view: '/faces/index.gsp'
             return
         }
 
