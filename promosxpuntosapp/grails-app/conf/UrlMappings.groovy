@@ -15,7 +15,6 @@ class UrlMappings {
         "/users-module"(view: "/faces/users-module")
         "/createdReward"(view: "/faces/createdReward")
 
-
         "/"(view:"/faces/index")
         "500"(view:'/error')
 	}
