@@ -8,7 +8,6 @@ class StandardUser extends User{
     def points = [:]
 
     static hasMany = [
-            redeemedRewards : Reward,
             shopRecords : ShopRecord
     ]
 

@@ -7,7 +7,16 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+
+        "/customersIndex"(view:"/faces/customersIndex")
+        "/index"(view:"/faces/index")
+        "/profile"(view:"/faces/profile")
+        "/customers-module"(view: "/faces/customers-module")
+        "/users-module"(view: "/faces/users-module")
+        "/createdReward"(view: "/reward/createdReward")
+
+
+        "/"(view:"/faces/index")
         "500"(view:'/error')
 	}
 }
