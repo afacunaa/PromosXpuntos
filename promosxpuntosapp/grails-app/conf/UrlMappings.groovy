@@ -9,6 +9,8 @@ class UrlMappings {
 
 
         "/customersIndex"(view:"/faces/customersIndex")
+        "/index"(view:"/faces/index")
+        "/profile"(view:"/faces/profile")
         "/customers-module"(view: "/faces/customers-module")
         "/users-module"(view: "/faces/users-module")
         "/"(view:"/faces/index")

@@ -30,7 +30,7 @@ class StandardUserController {
         }
 
         if (standardUserInstance.hasErrors()) {
-            respond standardUserInstance.errors, view: '/faces/index.gsp'
+            redirect controller: "index", fragment: "subscribe"
             return
         }
 
@@ -39,7 +39,8 @@ class StandardUserController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'standardUser.label', default: 'StandardUser'), standardUserInstance.id])
-                redirect standardUserInstance
+                session.user=standardUserInstance
+                redirect controller: "profile"
             }
             '*' { respond standardUserInstance, [status: CREATED] }
         }

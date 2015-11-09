@@ -97,7 +97,7 @@
         <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
         </g:if>
-        <g:uploadForm controller="standardUser" action="save" accept-charset="UTF-8" role="form" class="form-signup">
+        <g:uploadForm controller="standardUser" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
 
             <div class="container 75%">
                 <div class="row uniform 50%">
@@ -109,13 +109,13 @@
                     <g:else>
                         <g:textField id="name" name="name"  placeholder="Nombres"></g:textField>
                     </g:else>
-                    <g:if test="${!hasErrors(field: 'lastName','error')}">
+                    <g:if test="${!hasErrors(field: 'lastname','error')}">
                         <div class="6u 12u$(xsmall)">
-                            <g:textField id="lastName" name="lastName"  placeholder="Apellidos"></g:textField>
+                            <g:textField id="lastName" name="lastname"  placeholder="Apellidos"></g:textField>
                         </div>
                     </g:if>
                     <g:else>
-                        <g:textField id="lastName" name="lastName"  placeholder="Apellidos"></g:textField>
+                        <g:textField id="lastName" name="lastname"  placeholder="Apellidos"></g:textField>
                     </g:else>
                     <g:if test="${!hasErrors(field: 'email','error')}">
                         <div class="12u$">
