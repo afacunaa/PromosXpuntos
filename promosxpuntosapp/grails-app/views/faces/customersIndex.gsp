@@ -19,23 +19,32 @@
 <!-- Header -->
 <header id="header" class="alt">
     <h1><a href="">Promos x Puntos</a></h1>
-    <a href="#nav">Menu</a>
+    <nav>
+            <ul class="links">
+                <li><a href="customersIndex">Principal</a></li>
+                <li><a href="customers-module/">Empresas</a></li>
+                <li><a href="customersIndex#four">Registrar usuario</a></li>
+                <li><a href="">Para empresas</a></li>
+            </ul>
+        </nav>
 </header>
 
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
         <li><a href="customersIndex">Principal</a></li>
-        <li><a href="customers-module">Empresas</a></li>
-        <li><a href="#four">Registrar empresa</a></li>
-        <li><a href="">Para Usuarios</a></li>
+        <li><a href="customers-module/">Empresas</a></li>
+        <li><a href="customersIndex#four">Registrar usuario</a></li>
+        <li><a href="">Para empresas</a></li>
     </ul>
 </nav>
+
+
 
 <!-- Banner -->
 <section id="banner" class="style3">
     <img src="images/logotipo.png" alt="promosxpuntos"/>
-    <p>Magna feugiat lorem dolor egestas</p>
+    <p>PromosXPuntos - Para que te diviertas ganando</p>
     <ul class="actions">
         <li><a href="#" class="button big special">Ingresa como empresa</a></li>
     </ul>

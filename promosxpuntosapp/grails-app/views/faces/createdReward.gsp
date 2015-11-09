@@ -4,6 +4,7 @@
   Date: 6/11/15
   Time: 10:27 AM
 --%>
+<%@ page import="promosxpuntosapp.Reward" contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
@@ -43,7 +44,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <g:uploadForm controller="reward" action="register" accept-charset="UTF-8" enctype="multipart/form-data">
+                        <g:uploadForm controller="reward" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
 
                             <div class="row">
                                 <g:if test="${!hasErrors(field: 'rewardName','error')}">

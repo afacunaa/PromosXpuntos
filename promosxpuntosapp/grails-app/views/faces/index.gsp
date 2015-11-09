@@ -36,7 +36,7 @@
 <!-- Banner -->
 <section id="banner">
     <asset:image src="logotipo.png"/>
-    <p>Magna feugiat lorem dolor egestas</p>
+    <p>PromosXPuntos - Para que te diviertas ganando</p>
     <ul class="actions">
         <li><a href="#two" class="button big special">Ingresa</a></li>
     </ul>
@@ -45,7 +45,6 @@
 <section class="wrapper style1" align="center">
     <header class="major narrow">
         <h2>Encuentranos</h2>
-        <p>Ipsum dolor tempus commodo adipiscing</p>
     </header>
     <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d16491.39356475207!2d-74.08865031089259!3d4.654165704834756!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1446650936869" width="75%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
 </section>
@@ -79,8 +78,8 @@
 <section id="three" class="wrapper style3 special">
     <div class="inner">
         <header class="major narrow	">
-            <h2>Magna sed consequat tempus</h2>
-            <p>Ipsum dolor tempus commodo turpis adipiscing Tempor placerat sed amet accumsan</p>
+            <h2>Manten a tus clientes cerca y tus ingresos en aumento.</h2>
+            <p>Con Promos X Puntos tendrás a la mano una herramienta de fidelización y marketing para tu compañia.</p>
         </header>
         <ul class="actions">
             <li><a href="customersIndex" class="button big alt">PromosXPuntos para Empresas</a></li>
