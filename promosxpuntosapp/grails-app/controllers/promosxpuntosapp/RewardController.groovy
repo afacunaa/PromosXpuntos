@@ -8,6 +8,7 @@ import grails.transaction.Transactional
 class RewardController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    def profile={ render(view: 'customersIndex')}
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -26,23 +27,17 @@ class RewardController {
     def save(Reward rewardInstance) {
         if (rewardInstance == null) {
             notFound()
+            render(view: "index")
             return
         }
 
         if (rewardInstance.hasErrors()) {
-            respond rewardInstance.errors, view: 'create'
+            respond rewardInstance.errors, view: 'createdReward'
             return
         }
 
         rewardInstance.save flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'reward.label', default: 'Reward'), rewardInstance.id])
-                redirect rewardInstance
-            }
-            '*' { respond rewardInstance, [status: CREATED] }
-        }
+        redirect action: profile
     }
 
     def edit(Reward rewardInstance) {
@@ -100,4 +95,58 @@ class RewardController {
             '*' { render status: NOT_FOUND }
         }
     }
+
+    private static final okcontents = ['image/png', 'image/jpeg', 'image/gif']
+
+    def register(){
+
+        def reward = Reward.findByRewardName(params.rewardName)
+
+        if(reward){
+            //El usuario ya existe
+            flash.message = "rewardExist'"
+            render(view: 'customers')
+        }
+        else {
+            //Nuevo Usario*/
+            def pictureFile = request.getFile('picture')
+            if (!okcontents.contains(pictureFile.getContentType()) && pictureFile.bytes != []) {
+                flash.message = "Picture"
+                render(view:'logUp', model:[reward:reward,formats:okcontents])
+                return
+            }
+            def parameters = [rewardName     : params.rewardName
+                              ,description     : params.description
+                              , creationDateReward    : params.creationDateReward
+                              , dueDateReward  : params.dueDateReward
+                              , point   : params.point
+                              , picture : pictureFile.bytes]
+
+
+            def newReward = new Reward(parameters)
+
+
+            if(newReward.hasErrors()){
+                respond newReward.errors, view: 'createdReward'
+                return
+            }
+
+            newReward.save flush: true
+            request.withFormat {
+                form multipartForm {
+                    flash.message = message(code: 'default.updated.message', args: [message(code: 'Reward.label', default: 'Reward'), newReward.id])
+                    render(view: 'customersIndex')
+                }
+                '*' { respond newReward, [status: OK] }
+            }
+            return
+
+
+        }
+    }
+
+    def logUp(){
+
+    }
+
 }

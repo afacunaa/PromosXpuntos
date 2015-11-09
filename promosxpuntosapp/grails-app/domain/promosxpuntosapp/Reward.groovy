@@ -2,26 +2,22 @@ package promosxpuntosapp
 
 class Reward{
 
-
-    String campaignName
+    String rewardName
     String description
     byte [] picture
-    Date dueDateCampaign
-    Date creationDateCampaign
+    Date dueDateReward
+    Date creationDateReward
     int point
 
-    static belongsTo = [
-            customer : Customer,
-            requesterUsers : StandardUser
-    ]
+
 
     static constraints = {
-        campaignName(blank: false,unique: true,minSize: 5,maxSize: 30)
+        rewardName(blank: false,unique: true,minSize: 5,maxSize: 30)
         description(blank: false, unique: true, minSize: 30)
         picture(maxSize: 3145728 /* 16K */)
         point(blank:false, min: 1)
-        creationDateCampaign(nullable: true)
-        dueDateCampaign(blank: false)
+        creationDateReward(nullable: true)
+        dueDateReward(nullable: true )
     }
 
 
