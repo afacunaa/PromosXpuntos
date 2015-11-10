@@ -30,8 +30,20 @@ class RewardController {
             return
         }
 
+        def a = params.creationDateReward.split("/")
+        print a
+        print a[0]
+        print a[1]
+        print a[2]
+        rewardInstance.creationDateReward = new Date(Integer.parseInt(a[2]), Integer.parseInt(a[0]), Integer.parseInt(a[1]))
+
+        print (rewardInstance.creationDateReward)
+        def b = params.dueDateReward.split("/")
+        print b
+        rewardInstance.dueDateReward = new Date(Integer.parseInt(b[2]), Integer.parseInt(b[0]), Integer.parseInt(b[1]))
+
         if (rewardInstance.hasErrors()) {
-            respond rewardInstance.errors, view: "createdReward"
+            respond rewardInstance.errors, view: "/faces/createdReward"
             return
         }
 
@@ -40,7 +52,8 @@ class RewardController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'reward.label', default: 'Reward'), rewardInstance.id])
-                redirect rewardInstance
+                session.reward=rewardInstance
+                redirect controller: "rewardDone"
             }
             '*' { respond rewardInstance, [status: CREATED] }
         }

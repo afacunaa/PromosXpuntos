@@ -19,18 +19,11 @@
 <!-- Header -->
 <header id="header" class="alt">
     <h1><a href="">Promos x Puntos</a></h1>
-    <nav>
-            <ul class="links">
-                <li><a href="customersIndex">Principal</a></li>
-                <li><a href="customers-module/">Empresas</a></li>
-                <li><a href="customersIndex#four">Registrar usuario</a></li>
-                <li><a href="">Para empresas</a></li>
-            </ul>
-        </nav>
+    <a href="customersIndex#nav">Menu</a>
 </header>
 
 <!-- Nav -->
-<nav id="nav">
+<nav name="nav" id="nav">
     <ul class="links">
         <li><a href="customersIndex">Principal</a></li>
         <li><a href="customers-module/">Empresas</a></li>
