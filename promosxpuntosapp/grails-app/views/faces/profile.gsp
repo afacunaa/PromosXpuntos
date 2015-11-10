@@ -38,8 +38,16 @@
     <div class="container">
 
         <header class="major special">
-            <h2>Registro exitoso</h2>
-            <p> Bienvenido ${session.user.name} ${session.user.lastname} </p>
+            <h2>Bienvenido</h2>
+            <p>  ${session.user.name} ${session.user.lastname} </p>
+            <p> Correo electrónico: ${session.user.email} </p>
+            <p> Fecha de nacimiento: ${session.user.birthday} </p>
+
+    <g:uploadForm controller="standardUser" action="logOut" method="post">
+        <ul class="actions">
+            <g:submitButton name="summit" type="submit" value="Salir" class="special" tabindex="-1"></g:submitButton>
+        </ul>
+    </g:uploadForm>
         </header>
     </div>
 </section>

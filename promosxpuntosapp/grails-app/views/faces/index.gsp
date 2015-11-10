@@ -56,21 +56,42 @@
             <h2>Ingresa</h2>
             <p>Ingresa tus datos de usuario</p>
         </header>
-        <form action="#" method="POST">
+        <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+        </g:if>
+        <g:uploadForm controller="standardUser" action="logIn" method="post">
             <div class="container 75%">
                 <div class="row uniform 50%">
                     <div class="6u 12u$(xsmall)">
-                        <input name="nickname" placeholder="Nombre de usuario" type="text" />
+                        <g:if test="${!hasErrors(field: 'nickname','error')}">
+                            <div class="12u$">
+                                <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
+                            </div>
+                        </g:if>
+                        <g:else>
+                            <div class="12u$">
+                            <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
+                            </div>
+                        </g:else>
                     </div>
                     <div class="6u$ 12u$(xsmall)">
-                        <input name="password" placeholder="Contraseña" type="password" />
+                        <g:if test="${!hasErrors(field: 'password','error')}">
+                            <div class="6u 12u$">
+                                <g:passwordField id="password" name="password" placeholder="Contraseña"></g:passwordField>
+                            </div>
+                        </g:if>
+                        <g:else>
+                            <div class="6u 12u$">
+                            <g:passwordField id="password" name="password" placeholder="Contraseña"></g:passwordField>
+                            </div>
+                        </g:else>
                     </div>
                 </div>
             </div>
             <ul class="actions">
-                <li><input type="submit" class="special" value="   Ingresar   " /></li>
+                <g:submitButton name="summit" type="submit" value="Ingresar" class="special" tabindex="-1"></g:submitButton>
             </ul>
-        </form>
+        </g:uploadForm>
     </div>
 </section>
 
@@ -97,7 +118,6 @@
             <div class="message" role="status">${flash.message}</div>
         </g:if>
         <g:uploadForm controller="standardUser" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
-
             <div class="container 75%">
                 <div class="row uniform 50%">
                     <g:if test="${!hasErrors(field: 'name','error')}">
@@ -130,7 +150,7 @@
                         </div>
                     </g:if>
                     <g:else>
-
+                        <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
                     </g:else>
                     <g:if test="${!hasErrors(field: 'password','error')}">
                         <div class="6u 12u$(xsmall)">

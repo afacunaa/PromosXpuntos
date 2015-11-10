@@ -22,6 +22,30 @@ class StandardUserController {
         respond new StandardUser(params)
     }
 
+    def logIn(){
+        def usuario = StandardUser.findByNickname(params.nickname)
+        if (usuario){
+            if (usuario.password==params.password){
+                session.user=usuario
+                redirect controller: "profile"
+                return
+            }else{
+                redirect controller: "index", fragment: "two"
+                flash.message = "Contraseña incorrecta"
+                return
+            }
+        }else{
+            redirect controller: "index", fragment: "two"
+            flash.message = "Nombre de Usuario incorrecto"
+            return
+        }
+    }
+
+    def logOut(){
+        session.user=null
+        redirect controller: "index"
+    }
+
     @Transactional
     def save(StandardUser standardUserInstance) {
         if (standardUserInstance == null) {
