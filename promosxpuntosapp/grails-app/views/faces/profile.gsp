@@ -1,4 +1,3 @@
-<%@ page import="promosxpuntosapp.StandardUser" contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE HTML>
 <!--
 	Retrospect by TEMPLATED
