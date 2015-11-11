@@ -39,6 +39,7 @@
     <img src="images/logotipo.png" alt="promosxpuntos"/>
     <p>PromosXPuntos - Para que te diviertas ganando</p>
     <ul class="actions">
+        <li><a href="#" class="button big special">Registra tu empresa</a></li>
         <li><a href="#" class="button big special">Ingresa como empresa</a></li>
     </ul>
 </section>
@@ -70,6 +71,34 @@
                 </ul>
             </div>
         </article>
+    </div>
+</section>
+
+<!-- Two -->
+<section id="four" class="wrapper style4 special">
+    <div class="inner">
+        <header class="major narrow">
+            <h2>Ingresa</h2>
+            <p>Ingresa tus datos de usuario</p>
+        </header>
+        <form action="#" method="POST">
+            <div class="container 75%">
+                <div class="row uniform 50%">
+                    <div class="6u 12u$(xsmall)">
+                        <input name="contract" placeholder="Condigo de Empresa" type="text" />
+                    </div>
+                    <div class="6u$ 12u$(xsmall)">
+                        <input name="nickname" placeholder="Nombre de usuario" type="text" />
+                    </div>
+                    <div class="12u$">
+                        <input name="password" placeholder="Contraseña" type="password" />
+                    </div>
+                </div>
+            </div>
+            <ul class="actions">
+                <li><input type="submit" class="special" value="   Ingresar   " /></li>
+            </ul>
+        </form>
     </div>
 </section>
 
