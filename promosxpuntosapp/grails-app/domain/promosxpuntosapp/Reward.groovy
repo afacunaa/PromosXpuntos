@@ -15,9 +15,6 @@ class Reward{
         picture(maxSize: 3145728 /* 16K */)
         point(blank:false, min: 1)
         creationDateReward(nullable: true )
-        dueDateReward(validator: {it > creationDateReward})
+        dueDateReward(nullable: true )
     }
-
-
-
 }

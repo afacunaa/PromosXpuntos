@@ -31,7 +31,7 @@ class CustomerController {
                 return
             }else{
                 redirect controller: "customersIndex", fragment: "ingreso"
-                flash.message = "Contraseña incorrecta"
+                flash.message = "ContraseÃ±a incorrecta"
                 return
             }
         }else{
@@ -53,7 +53,6 @@ class CustomerController {
             return
         }
         if (customerInstance.hasErrors()) {
-            customerInstance.errors.each {print it}
             redirect controller: "customersIndex", fragment: "subscribir"
             return
         }
