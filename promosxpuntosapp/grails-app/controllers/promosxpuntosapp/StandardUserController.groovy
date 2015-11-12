@@ -31,7 +31,7 @@ class StandardUserController {
                 return
             }else{
                 redirect controller: "index", fragment: "two"
-                flash.message = "Contraseña incorrecta"
+                flash.message = "Contrasena incorrecta"
                 return
             }
         }else{
@@ -54,7 +54,7 @@ class StandardUserController {
         }
 
         if (standardUserInstance.hasErrors()) {
-            redirect controller: "index", fragment: "subscribe"
+            respond standardUserInstance.errors, view: "/faces/index", fragment: "subscribe"
             return
         }
 

@@ -115,9 +115,6 @@
         <header class="major narrow">
             <h2>Suscribete</h2>
         </header>
-        <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-        </g:if>
         <g:uploadForm controller="standardUser" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
             <div class="container 75%">
                 <div class="row uniform 50%">
