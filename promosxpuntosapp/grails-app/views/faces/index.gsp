@@ -39,6 +39,7 @@
     <p>PromosXPuntos - Para que te diviertas ganando</p>
     <ul class="actions">
         <li><a href="#two" class="button big special">Ingresa</a></li>
+        <li><a href="#subscribe" class="button big special">Suscribete</a></li>
     </ul>
 </section>
 
