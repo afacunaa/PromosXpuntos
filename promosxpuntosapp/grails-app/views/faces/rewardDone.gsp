@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+
 </head>
 <body>
 
@@ -35,12 +36,14 @@
 
 <!-- Main -->
 <section id="main" class="wrapper">
-    <div class="container">
-
+    <div class="container" style="text-align: justify">
         <header class="major special">
-            <h2>Registro exitoso</h2>
-            <p> Bienvenido ${session.reward.rewardName} ${session.reward.description} </p>
+            <h2>¡Registro exitoso!</h2>
+            <p style="text-align: center"> ${session.reward.rewardName} </p>
             <p> ${session.reward.description} </p>
+            <p> Numero de puntos: ${session.reward.point} </p>
+            <p> Fecha de creacion:  ${session.reward.creationDateReward} </p>
+            <p> Fecha de duracion: ${session.reward.dueDateReward} </p>
 
         </header>
     </div>

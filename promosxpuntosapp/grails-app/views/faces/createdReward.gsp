@@ -25,18 +25,19 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 
-
+    <!--[if (gt IE 9)|!(IE)]> DATEPICKER NO FUNCIONA!!
+    <meta charset="utf-8">
+    <title>jQuery UI Datepicker - Default functionality</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script>
         $(function() {
-            $( "#creationDateReward" ).datepicker({minDate: 0});
-            $( "#dueDateReward" ).datepicker({minDate: 2});
+            $( "#creationDateReward" ).datepicker({min: 0});
+            $( "#dueDateReward" ).datepicker({min: 2, dateFormat: "dd-mm-yy"});
         });
-    </script>
-
+    </script><!-->
 
 </head>
 
@@ -94,13 +95,13 @@
                             <div class="row">
                                 <g:if test="${!hasErrors(field: 'creationDateReward','error')}">
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2" style="text-align: center">
-                                        <g:textField name="creationDateReward" id="creationDateReward" class="form-control"/>
+                                        <g:datePicker name="creationDateReward" id="creationDateReward" class="form-control"/>
                                     </div>
                                 </g:if>
                                 <g:else>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2 has-error" style="text-align: center">
-                                        <g:textField name="creationDateReward" id="creationDateReward" class="form-control"/>
-                                        <label class="control-label list-group-item-danger img-rounded">message.properties</label>
+                                        <g:datePicker name="creationDateReward" id="creationDateReward" class="form-control"/>
+                                        <label class="control-label list-group-item-danger img-rounded">asddasfasdf</label>
                                     </div>
                                 </g:else>
                             </div>
@@ -109,12 +110,12 @@
                             <div class="row">
                                 <g:if test="${!hasErrors(field: 'dueDateReward','error')}">
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2" style="text-align: center">
-                                        <g:textField name="dueDateReward" id="dueDateReward" class="form-control"/>
+                                        <g:datePicker name="dueDateReward" id="dueDateReward" class="form-control"/>
                                     </div>
                                 </g:if>
                                 <g:else>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2 has-error" style="text-align: center">
-                                        <g:textField name="dueDateReward" id="dueDateReward" class="form-control"/>
+                                        <g:datePicker name="dueDateReward" id="dueDateReward" class="form-control"/>
                                         <label class="control-label list-group-item-danger img-rounded">Fecha invalida</label>
                                     </div>
                                 </g:else>
@@ -159,8 +160,6 @@
                                 </div>
                             </g:else>
                             <br>
-
-
                             <g:submitButton name="summit" type="submit" value="Crear recompensa" class="btn btn-lg btn-success btn-block" tabindex="-1"></g:submitButton>
                         </g:uploadForm>
                     </div>
