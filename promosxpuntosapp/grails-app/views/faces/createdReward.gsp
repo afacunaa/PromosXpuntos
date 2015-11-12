@@ -4,6 +4,7 @@
   Date: 6/11/15
   Time: 10:27 AM
 --%>
+<%@ page import="promosxpuntosapp.Reward" contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
@@ -19,14 +20,31 @@
     <title>PROMOXPUNTOS register-reward</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css" />
+    <meta charset="utf-8" />
+    <!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 
+    <!--[if (gt IE 9)|!(IE)]> DATEPICKER NO FUNCIONA!!
+    <meta charset="utf-8">
+    <title>jQuery UI Datepicker - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script>
+        $(function() {
+            $( "#creationDateReward" ).datepicker({min: 0});
+            $( "#dueDateReward" ).datepicker({min: 2, dateFormat: "dd-mm-yy"});
+        });
+    </script><!-->
 
 </head>
 
 <body>
 <div class="container ">
     <div id="create-reward" role="main">
-        <div class="row vertical-offset-100">
+        <div class="row vertical-offset-100" style="width: 500px; margin: 0 auto; border-style: solid; border-width: 1px;">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
 
@@ -43,16 +61,16 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <g:uploadForm controller="reward" action="register" accept-charset="UTF-8" enctype="multipart/form-data">
+                            <g:uploadForm controller="reward" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
 
                             <div class="row">
                                 <g:if test="${!hasErrors(field: 'rewardName','error')}">
-                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2">
+                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-1" style="text-align: center">
                                         <g:textField id="rewardName" class="form-control" name="rewardName"  placeholder="Nombre"></g:textField>
                                     </div>
                                 </g:if>
                                 <g:else>
-                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2 has-error">
+                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2 has-error" >
                                         <g:textField id="rewardName" class="form-control "  name="rewardName"  placeholder="Nombre"></g:textField>
                                         <label class="control-label list-group-item-danger img-rounded">Nombre entre 3-20 caracteres</label>
                                     </div>
@@ -77,13 +95,13 @@
                             <div class="row">
                                 <g:if test="${!hasErrors(field: 'creationDateReward','error')}">
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2" style="text-align: center">
-                                        <g:datePicker name="creationDateReward" id="creationDateReward" class="form-control" value="${new Date()}"  noSelection="['':'-Choose-']"/>
+                                        <g:datePicker name="creationDateReward" id="creationDateReward" class="form-control"/>
                                     </div>
                                 </g:if>
                                 <g:else>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2 has-error" style="text-align: center">
-                                        <g:datePicker name="creationDateReward" id="creationDateReward" class="form-control" value="${new Date()}" noSelection="['':'-Choose-']"/>
-                                        <label class="control-label list-group-item-danger img-rounded">message.properties</label>
+                                        <g:datePicker name="creationDateReward" id="creationDateReward" class="form-control"/>
+                                        <label class="control-label list-group-item-danger img-rounded">asddasfasdf</label>
                                     </div>
                                 </g:else>
                             </div>
@@ -92,12 +110,12 @@
                             <div class="row">
                                 <g:if test="${!hasErrors(field: 'dueDateReward','error')}">
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2" style="text-align: center">
-                                        <g:datePicker name="dueDateReward" id="dueDateReward" class="form-control" value="${new Date()}" noSelection="['':'-Choose-']"/>
+                                        <g:datePicker name="dueDateReward" id="dueDateReward" class="form-control"/>
                                     </div>
                                 </g:if>
                                 <g:else>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2 has-error" style="text-align: center">
-                                        <g:datePicker name="dueDateReward" id="dueDateReward" class="form-control" value="${new Date()}"  noSelection="['':'-Choose-']"/>
+                                        <g:datePicker name="dueDateReward" id="dueDateReward" class="form-control"/>
                                         <label class="control-label list-group-item-danger img-rounded">Fecha invalida</label>
                                     </div>
                                 </g:else>
@@ -142,13 +160,17 @@
                                 </div>
                             </g:else>
                             <br>
-
-
                             <g:submitButton name="summit" type="submit" value="Crear recompensa" class="btn btn-lg btn-success btn-block" tabindex="-1"></g:submitButton>
                         </g:uploadForm>
                     </div>
                 </div>
             </div>
+            <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+            <script src="assets/js/main.js"></script>
         </div>
     </div>
 </div>

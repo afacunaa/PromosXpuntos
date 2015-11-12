@@ -1,3 +1,4 @@
+<%@ page import="promosxpuntosapp.Reward" contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE HTML>
 <!--
 	Retrospect by TEMPLATED
@@ -13,13 +14,14 @@
     <link rel="stylesheet" href="css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+
 </head>
 <body>
 
 <!-- Header -->
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
-    <a>${session.user.nickname}</a>
+    <a>${session.reward.rewardName}</a>
     <a href="#nav">Menu</a>
 </header>
 
@@ -34,19 +36,15 @@
 
 <!-- Main -->
 <section id="main" class="wrapper">
-    <div class="container">
-
+    <div class="container" style="text-align: justify">
         <header class="major special">
-            <h2>Bienvenido</h2>
-            <p>  ${session.user.name} ${session.user.lastname} </p>
-            <p> Correo electrónico: ${session.user.email} </p>
-            <p> Fecha de nacimiento: ${session.user.birthday} </p>
+            <h2>¡Registro exitoso!</h2>
+            <p style="text-align: center"> ${session.reward.rewardName} </p>
+            <p> ${session.reward.description} </p>
+            <p> Numero de puntos: ${session.reward.point} </p>
+            <p> Fecha de creacion:  ${session.reward.creationDateReward} </p>
+            <p> Fecha de duracion: ${session.reward.dueDateReward} </p>
 
-    <g:uploadForm controller="standardUser" action="logOut" method="post">
-        <ul class="actions">
-            <g:submitButton name="summit" type="submit" value="Salir" class="special" tabindex="-1"></g:submitButton>
-        </ul>
-    </g:uploadForm>
         </header>
     </div>
 </section>

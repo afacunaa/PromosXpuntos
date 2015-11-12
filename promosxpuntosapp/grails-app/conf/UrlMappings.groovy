@@ -13,8 +13,9 @@ class UrlMappings {
         "/profile"(view:"/faces/profile")
         "/customers-module"(view: "/faces/customers-module")
         "/users-module"(view: "/faces/users-module")
-        "/createdReward"(view: "/reward/createdReward")
-
+        "/createdReward"(view: "/faces/createdReward")
+        "/rewardDone"(view: "/faces/rewardDone")
+        "/profileCustomer"(view:"/faces/profileCustomer")
 
         "/"(view:"/faces/index")
         "500"(view:'/error')

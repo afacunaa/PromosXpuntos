@@ -23,13 +23,16 @@
 </header>
 
 <!-- Nav -->
+<!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="">Principal</a></li>
-        <li><a href="section.html">Seccion 1</a></li>
-        <li><a href="section.html">Seccion 2</a></li>
+        <li><a href="customersIndex">Principal</a></li>
+        <li><a href="customers-module">Empresas</a></li>
+        <li><a href="#four">Registrar empresa</a></li>
+        <li><a href="">Para Usuarios</a></li>
     </ul>
 </nav>
+
 
 <!-- Main -->
 <section id="main" class="wrapper">

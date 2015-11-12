@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-    <title>Promos x Puntos - Modulo de Usuario</title>
+    <title>Promos x Puntos - Modulo de Cliente</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
@@ -38,15 +38,14 @@
 
         <header class="major special">
             <h2>Bienvenido</h2>
-            <p>  ${session.user.name} ${session.user.lastname} </p>
+            <p> ${session.user.name}</p>
             <p> Correo electrónico: ${session.user.email} </p>
-            <p> Fecha de nacimiento: ${session.user.birthday} </p>
 
-    <g:uploadForm controller="standardUser" action="logOut" method="post">
-        <ul class="actions">
-            <g:submitButton name="summit" type="submit" value="Salir" class="special" tabindex="-1"></g:submitButton>
-        </ul>
-    </g:uploadForm>
+            <g:uploadForm controller="customer" action="logOut" method="post">
+                <ul class="actions">
+                    <g:submitButton name="summit" type="submit" value="Salir" class="special" tabindex="-1"></g:submitButton>
+                </ul>
+            </g:uploadForm>
         </header>
     </div>
 </section>

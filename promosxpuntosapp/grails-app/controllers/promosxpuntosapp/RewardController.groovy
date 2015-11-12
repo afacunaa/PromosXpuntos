@@ -1,18 +1,17 @@
 package promosxpuntosapp
 
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+
 
 @Transactional(readOnly = true)
 class RewardController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-    def profile={ render(view: 'customersIndex')}
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Reward.list(params), model: [rewardInstanceCount: Reward.count()]
+        respond Reward.list(params), model:[rewardInstanceCount: Reward.count()]
     }
 
     def show(Reward rewardInstance) {
@@ -27,17 +26,68 @@ class RewardController {
     def save(Reward rewardInstance) {
         if (rewardInstance == null) {
             notFound()
-            render(view: "index")
             return
         }
+"""
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-mm-yyyy")
+        Date creationDate = null
+        Date dueDate = null
+        try {
+            creationDate =  simpleDateFormat.parse(params.creationDateReward)
+            dueDate = simpleDateFormat.parse(params.dueDateReward)
+        } catch (ParseException e) {
+            e.printStackTra                                 ce();
+        }
 
+
+        def creation = params.creationDateReward
+        def due = params.dueDateReward
+
+        print creation
+        print due
+
+        def creationArr = creation.split('-')
+        def dueArr = due.split('-')
+
+        //creationArr[2] = Integer.parseInt(creationArr[2]) - 1900
+        //dueArr[2] = Integer.parseInt(dueArr[2]) - 1900
+
+        print creationArr[2]
+        print creationArr[1]
+        print creationArr[0]
+
+
+        //rewardInstance.creationDateReward = new Date( year: Integer.parseInt(creationArr[2]), month:Integer.parseInt(creationArr[1]), date: Integer.parseInt(creationArr[0]) )
+        //rewardInstance.dueDateReward = new Date(year: Integer.parseInt(dueArr[2]), month:  Integer.parseInt(dueArr[1]), date:  Integer.parseInt(dueArr[0]))
+
+        //rewardInstance.creationDateReward = new GregorianCalendar(Integer.parseInt(creationArr[2]), Integer.parseInt(creationArr[1]), Integer.parseInt(creationArr[0]))
+
+
+        rewardInstance.dueDateReward = new GregorianCalendar(Integer.parseInt(creationArr[2]),Integer.parseInt(creationArr[1]), Integer.parseInt(creationArr[0]),0,0)
+
+        rewardInstance.creationDateReward = new GregorianCalendar().setTime(new Date())
+        // .set(Integer.parseInt(creationArr[2]),Integer.parseInt(creationArr[1]), Integer.parseInt(creationArr[0]))
+
+        print rewardInstance.dueDateReward
+
+        print new Date().year
+
+"""
         if (rewardInstance.hasErrors()) {
-            respond rewardInstance.errors, view: 'createdReward'
+            respond rewardInstance.errors, view: "/faces/createdReward"
             return
         }
 
-        rewardInstance.save flush: true
-        redirect action: profile
+        rewardInstance.save flush:true
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.created.message', args: [message(code: 'reward.label', default: 'Reward'), rewardInstance.id])
+                session.reward=rewardInstance
+                redirect controller: "rewardDone"
+            }
+            '*' { respond rewardInstance, [status: CREATED] }
+        }
     }
 
     def edit(Reward rewardInstance) {
@@ -52,18 +102,18 @@ class RewardController {
         }
 
         if (rewardInstance.hasErrors()) {
-            respond rewardInstance.errors, view: 'edit'
+            respond rewardInstance.errors, view:'edit'
             return
         }
 
-        rewardInstance.save flush: true
+        rewardInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Reward.label', default: 'Reward'), rewardInstance.id])
                 redirect rewardInstance
             }
-            '*' { respond rewardInstance, [status: OK] }
+            '*'{ respond rewardInstance, [status: OK] }
         }
     }
 
@@ -75,14 +125,14 @@ class RewardController {
             return
         }
 
-        rewardInstance.delete flush: true
+        rewardInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Reward.label', default: 'Reward'), rewardInstance.id])
-                redirect action: "index", method: "GET"
+                redirect action:"index", method:"GET"
             }
-            '*' { render status: NO_CONTENT }
+            '*'{ render status: NO_CONTENT }
         }
     }
 
@@ -92,61 +142,7 @@ class RewardController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'reward.label', default: 'Reward'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*' { render status: NOT_FOUND }
+            '*'{ render status: NOT_FOUND }
         }
     }
-
-    private static final okcontents = ['image/png', 'image/jpeg', 'image/gif']
-
-    def register(){
-
-        def reward = Reward.findByRewardName(params.rewardName)
-
-        if(reward){
-            //El usuario ya existe
-            flash.message = "rewardExist'"
-            render(view: 'customers')
-        }
-        else {
-            //Nuevo Usario*/
-            def pictureFile = request.getFile('picture')
-            if (!okcontents.contains(pictureFile.getContentType()) && pictureFile.bytes != []) {
-                flash.message = "Picture"
-                render(view:'logUp', model:[reward:reward,formats:okcontents])
-                return
-            }
-            def parameters = [rewardName     : params.rewardName
-                              ,description     : params.description
-                              , creationDateReward    : params.creationDateReward
-                              , dueDateReward  : params.dueDateReward
-                              , point   : params.point
-                              , picture : pictureFile.bytes]
-
-
-            def newReward = new Reward(parameters)
-
-
-            if(newReward.hasErrors()){
-                respond newReward.errors, view: 'createdReward'
-                return
-            }
-
-            newReward.save flush: true
-            request.withFormat {
-                form multipartForm {
-                    flash.message = message(code: 'default.updated.message', args: [message(code: 'Reward.label', default: 'Reward'), newReward.id])
-                    render(view: 'customersIndex')
-                }
-                '*' { respond newReward, [status: OK] }
-            }
-            return
-
-
-        }
-    }
-
-    def logUp(){
-
-    }
-
 }

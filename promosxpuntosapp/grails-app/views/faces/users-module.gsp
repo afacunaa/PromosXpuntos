@@ -18,18 +18,20 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
-    <a href="#nav">Menu</a>
+    <h1><a href="">Promos x Puntos</a></h1>
+    <a href="#nav1">Menu</a>
 </header>
 
 <!-- Nav -->
-<nav id="nav">
+<nav id="nav1">
     <ul class="links">
-        <li><a href="index.html">Principal</a></li>
-        <li><a href="section.html">Seccion 1</a></li>
-        <li><a href="section.html">Seccion 2</a></li>
+        <li><a href="">Principal</a></li>
+        <li><a href="customers-module">Empresas</a></li>
+        <li><a href="#four">Registrar empresa</a></li>
+        <li><a href="">Para Usuarios</a></li>
     </ul>
 </nav>
+
 
 <!-- Main -->
 <section id="main" class="wrapper">

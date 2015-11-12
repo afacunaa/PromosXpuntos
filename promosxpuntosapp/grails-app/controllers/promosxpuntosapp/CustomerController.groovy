@@ -22,24 +22,46 @@ class CustomerController {
         respond new Customer(params)
     }
 
+    def logIn(){
+        def cliente = Customer.findByNickname(params.nickname)
+        if (cliente){
+            if (cliente.password==params.password){
+                session.user=cliente
+                redirect controller: "profileCustomer"
+                return
+            }else{
+                redirect controller: "customersIndex", fragment: "ingreso"
+                flash.message = "Contraseña incorrecta"
+                return
+            }
+        }else{
+            redirect controller: "customersIndex", fragment: "ingreso"
+            flash.message = "Nombre de Usuario incorrecto"
+            return
+        }
+    }
+
+    def logOut(){
+        session.user=null
+        redirect controller: "customersIndex"
+    }
+
     @Transactional
     def save(Customer customerInstance) {
         if (customerInstance == null) {
             notFound()
             return
         }
-
         if (customerInstance.hasErrors()) {
-            respond customerInstance.errors, view: 'create'
+            redirect controller: "customersIndex", fragment: "subscribir"
             return
         }
-
         customerInstance.save flush: true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])
-                redirect customerInstance
+                session.user=customerInstance
+                redirect controller: "profileCustomer"
             }
             '*' { respond customerInstance, [status: CREATED] }
         }
