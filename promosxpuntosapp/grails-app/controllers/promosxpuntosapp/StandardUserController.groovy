@@ -74,6 +74,21 @@ class StandardUserController {
         respond standardUserInstance
     }
 
+    def actualizar(){
+        def standardUserInstance = StandardUser.findByNickname(session.user.nickname)
+        standardUserInstance.name=params.name
+        standardUserInstance.lastname=params.lastname
+        standardUserInstance.email=params.email
+        standardUserInstance.name=params.name
+        standardUserInstance.password=params.password
+        standardUserInstance.gender=params.gender
+        standardUserInstance.telephone=params.telephone
+        standardUserInstance.birthday=params.birthday
+        standardUserInstance.save flush: true, update: true
+        session.user=standardUserInstance
+        redirect controller: "profile"
+    }
+
     @Transactional
     def update(StandardUser standardUserInstance) {
         if (standardUserInstance == null) {
@@ -82,7 +97,7 @@ class StandardUserController {
         }
 
         if (standardUserInstance.hasErrors()) {
-            respond standardUserInstance.errors, view: 'edit'
+            respond standardUserInstance.errors, view: "/faces/editStandardUser"
             return
         }
 
@@ -91,7 +106,7 @@ class StandardUserController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'StandardUser.label', default: 'StandardUser'), standardUserInstance.id])
-                redirect standardUserInstance
+                redirect controller: "profile"
             }
             '*' { respond standardUserInstance, [status: OK] }
         }

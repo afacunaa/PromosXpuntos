@@ -40,11 +40,14 @@
             <h2>Bienvenido</h2>
             <p>  ${session.user.name} ${session.user.lastname} </p>
             <p> Correo electrónico: ${session.user.email} </p>
-            <p> Fecha de nacimiento: ${session.user.birthday} </p>
+            <p> Fecha de nacimiento: ${session.user.birthday.format('d MMMM, yyyy')} </p>
+            <p> Genero: ${session.user.gender} </p>
+            <p> Teléfono: ${session.user.telephone} </p>
 
     <g:uploadForm controller="standardUser" action="logOut" method="post">
         <ul class="actions">
             <g:submitButton name="summit" type="submit" value="Salir" class="special" tabindex="-1"></g:submitButton>
+            <a href="editStandardUser" class="button special">Editar datos</a>
         </ul>
     </g:uploadForm>
         </header>

@@ -13,7 +13,7 @@ class StandardUser extends User{
 
     static constraints = {
         lastname(blank: false)
-        gender(inList: ['male', 'female'])
+        gender(inList: ['Hombre', 'Mujer'])
         telephone(size: 7..10)
     }
 }
