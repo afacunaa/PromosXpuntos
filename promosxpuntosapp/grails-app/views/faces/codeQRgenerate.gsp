@@ -11,6 +11,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <asset:stylesheet src="template.css"/>
+
+    <style>
+    .nonStyletext { font-weight:normal; text-transform: none }
+    </style>
 </head>
 <body>
 
@@ -32,22 +36,19 @@
 <!-- Main -->
 <section id="main" class="wrapper">
     <div class="container">
-        <g:set var="amountToPay" value="${new promosxpuntosapp.RewardController().randomString()}" />
+        <g:set var="qrCode" value="${new promosxpuntosapp.ShopRecordController().randomString()}" />
         <header class="major special">
 
-            <h1>${amountToPay}</h1>
-            <p>${amountToPay}</p>
-            <div>
-                <a>${amountToPay}</a>
-            </div>
-            <a href="../customers-module">"234234${amountToPay}"</a>
-            <h5>${amountToPay}</h5>
-            <h6>${amountToPay}</h6>
 
+         <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x3000&chl=${qrCode}&chld=H|0" alt="QRCode">
 
-            <g:uploadForm controller="standardUser" action="logOut" method="post">
+        <h2 class="nonStyletext">
+            ${qrCode}
+        </h2>
+
+            <g:uploadForm controller="customer" action="logOut" method="post">
                 <ul class="actions">
-                    <g:submitButton name="summit" type="submit" value="${amountToPay}" class="special" tabindex="-1"></g:submitButton>
+                    <g:submitButton name="summit" type="submit" value="Regresar al perfil" class="special" tabindex="-1"></g:submitButton>
                 </ul>
             </g:uploadForm>
         </header>
@@ -83,6 +84,10 @@
 <asset:javascript src="skel.min.js"/>
 <asset:javascript src="util.js"/>
 <asset:javascript src="main.js"/>
+<!--
+REFRESH PAGE AFTER 15 seconds
+<meta http-equiv=refresh content=15>
+-->
 
 </body>
 </html>

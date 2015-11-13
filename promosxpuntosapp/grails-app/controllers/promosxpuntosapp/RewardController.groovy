@@ -1,8 +1,11 @@
 package promosxpuntosapp
 
+import org.apache.commons.lang.RandomStringUtils
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
-
+import java.util.Random
+import java.lang.Object
 
 @Transactional(readOnly = true)
 class RewardController {
@@ -146,8 +149,4 @@ class RewardController {
         }
     }
 
-    def randomString(){
-        def randomString = "Algo pibir!"
-        render(randomString)
-    }
 }

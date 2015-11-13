@@ -42,7 +42,7 @@ class CustomerController {
     }
 
     def logOut(){
-        session.user=null
+        session.customer=null
         redirect controller: "customersIndex"
     }
 
@@ -122,6 +122,4 @@ class CustomerController {
             '*' { render status: NOT_FOUND }
         }
     }
-
-
 }
