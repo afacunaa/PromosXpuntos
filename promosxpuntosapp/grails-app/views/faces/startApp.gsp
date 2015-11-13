@@ -1,4 +1,4 @@
-<%@ page import="promosxpuntosapp.Reward" contentType="text/html;charset=UTF-8" %>
+<%@ page import="promosxpuntosapp.RewardController" %>
 <!DOCTYPE HTML>
 <!--
 	Retrospect by TEMPLATED
@@ -10,18 +10,13 @@
     <title>Promos x Puntos - Modulo de Usuario</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
-
+    <asset:stylesheet src="template.css"/>
 </head>
 <body>
 
 <!-- Header -->
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
-    <a>${session.reward.rewardName}</a>
     <a href="#nav">Menu</a>
 </header>
 
@@ -36,16 +31,25 @@
 
 <!-- Main -->
 <section id="main" class="wrapper">
-    <div class="container" style="text-align: justify">
+    <div class="container">
+        <g:set var="amountToPay" value="${new promosxpuntosapp.RewardController().randomString()}" />
         <header class="major special">
-            <h2>¡Registro exitoso!</h2>
-            <p style="text-align: center"> ${session.reward.rewardName} </p>
-            <p> ${session.reward.description} </p>
-            <p> Numero de puntos: ${session.reward.point} </p>
-            <p> Disponibilidad: ${session.reward.available} </p>
-            <p> Fecha de creacion:  ${session.reward.creationDateReward} </p>
-            <p> Fecha de duracion: ${session.reward.dueDateReward} </p>
 
+            <h1>${amountToPay}</h1>
+            <p>${amountToPay}</p>
+            <div>
+                <a>${amountToPay}</a>
+            </div>
+            <a href="../customers-module">"234234${amountToPay}"</a>
+            <h5>${amountToPay}</h5>
+            <h6>${amountToPay}</h6>
+
+
+            <g:uploadForm controller="standardUser" action="logOut" method="post">
+                <ul class="actions">
+                    <g:submitButton name="summit" type="submit" value="${amountToPay}" class="special" tabindex="-1"></g:submitButton>
+                </ul>
+            </g:uploadForm>
         </header>
     </div>
 </section>
@@ -75,12 +79,10 @@
     </div>
 </footer>
 
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
+<asset:javascript src="jquery.min.js"/>
+<asset:javascript src="skel.min.js"/>
+<asset:javascript src="util.js"/>
+<asset:javascript src="main.js"/>
 
 </body>
 </html>

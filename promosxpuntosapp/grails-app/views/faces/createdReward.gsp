@@ -135,6 +135,20 @@
                                 </g:else>
                             </div>
                             <br>
+                                <div class="row">
+                                    <g:if test="${!hasErrors(field: 'available','error')}">
+                                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2">
+                                            <g:field type="number"  id="available" class="form-control" name="available"  placeholder="Disponibilidad! de la PROMO"></g:field>
+                                        </div>
+                                    </g:if>
+                                    <g:else>
+                                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2 has-error">
+                                            <g:field type="number" id="available" class="form-control "  name="available"  placeholder="Puntos de la PROMO"></g:field>
+                                            <label class="control-label list-group-item-danger img-rounded">Disponibilidad mayor que 1</label>
+                                        </div>
+                                    </g:else>
+                                </div>
+                                <br>
                             <g:if test="${flash.message == "picture"}">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2  list-group-item img-rounded">
@@ -160,6 +174,10 @@
                                 </div>
                             </g:else>
                             <br>
+                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2  list-group-item img-rounded" style="">
+                                        <g:include controller="reward" action="randomString"></g:include>
+                                    </div>
+
                             <g:submitButton name="summit" type="submit" value="Crear recompensa" class="btn btn-lg btn-success btn-block" tabindex="-1"></g:submitButton>
                         </g:uploadForm>
                     </div>

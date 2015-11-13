@@ -145,4 +145,9 @@ class RewardController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    def randomString(){
+        def randomString = "Algo pibir!"
+        render(randomString)
+    }
 }

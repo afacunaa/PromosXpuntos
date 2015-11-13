@@ -9,29 +9,24 @@
     <title>Promos x Puntos - Modulo de Usuario</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+    <asset:stylesheet src="template.css"/>
 </head>
 <body>
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="">Promos x Puntos</a></h1>
-    <a href="#nav1">Menu</a>
+    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <a href="#nav">Menu</a>
 </header>
 
 <!-- Nav -->
-<nav id="nav1">
+<nav id="nav">
     <ul class="links">
-        <li><a href="">Principal</a></li>
-        <li><a href="customers-module">Empresas</a></li>
-        <li><a href="#four">Registrar empresa</a></li>
-        <li><a href="">Para Usuarios</a></li>
+        <li><a href="../promosxpuntosapp">Principal</a></li>
+        <li><a href="index#subscribe">Registrar usuario</a></li>
+        <li><a href="customersIndex">Para empresas</a></li>
     </ul>
 </nav>
-
 
 <!-- Main -->
 <section id="main" class="wrapper">
@@ -76,11 +71,11 @@
 </footer>
 
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
+<!-- Scripts -->
+<asset:javascript src="jquery.min.js"/>
+<asset:javascript src="skel.min.js"/>
+<asset:javascript src="util.js"/>
+<asset:javascript src="main.js"/>
 
 </body>
 </html>

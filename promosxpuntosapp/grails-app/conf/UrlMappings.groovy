@@ -16,6 +16,7 @@ class UrlMappings {
         "/createdReward"(view: "/faces/createdReward")
         "/rewardDone"(view: "/faces/rewardDone")
         "/profileCustomer"(view:"/faces/profileCustomer")
+        "/profileCustomer/startApp"(view:"/faces/startApp")
 
         "/"(view:"/faces/index")
         "500"(view:'/error')
