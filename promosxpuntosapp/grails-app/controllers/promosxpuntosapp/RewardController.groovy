@@ -149,4 +149,18 @@ class RewardController {
         }
     }
 
+    def displayPicture = {
+        def rewardPicture = Reward.findByRewardName((String) params.rewardName)
+        if (!rewardPicture || !rewardPicture.picture) {
+            response.sendError(404)
+            return
+        }
+        response.contentType = rewardPicture.picture
+        response.contentLength = rewardPicture.picture.size()
+        OutputStream out = response.outputStream
+        out.write(rewardPicture.picture)
+        out.write(rewardPicture.picture)
+        out.close()
+    }
+
 }

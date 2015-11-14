@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+!DOCTYPE HTML>
 <!--
 	Retrospect by TEMPLATED
 	templated.co @templatedco

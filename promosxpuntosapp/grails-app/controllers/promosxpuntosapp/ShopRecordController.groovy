@@ -2,6 +2,9 @@ package promosxpuntosapp
 
 import org.apache.commons.lang.RandomStringUtils
 
+import java.text.Format
+import java.text.SimpleDateFormat
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -103,13 +106,19 @@ class ShopRecordController {
     }
 
     def randomString(){
-        def randomString = ''
-        RandomStringUtils asd =  new RandomStringUtils()
-        String aa = asd.random( 10,  'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
-        print aa
+        RandomStringUtils randomCreator =  new RandomStringUtils()
+        String randomString = randomCreator.random( 5,  'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+
+        randomString += "-"
+
+
+        Format formatter = new SimpleDateFormat("dd-mm-yyyy-HH");
+        String s = formatter.format(new Date());
+
+        randomString += s
         //10.times {
 //            randomString += "([a-zA-Z0-9])".charAt(Random.nextInt(Integer.parseInt(/([a-zA-Z0-9])/.size()+1)))
         //}
-        return aa
+        return randomString
     }
 }
