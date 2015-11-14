@@ -38,6 +38,14 @@
 <section id="main" class="wrapper">
     <div class="container" style="text-align: justify">
         <header class="major special">
+            <figure>
+                <g:if test="${session.reward.picture != null}">
+                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'reward', action:'displayPicture', params: [rewardName:session.reward.rewardName])}" />
+                </g:if>
+                <g:else>
+                    <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
+                </g:else>
+            </figure>
             <h2>¡Registro exitoso!</h2>
             <p style="text-align: center"> ${session.reward.rewardName} </p>
             <p> ${session.reward.description} </p>
