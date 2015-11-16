@@ -115,9 +115,6 @@
         <header class="major narrow">
             <h2>Suscribete</h2>
         </header>
-        <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-        </g:if>
         <g:uploadForm controller="standardUser" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
             <div class="container 75%">
                 <div class="row uniform 50%">
@@ -154,8 +151,10 @@
                         </div>
                     </g:if>
                     <g:else>
+                        <div class="12u$">
                         <g:textField id="nickname" name="nickname" required="" placeholder="Nombre de usuario"></g:textField>
                         <label class="control-label list-group-item-danger img-rounded">Nombre de usuario malo</label>
+                        </div>
                     </g:else>
                     <g:if test="${!hasErrors(field: 'password','error')}">
                         <div class="6u 12u$(xsmall)">
@@ -172,7 +171,7 @@
                     <g:if test="${!hasErrors(field: 'gender','error')}">
                         <div class="12u$">
                             <div class="select-wrapper">
-                                <g:select name="gender" from="['male', 'female']"  noSelection="['':'-Género-']"/>
+                                <g:select name="gender" from="['Hombre', 'Mujer']"  noSelection="['':'-Género-']"/>
                             </div>
                         </div>
                     </g:if>

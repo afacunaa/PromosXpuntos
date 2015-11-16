@@ -1,8 +1,11 @@
 package promosxpuntosapp
 
+import org.apache.commons.lang.RandomStringUtils
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
-
+import java.util.Random
+import java.lang.Object
 
 @Transactional(readOnly = true)
 class RewardController {
@@ -145,4 +148,19 @@ class RewardController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    def displayPicture = {
+        def rewardPicture = Reward.findByRewardName((String) params.rewardName)
+        if (!rewardPicture || !rewardPicture.picture) {
+            response.sendError(404)
+            return
+        }
+        response.contentType = rewardPicture.picture
+        response.contentLength = rewardPicture.picture.size()
+        OutputStream out = response.outputStream
+        out.write(rewardPicture.picture)
+        out.write(rewardPicture.picture)
+        out.close()
+    }
+
 }

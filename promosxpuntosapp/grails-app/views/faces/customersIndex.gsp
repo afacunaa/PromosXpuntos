@@ -9,17 +9,14 @@
     <title>Promos x Puntos - Empresas</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+    <asset:stylesheet src="template.css"/>
 </head>
 <body class="landing">
 
 <!-- Header -->
 <header id="header" class="alt">
     <h1><a href="">Promos x Puntos</a></h1>
-    <a href="customersIndex#nav">Menu</a>
+    <a href="#nav">Menu</a>
 </header>
 
 <!-- Nav -->
@@ -27,8 +24,8 @@
     <ul class="links">
         <li><a href="customersIndex">Principal</a></li>
         <li><a href="customers-module/">Empresas</a></li>
-        <li><a href="customersIndex#four">Registrar usuario</a></li>
-        <li><a href="">Para empresas</a></li>
+        <li><a href="#subscribe">Registrar empresa</a></li>
+        <li><a href="../promosxpuntosapp">Para usuarios</a></li>
     </ul>
 </nav>
 
@@ -135,7 +132,7 @@
 </section>
 
 <!-- Four -->
-<section id="subscribir" class="wrapper style4 special">
+<section id="subscribe" class="wrapper style4 special">
     <div class="inner">
         <header class="major narrow">
             <h2>Registrate</h2>
@@ -288,11 +285,10 @@
 </footer>
 
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
+<asset:javascript src="jquery.min.js"/>
+<asset:javascript src="skel.min.js"/>
+<asset:javascript src="util.js"/>
+<asset:javascript src="main.js"/>
 
 </body>
 </html>
