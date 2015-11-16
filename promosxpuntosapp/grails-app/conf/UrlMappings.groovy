@@ -11,7 +11,7 @@ class UrlMappings {
         "/customersIndex"(view:"/faces/customersIndex")
         "/index"(view:"/faces/index")
         "/profile"(view:"/faces/profile")
-        "/editStandardUser"(view:"/faces/editStandardUser")
+        "/profile/editStandardUser"(view:"/faces/editStandardUser")
         "/customers-module"(view: "/faces/customers-module")
         "/users-module"(view: "/faces/users-module")
         "/createdReward"(view: "/faces/createdReward")
