@@ -27,6 +27,7 @@
         <li><a href="users-module">usuarios</a></li>
         <li><a href="#subscribe">Registrar usuario</a></li>
         <li><a href="customersIndex">Para empresas</a></li>
+        <li><a href="establishment/create">Crear Establecimiento</a></li>
         <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
             <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
         </g:each>

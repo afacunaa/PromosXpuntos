@@ -19,6 +19,7 @@ class EstablishmentController {
     }
 
     def create() {
+        print params
         respond new Establishment(params)
     }
 

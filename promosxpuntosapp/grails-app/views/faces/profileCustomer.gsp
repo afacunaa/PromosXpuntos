@@ -43,6 +43,11 @@
                     <g:submitButton name="summit" type="submit" value="Salir" class="special" tabindex="-1"></g:submitButton>
                 </ul>
             </g:uploadForm>
+            <g:uploadForm controller="Establishment" action="create" method="post">
+                <ul class="actions">
+                    <g:submitButton name="summit" type="submit" value="Nuevo establecimiento" class="special" tabindex="-1"></g:submitButton>
+                </ul>
+            </g:uploadForm>
         </header>
     </div>
 </section>
