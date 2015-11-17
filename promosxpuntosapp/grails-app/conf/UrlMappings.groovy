@@ -12,6 +12,7 @@ class UrlMappings {
         "/index"(view:"/faces/index")
         "/profile"(view:"/faces/profile")
         "/profile/editStandardUser"(view:"/faces/editStandardUser")
+        "/profile/QRScanner"(view:"/faces/QRScanner")
         "/customers-module"(view: "/faces/customers-module")
         "/users-module"(view: "/faces/users-module")
         "/createdReward"(view: "/faces/createdReward")

@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-    <title>Promos x Puntos - Perfil de ususario</title>
+    <title>Promos x Puntos - Perfil de usuario</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <asset:stylesheet src="template.css"/>
@@ -53,6 +53,7 @@
         <ul class="actions">
             <g:submitButton name="summit" type="submit" value="Salir" class="special" tabindex="-1"></g:submitButton>
             <a href="/promosxpuntosapp/profile/editStandardUser" class="button special">Editar datos</a>
+            <a href="/promosxpuntosapp/profile/QRScanner" class="button special">Marcar una visita</a>
         </ul>
     </g:uploadForm>
         </header>
