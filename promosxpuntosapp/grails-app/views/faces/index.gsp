@@ -192,6 +192,15 @@
                             <g:datePicker years="${1915..2015}" name="birthday" id="birthday" precision="day" class="form-control" value="${new Date()}"  noSelection="['':'Selecciona']"/>
                         </div>
                     </g:if>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2  list-group-item img-rounded">
+                            <legend>Imagen de Perfil</legend>
+                            <input type="file" name="picture"/>
+                            <div style="font-size:0.8em; margin: 1.0em;">
+                                <p>Tu imagen es opcional, pero es más fácil identificarte con ella!.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <g:submitButton name="summit" type="submit" value="Registrarse" class="special" tabindex="-1"></g:submitButton>

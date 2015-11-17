@@ -89,6 +89,20 @@ class StandardUserController {
         redirect controller: "profile"
     }
 
+    def displayPicture = {
+        def userPicture = StandardUser.findByNickname((String) params.nickname)
+        if (!userPicture || !userPicture.picture) {
+            response.sendError(404)
+            return
+        }
+        response.contentType = userPicture.picture
+        response.contentLength = userPicture.picture.size()
+        OutputStream out = response.outputStream
+        out.write(userPicture.picture)
+        out.write(userPicture.picture)
+        out.close()
+    }
+
     @Transactional
     def update(StandardUser standardUserInstance) {
         if (standardUserInstance == null) {
