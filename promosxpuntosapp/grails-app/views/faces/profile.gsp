@@ -6,13 +6,10 @@
 -->
 <html>
 <head>
-    <title>Promos x Puntos - Modulo de Usuario</title>
+    <title>Promos x Puntos - Perfil de usuario</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+    <asset:stylesheet src="template.css"/>
 </head>
 <body>
 
@@ -38,6 +35,14 @@
 
         <header class="major special">
             <h2>Bienvenido</h2>
+            <figure>
+                <g:if test="${session.user.picture != null}">
+                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'StandardUser', action:'displayPicture', params: [nickname:session.user.nickname])}" />
+                </g:if>
+                <g:else>
+                    <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
+                </g:else>
+            </figure>
             <p>  ${session.user.name} ${session.user.lastname} </p>
             <p> Correo electrónico: ${session.user.email} </p>
             <p> Fecha de nacimiento: ${session.user.birthday.format('d MMMM, yyyy')} </p>
@@ -47,7 +52,8 @@
     <g:uploadForm controller="standardUser" action="logOut" method="post">
         <ul class="actions">
             <g:submitButton name="summit" type="submit" value="Salir" class="special" tabindex="-1"></g:submitButton>
-            <a href="editStandardUser" class="button special">Editar datos</a>
+            <a href="/promosxpuntosapp/profile/editStandardUser" class="button special">Editar datos</a>
+            <a href="/promosxpuntosapp/profile/QRScanner" class="button special">Marcar una visita</a>
         </ul>
     </g:uploadForm>
         </header>
@@ -80,11 +86,10 @@
 </footer>
 
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
+<asset:javascript src="jquery.min.js"/>
+<asset:javascript src="skel.min.js"/>
+<asset:javascript src="util.js"/>
+<asset:javascript src="main.js"/>
 
 </body>
 </html>
