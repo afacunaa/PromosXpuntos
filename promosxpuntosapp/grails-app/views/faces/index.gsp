@@ -119,7 +119,7 @@
     </div>
 </section>
 
-<section id="subscribe" class="wrapper style4 special">
+<section id="maplocation" class="wrapper style4 special">
     <div class="inner">
     <header class="major narrow">
         <h2>Encuentranos</h2>

@@ -22,10 +22,10 @@
 <!-- Nav -->
 <nav name="nav" id="nav">
     <ul class="links">
-        <li><a href="customersIndex">Principal</a></li>
-        <li><a href="customers-module/">Empresas</a></li>
-        <li><a href="#subscribe">Registrar empresa</a></li>
-        <li><a href="../promosxpuntosapp">Para usuarios</a></li>
+        <li><a href="#home">Principal</a></li>
+        <li><a href="#login">Iniciar sesion</a></li>
+        <li><a href="#subscribe">Registrar Empresa</a></li>
+        <li><a href="../promosxpuntosapp">Para Usuarios</a></li>
     </ul>
 </nav>
 
