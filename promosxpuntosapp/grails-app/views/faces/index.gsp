@@ -44,12 +44,45 @@
     </ul>
 </section>
 
-<section class="wrapper style1" align="center">
-    <header class="major narrow">
-        <h2>Encuentranos</h2>
-    </header>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d16491.39356475207!2d-74.08865031089259!3d4.654165704834756!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1446650936869" width="75%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+<!-- One -->
+<section id="one" class="wrapper style1">
+    <div class="inner">
+        <article class="feature left">
+            <span class="image"><asset:image src="pic01.jpg" width="500px"/></span>
+
+            <div class="content">
+                <h2>Con promos x puntos..</h2>
+                <p>Podrás conocer el estado de tus puntos, encontrar establecimientos asociados y conocer si tienes premios disponibles.</p>
+                <ul class="actions">
+                    <li>
+                        <a href="#" class="button alt">Ipsum</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="feature right">
+            <span class="image"><asset:image src="pic02.jpg" width="500px"/></span>
+            <div class="content">
+                <h2>Conoce las promociones a</h2>
+                <p>Conozca el estado de las promociones y recibe ofertas especiales de tus tiendas preferidas</p>
+                <ul class="actions">
+                    <li>
+                        <a href="#" class="button alt">Lorem</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <center>
+            <header class="major narrow">
+                <h2>Encuentranos</h2>
+            </header>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d16491.39356475207!2d-74.08865031089259!3d4.654165704834756!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1446650936869" width="75%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </center>
+
+    </div>
 </section>
+
+
 
 <!-- Two -->
 <section id="two" class="wrapper style4 special">
@@ -58,42 +91,45 @@
             <h2>Ingresa</h2>
             <p>Ingresa tus datos de usuario</p>
         </header>
-        <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-        </g:if>
-        <g:uploadForm controller="standardUser" action="logIn" method="post">
-            <div class="container 75%">
-                <div class="row uniform 50%">
-                    <div class="6u 12u$(xsmall)">
-                        <g:if test="${!hasErrors(field: 'nickname','error')}">
-                            <div class="12u$">
-                                <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
-                            </div>
-                        </g:if>
-                        <g:else>
-                            <div class="12u$">
-                            <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
-                            </div>
-                        </g:else>
-                    </div>
-                    <div class="6u$ 12u$(xsmall)">
-                        <g:if test="${!hasErrors(field: 'password','error')}">
-                            <div class="6u 12u$">
-                                <g:passwordField id="password" name="password" placeholder="Contraseña"></g:passwordField>
-                            </div>
-                        </g:if>
-                        <g:else>
-                            <div class="6u 12u$">
-                            <g:passwordField id="password" name="password" placeholder="Contraseña"></g:passwordField>
-                            </div>
-                        </g:else>
+        <center>
+            <g:if test="${flash.message}">
+                <div class="message" role="status">${flash.message}</div>
+            </g:if>
+            <g:uploadForm controller="standardUser" action="logIn" method="post">
+                <div class="container 75%" align="center">
+                    <div class="row uniform 50%" align="center">
+                        <div class="6u 12u$(xsmall)" align="center">
+                            <g:if test="${!hasErrors(field: 'nickname','error')}">
+                                <div class="12u$" style="text-align: center" align="center">
+                                    <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
+                                </div>
+                            </g:if>
+                            <g:else>
+                                <div class="12u$">
+                                    <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
+                                </div>
+                            </g:else>
+                        </div>
+                        <div class="6u 12u$(xsmall)" style="text-align: center" align="center">
+                            <g:if test="${!hasErrors(field: 'password','error')}">
+                                <div class="12u$">
+                                    <g:passwordField id="password" name="password" placeholder="Contraseña"></g:passwordField>
+                                </div>
+                            </g:if>
+                            <g:else>
+                                <div class="12u$" >
+                                    <g:passwordField id="password" name="password" placeholder="Contraseña"></g:passwordField>
+                                </div>
+                            </g:else>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <ul class="actions">
-                <g:submitButton name="summit" type="submit" value="Ingresar" class="special" tabindex="-1"></g:submitButton>
-            </ul>
-        </g:uploadForm>
+                <ul class="actions">
+                    <g:submitButton name="summit" type="submit" value="Ingresar" class="special" tabindex="-1"></g:submitButton>
+                </ul>
+            </g:uploadForm>
+        </center>
+
     </div>
 </section>
 
@@ -193,15 +229,17 @@
                             <g:datePicker years="${1915..2015}" name="birthday" id="birthday" precision="day" class="form-control" value="${new Date()}"  noSelection="['':'Selecciona']"/>
                         </div>
                     </g:if>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2  list-group-item img-rounded">
-                            <legend>Imagen de Perfil</legend>
-                            <input type="file" name="picture"/>
-                            <div style="font-size:0.8em; margin: 1.0em;">
-                                <p>Tu imagen es opcional, pero es más fácil identificarte con ella!.</p>
+                    <center>
+                        <div class="row" align="center">
+                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2  list-group-item img-rounded avatar-loader" >
+                                <legend>Imagen de Perfil</legend>
+                                <input type="file" name="picture"/>
+                                <div style="font-size:0.8em; margin: 1.0em;">
+                                    <p>Tu imagen es opcional, pero es más fácil identificarte con ella!.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </center>
                 </div>
             </div>
             <g:submitButton name="summit" type="submit" value="Registrarse" class="special" tabindex="-1"></g:submitButton>

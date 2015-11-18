@@ -24,21 +24,41 @@
 </nav>
 
 <section id="main" class="wrapper">
-    <div class="container" id="container">
-        <header class="major special">
-            <h3>Acerca tu dispositivo al codigo QR del establecimiento</h3>
-            <h1><g:img dir="images" file="logotipo_color.png" class="img-responsive img-thumbnail"/></h1>
-            <div>
-                <video id="sourcevid">
-                    <p>This application requires an HTML5 <code>&lt;video&gt;</code> capable browser…</p>
-                </video>
-            </div>
-            <!-- aca se muestra la salida de la lectura del codigo qr -->
-            <div id="out"></div>
+    <div class="panel panel-default">
 
-            <a href="/promosxpuntosapp/profile" class="button special">Cancelar</a>
-        </header>
+        <div class="panel-body">
+            <header class="major special">
+                <h3>Acerca tu dispositivo al codigo QR del establecimiento</h3>
+                <h1><asset:image src="logotipo_color.png" width="500px"/></h1>
+                <g:uploadForm controller="visit" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
+                    <div>
+                        <video id="sourcevid">
+                            <p>This application requires an HTML5 <code>&lt;video&gt;</code> capable browser…</p>
+                        </video>
+                    </div>
+                        <div class="row" align="center">
+                            <g:if test="${!hasErrors(field: 'QRCode','error')}">
+                                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-1" style="text-align: center">
+                                    <g:textField id="QRCode" class="form-control" name="QRCode"></g:textField>
+                                </div>
+                            </g:if>
+                            <g:else>
+                                <div class="col-xs-12 col-sm                                                                                                                                                                                                -8 col-md-8 col-lg-offset-2 has-error" >
+                                    <g:textField id="QRCode" class="form-control "  name="QRCode" ></g:textField>
+                                    <label class="control-label list-group-item-danger img-rounded">Codigo invalido</label>
+                                </div>
+                            </g:else>
+                                                                                                                                                                                                            </div>
+                    <div id="out"/>
+
+                    <g:submitButton name="summit" type="submit" value="Registrar visita" class="btn btn-lg btn-success btn-block" tabindex="-1"></g:submitButton>
+                </g:uploadForm>
+            </header>
+
+        </div>
     </div>
+
+
 </section>
 <asset:javascript src="options.js"/>
 <footer id="footer">

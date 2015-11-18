@@ -8,7 +8,8 @@ class Customer extends User{
     String description
 
     static hasMany = [
-            establishment : Establishment
+            establishment : Establishment,
+            reward : Reward
     ]
 
     static constraints = {

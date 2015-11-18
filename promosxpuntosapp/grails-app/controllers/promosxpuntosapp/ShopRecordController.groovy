@@ -104,21 +104,4 @@ class ShopRecordController {
             '*' { render status: NOT_FOUND }
         }
     }
-
-    def randomString(){
-        RandomStringUtils randomCreator =  new RandomStringUtils()
-        String randomString = randomCreator.random( 5,  'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
-
-        randomString += "-"
-
-
-        Format formatter = new SimpleDateFormat("dd-mm-yyyy-HH");
-        String s = formatter.format(new Date());
-
-        randomString += s
-        //10.times {
-//            randomString += "([a-zA-Z0-9])".charAt(Random.nextInt(Integer.parseInt(/([a-zA-Z0-9])/.size()+1)))
-        //}
-        return randomString
-    }
 }

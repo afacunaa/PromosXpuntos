@@ -27,21 +27,17 @@
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="index.html">Principal</a></li>
-        <li><a href="section.html">Seccion 1</a></li>
-        <li><a href="section.html">Seccion 2</a></li>
+        <li><a href="/faces/profileEstablishment">Volver al establecimiento</a></li>
+        <li><a href="">recargar la pagina</a></li>
     </ul>
 </nav>
 
 <!-- Main -->
 <section id="main" class="wrapper">
     <div class="container">
-        <g:set var="qrCode" value="${new promosxpuntosapp.ShopRecordController().randomString()}" />
+        <g:set var="qrCode" value="${createLink(controller:'ShopRecord', action:'randomString', params: [establishment:session.establishment.name])}" />
         <header class="major special">
-
-
-         <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x3000&chl=${qrCode}&chld=H|0" alt="QRCode">
-
+        <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x3000&chl=${qrCode}&chld=H|0" alt="QRCode">
         <h2 class="nonStyletext">
             ${qrCode}
         </h2>
