@@ -88,12 +88,12 @@
                     <div class="6u 12u$(xsmall)">
                         <g:if test="${!hasErrors(field: 'nickname','error')}">
                             <div class="12u$">
-                                <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
+                                <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario de cliente"></g:textField>
                             </div>
                         </g:if>
                         <g:else>
                             <div class="12u$">
-                                <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
+                                <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario de cliente"></g:textField>
                             </div>
                         </g:else>
                     </div>
@@ -144,24 +144,24 @@
             <div class="container 75%">
                 <div class="row uniform 50%">
                     <div class="12u$">
-                        <h1>Datos del encargado de la empresa</h1>
+                        <h1>Datos de la empresa</h1>
                     </div>
                     <g:if test="${!hasErrors(field: 'name','error')}">
                         <div class="6u 12u$(xsmall)">
-                            <g:textField id="name" name="name" required="" placeholder="Nombres"></g:textField>
+                            <g:textField id="name" name="name" required="" placeholder="Nombre del cliente"></g:textField>
                         </div>
                     </g:if>
                     <g:else>
-                        <g:textField id="name" name="name" required="" placeholder="Nombres"></g:textField>
+                        <g:textField id="name" name="name" required="" placeholder="Nombre del cliente"></g:textField>
                         <label class="control-label list-group-item-danger img-rounded">Nombre malo</label>
                     </g:else>
                     <g:if test="${!hasErrors(field: 'identification','error')}">
                         <div class="6u 12u$(xsmall)">
-                            <g:textField id="identification" name="identification" required="" placeholder="Identificación"></g:textField>
+                            <g:textField id="identification" name="identification" required="" placeholder="NIT"></g:textField>
                         </div>
                     </g:if>
                     <g:else>
-                        <g:textField id="identification" name="identification" required="" placeholder="Identificación"></g:textField>
+                        <g:textField id="identification" name="identification" required="" placeholder="NIT"></g:textField>
                         <label class="control-label list-group-item-danger img-rounded">Identificación Incorrecta</label>
                     </g:else>
                     <g:if test="${!hasErrors(field: 'email','error')}">
@@ -175,11 +175,11 @@
                     </g:else>
                     <g:if test="${!hasErrors(field: 'nickname','error')}">
                         <div class="12u$">
-                            <g:textField id="nickname" name="nickname" required="" placeholder="Nombre de usuario"></g:textField>
+                            <g:textField id="nickname" name="nickname" required="" placeholder="Nombre de usuario de cliente"></g:textField>
                         </div>
                     </g:if>
                     <g:else>
-                        <g:textField id="nickname" name="nickname" required="" placeholder="Nombre de usuario"></g:textField>
+                        <g:textField id="nickname" name="nickname" required="" placeholder="Nombre de usuario de cliente"></g:textField>
                         <label class="control-label list-group-item-danger img-rounded">Nombre de usuario malo</label>
                     </g:else>
                     <g:if test="${!hasErrors(field: 'password','error')}">
@@ -197,7 +197,7 @@
 
                     <g:if test="${!hasErrors(field: 'contractNumber','error')}">
                         <div class="12u$">
-                            <g:textField id="contractNumber" name="contractNumber" required="" placeholder="Número de contrato (?)"></g:textField>
+                            <g:textField id="contractNumber" name="contractNumber" required="" placeholder="Número de contrato"></g:textField>
                         </div>
                     </g:if>
                     <g:else>
@@ -213,49 +213,10 @@
                         <g:textField id="description" name="description" required="" placeholder="Descripción"></g:textField>
                         <label class="control-label list-group-item-danger img-rounded">Telefono malo</label>
                     </g:else>
-                    <div class="12u$">
-                        <h1>Datos de la empresa</h1>
-                    </div>
                 </div>
             </div>
             <g:submitButton name="summit" type="submit" value="Registrarse" class="special" tabindex="-1"></g:submitButton>
         </g:uploadForm>
-    <!--
-        <g:uploadForm controller="Establishment" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
-            <div class="container 75%">
-                <div class="row uniform 50%">
-                    <g:if test="${!hasErrors(field: 'name','error')}">
-                        <div class="6u 12u$(xsmall)">
-                            <g:textField id="name" name="name" required="" placeholder="Nombre"></g:textField>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <g:textField id="name" name="name" required="" placeholder="Nombre"></g:textField>
-                        <label class="control-label list-group-item-danger img-rounded">Nombre malo</label>
-                    </g:else>
-                    <g:if test="${!hasErrors(field: 'telephoneNumber','error')}">
-                        <div class="6u 12u$(xsmall)">
-                            <g:textField id="telephoneNumber" name="telephoneNumber" required="" placeholder="Telefono"></g:textField>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <g:textField id="telephoneNumber" name="telephoneNumber" required="" placeholder="Telefono"></g:textField>
-                        <label class="control-label list-group-item-danger img-rounded">Nombre malo</label>
-                    </g:else>
-                    <g:if test="${!hasErrors(field: 'address','error')}">
-                        <div class="12u$">
-                            <g:textField id="address" name="address" required="" placeholder="Dirección"></g:textField>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <g:textField id="address" name="address" required="" placeholder="Nombre"></g:textField>
-                        <label class="control-label list-group-item-danger img-rounded">Nombre malo</label>
-                    </g:else>
-
-                </div>
-            </div>
-        </g:uploadForm>
-    -->
     </div>
 </section>
 
