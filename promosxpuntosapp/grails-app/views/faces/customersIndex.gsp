@@ -30,50 +30,16 @@
 </nav>
 
 
-
-<!-- Banner -->
-<section id="banner" class="style3">
-    <img src="images/logotipo.png" alt="promosxpuntos"/>
+<section id="banner2" class="style3">
+    <asset:image src="logotipo.png"/>
     <p>PromosXPuntos - Para que te diviertas ganando</p>
     <ul class="actions">
-        <li><a href="#subscribir" class="button big special">Registra tu empresa</a></li>
-        <li><a href="#ingreso" class="button big special">Ingresa como empresa</a></li>
+        <li><a href="#subscribe" class="button big special">Registra tu empresa</a></li>
+        <li><a href="#login" class="button big special">Ingresa como empresa</a></li>
     </ul>
 </section>
 
-<!-- One -->
-<section id="one" class="wrapper style1">
-    <div class="inner">
-        <article class="feature left">
-            <span class="image"><img src="images/pic01.jpg" alt="" width="500px"/></span>
-            <div class="content">
-                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
-                <ul class="actions">
-                    <li>
-                        <a href="#" class="button alt">Ipsum</a>
-                    </li>
-                </ul>
-            </div>
-        </article>
-        <article class="feature right">
-            <span class="image"><img src="images/pic02.jpg" alt="" width="500px"/></span>
-            <div class="content">
-                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
-                <ul class="actions">
-                    <li>
-                        <a href="#" class="button alt">Lorem</a>
-                    </li>
-                </ul>
-            </div>
-        </article>
-    </div>
-</section>
-
-
-<!-- Two -->
-<section id="ingreso" class="wrapper style4 special">
+<section id="login" class="wrapper style4 special">
     <div class="inner">
         <header class="major narrow">
             <h2>Ingresa</h2>
@@ -99,12 +65,12 @@
                     </div>
                     <div class="6u$ 12u$(xsmall)">
                         <g:if test="${!hasErrors(field: 'password','error')}">
-                            <div class="6u 12u$">
+                            <div class="12u$">
                                 <g:passwordField id="password" name="password" placeholder="Contraseña"></g:passwordField>
                             </div>
                         </g:if>
                         <g:else>
-                            <div class="6u 12u$">
+                            <div class="12u$">
                                 <g:passwordField id="password" name="password" placeholder="Contraseña"></g:passwordField>
                             </div>
                         </g:else>
@@ -118,20 +84,36 @@
     </div>
 </section>
 
-<!-- Three -->
-<section id="three" class="wrapper style3 special">
+
+<section id="descriptions" class="wrapper style1">
     <div class="inner">
-        <header class="major narrow	">
-            <h2>Manten a tus clientes cerca y tus ingresos en aumento.</h2>
-            <p>Con Promos X Puntos tendrás a la mano una herramienta de fidelización y marketing para tu compañia.</p>
-        </header>
-        <ul class="actions">
-            <li><a href="customersIndex" class="button big alt">PromosXPuntos para Empresas</a></li>
-        </ul>
+        <article class="feature left">
+            <span class="image"><asset:image src="pic01.jpg" width="500px"/></span>
+            <div class="content">
+                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
+                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
+                <ul class="actions">
+                    <li>
+                        <a href="#" class="button alt">Ipsum</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="feature right">
+            <span class="image"><asset:image src="pic02.jpg" width="500px"/></span>
+            <div class="content">
+                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
+                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
+                <ul class="actions">
+                    <li>
+                        <a href="#" class="button alt">Lorem</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
     </div>
 </section>
 
-<!-- Four -->
 <section id="subscribe" class="wrapper style4 special">
     <div class="inner">
         <header class="major narrow">
@@ -218,7 +200,9 @@
                     </div>
                 </div>
             </div>
-            <g:submitButton name="summit" type="submit" value="Registrarse" class="special" tabindex="-1"></g:submitButton>
+            <ul class="actions">
+                <g:submitButton name="summit" type="submit" value="Registrarse" class="special" tabindex="-1"></g:submitButton>
+            </ul>
         </g:uploadForm>
     <!--
         <g:uploadForm controller="Establishment" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
