@@ -38,13 +38,14 @@
     <div class="container">
         <header class="major special">
         </header>
+        <h1>¡Conoce nuestros clientes! Da Click en alguno de ellos para ver sus establecimientos</h1>
         <div class="container 75%">
             <div class="row uniform 50%">
                 <g:each var="c" in="${Customer.list()}">
                     <div class="6u 12u$(xsmall)">
-                        <h1>${c?.name} </h1>
+                        <h1>${c.name} </h1>
                         <span class="image left" style="text-align: center">
-                            <a href="establishmentList"><img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="150px" height="200px"></a>
+                            <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:c?.nickname])}"><img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="200px" height="130px"></a>
                         </span>
                     </div>
                 </g:each>

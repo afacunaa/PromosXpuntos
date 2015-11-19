@@ -15,14 +15,14 @@
 
 <!-- Header -->
 <header id="header" class="alt">
-    <h1><a href="">Promos x Puntos</a></h1>
+    <h1><a href="index">Promos x Puntos</a></h1>
     <a href="#nav">Menu</a>
 </header>
 
 <!-- Nav -->
 <nav name="nav" id="nav">
     <ul class="links">
-        <li><a href="#home">Principal</a></li>
+        <li><a href="index">Principal</a></li>
         <li><a href="#login">Iniciar sesion</a></li>
         <li><a href="#subscribe">Registrar Empresa</a></li>
         <li><a href="../promosxpuntosapp">Para Usuarios</a></li>

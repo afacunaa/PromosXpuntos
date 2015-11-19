@@ -9,11 +9,6 @@ class CustomerController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def customerList() {
-        def listadoCustomer = Customer.list()
-        [customers:listadoCustomer]
-    }
-
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Customer.list(params), model: [customerInstanceCount: Customer.count()]
@@ -21,6 +16,13 @@ class CustomerController {
 
     def show(Customer customerInstance) {
         respond customerInstance
+    }
+
+    def establecimientos = {
+        def custom = Customer.findByNickname((String) params.nickname)
+
+        session.customer = custom
+        redirect controller: "establishmentList"
     }
 
     def create() {
