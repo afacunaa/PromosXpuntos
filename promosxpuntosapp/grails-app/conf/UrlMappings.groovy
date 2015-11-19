@@ -17,6 +17,7 @@ class UrlMappings {
         "/users-module"(view: "/faces/users-module")
         "/createdReward"(view: "/faces/createdReward")
         "/rewardDone"(view: "/faces/rewardDone")
+        "/profileEstablishment"(view:"/faces/profileEstablishment")
         "/profileCustomer"(view:"/faces/profileCustomer")
         "/profileCustomer/codeQRgenerate"(view:"/faces/codeQRgenerate")
         "/establishmentList"(view:"/faces/establishmentList")
