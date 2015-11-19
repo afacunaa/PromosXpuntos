@@ -20,7 +20,7 @@ class UrlMappings {
         "/profileEstablishment"(view:"/faces/profileEstablishment")
         "/profileCustomer"(view:"/faces/profileCustomer")
         "/profileCustomer/codeQRgenerate"(view:"/faces/codeQRgenerate")
-        "/establishmentList"(view:"/faces/establishmentList")
+        "/establishmentList"(view:"/faces/EstablishmentList")
         "/customerList"(view:"/faces/customerList")
 
         "/"(view:"/faces/index")
