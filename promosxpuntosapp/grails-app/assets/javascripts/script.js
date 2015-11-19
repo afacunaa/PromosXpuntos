@@ -8,6 +8,7 @@ var qry = {
 	out:'',
 	found:false,
 	timer:'',
+	qrCode:'',
 
 	loop: function() {
 		qry.captureToCanvas();
@@ -24,6 +25,7 @@ var qry = {
 				qry.out.innerHTML = '<a href="'+qry.found+'">'+qry.found+'</a>';
 			} else {
 				qry.out.innerHTML = qry.found;
+				qry.qrCode.value = qry.found;
 			}
 			/* canvas.style.width = video.clientWidth+'px'; // doesn't work with current nesting used */
 			qry.canvas.style.height = qry.video.clientHeight+'px'; 
@@ -49,6 +51,7 @@ var qry = {
 		qry.video = document.getElementById('sourcevid');
 		qry.container = qry.video.parentNode;
 		qry.out = document.getElementById('out');
+		qry.qrCode = document.getElementById('qrCode')
 
 		// Standard and prefixed methods for hooking into stream
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;

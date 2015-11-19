@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=480, user-scalable=no">
     <asset:stylesheet src="template.css"/>
+
+
 </head>
 <body>
 <!-- Header -->
@@ -25,36 +27,33 @@
 
 <section id="main" class="wrapper">
     <div class="panel panel-default">
-
         <div class="panel-body">
-            <header class="major special">
+            <div class="major special">
                 <h3>Acerca tu dispositivo al codigo QR del establecimiento</h3>
-                <h1><asset:image src="logotipo_color.png" width="500px"/></h1>
+                <h1><asset:image src="logotipo_color.png"/></h1>
+                <div>
+                    <video id="sourcevid">
+                        <p>This application requires an HTML5 <code>&lt;video&gt;</code> capable browser…</p>
+                    </video>
+                </div>
+                <div id="out"></div>
                 <g:uploadForm controller="visit" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
-                    <div>
-                        <video id="sourcevid">
-                            <p>This application requires an HTML5 <code>&lt;video&gt;</code> capable browser…</p>
-                        </video>
+
+                    <div class="row" align="center">
+                        <g:if test="${!hasErrors(field: 'QRCode','error')}">
+                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-1" style="text-align: center">
+                                <g:textField id="qrCode" class="form-control" name="qrCode" oninput="myfunction()"></g:textField>
+                            </div>
+                        </g:if>
                     </div>
-                        <div class="row" align="center">
-                            <g:if test="${!hasErrors(field: 'QRCode','error')}">
-                                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-1" style="text-align: center">
-                                    <g:textField id="QRCode" class="form-control" name="QRCode"></g:textField>
-                                </div>
-                            </g:if>
-                            <g:else>
-                                <div class="col-xs-12 col-sm                                                                                                                                                                                                -8 col-md-8 col-lg-offset-2 has-error" >
-                                    <g:textField id="QRCode" class="form-control "  name="QRCode" ></g:textField>
-                                    <label class="control-label list-group-item-danger img-rounded">Codigo invalido</label>
-                                </div>
-                            </g:else>
-                                                                                                                                                                                                            </div>
-                    <div id="out"/>
-
-                    <g:submitButton name="summit" type="submit" value="Registrar visita" class="btn btn-lg btn-success btn-block" tabindex="-1"></g:submitButton>
+                    <g:submitButton id="summit" name="summit" type="submit" value="Enviar" class="btn btn-lg btn-success btn-block" tabindex="-1" disabled=""></g:submitButton>
                 </g:uploadForm>
-            </header>
-
+                <script>
+                    function myfunction(){
+                        document.getElementById("summit").disabled = false;
+                    }
+                </script>
+            </div>
         </div>
     </div>
 
