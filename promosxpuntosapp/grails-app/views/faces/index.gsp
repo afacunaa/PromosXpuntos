@@ -27,9 +27,6 @@
         <li><a href="#login">Iniciar sesion</a></li>
         <li><a href="#subscribe">Registrar usuario</a></li>
         <li><a href="customersIndex">Para Empresas</a></li>
-        <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-            <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
-        </g:each>
     </ul>
 </nav>
 
