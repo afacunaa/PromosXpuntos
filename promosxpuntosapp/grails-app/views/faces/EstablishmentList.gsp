@@ -75,6 +75,7 @@
     </div>
 </footer>
 
+
 <!-- Scripts -->
 <asset:javascript src="jquery.min.js"/>
 <asset:javascript src="skel.min.js"/>
