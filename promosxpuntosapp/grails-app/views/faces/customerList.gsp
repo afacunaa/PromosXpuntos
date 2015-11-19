@@ -24,9 +24,12 @@
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="${createLink(controller:'customer', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
-        <li><a href="/promosxpuntosapp/profileCustomer/createEstablishment">Crear establecimiento</a></li>
-        <li><a href="#">Listar establecimientos</a></li>
+        <li><a href="${createLink(controller:'StandardUser', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
+        <li><a href="/promosxpuntosapp/profile/editStandardUser">Editar Perfil</a></li>
+        <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar Visita</a></li>
+        <li><a href="#">Ver Historial</a></li>
+        <li><a href="/promosxpuntosapp/customerList">Catalogo de Clientes</a></li>
+        <li><a href="#">Redimir Puntos</a></li>
     </ul>
 </nav>
 
@@ -34,13 +37,19 @@
 <section id="main" class="wrapper">
     <div class="container">
         <header class="major special">
-            <h2>Bienvenido</h2>
         </header>
-
-        <g:each in="${customers}">
-            Animal: ${it.name} <br/>
-        </g:each>
-        <h2>Bienvenido</h2>
+        <div class="container 75%">
+            <div class="row uniform 50%">
+                <g:each var="c" in="${Customer.list()}">
+                    <div class="6u 12u$(xsmall)">
+                        <h1>${c?.name} </h1>
+                        <span class="image left" style="text-align: center">
+                            <a href="establishmentList"><img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="150px" height="200px"></a>
+                        </span>
+                    </div>
+                </g:each>
+            </div>
+        </div>
     </div>
 </section>
 
