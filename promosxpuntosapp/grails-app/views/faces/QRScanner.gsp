@@ -29,38 +29,26 @@
 </nav>
 
 <section id="main" class="wrapper">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="major special">
-                <h3>Acerca tu dispositivo al codigo QR del establecimiento</h3>
-                <h1><asset:image src="logotipo_color.png"/></h1>
-                <div>
-                    <video id="sourcevid">
-                        <p>This application requires an HTML5 <code>&lt;video&gt;</code> capable browser…</p>
-                    </video>
-                </div>
-                <div id="out"></div>
-                <g:uploadForm controller="visit" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
-
-                    <div class="row" align="center">
-                        <g:if test="${!hasErrors(field: 'QRCode','error')}">
-                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-1" style="text-align: center">
-                                <g:textField id="qrCode" class="form-control" name="qrCode" oninput="myfunction()"></g:textField>
-                            </div>
-                        </g:if>
-                    </div>
-                    <g:submitButton id="summit" name="summit" type="submit" value="Enviar" class="btn btn-lg btn-success btn-block" tabindex="-1" disabled=""></g:submitButton>
-                </g:uploadForm>
-                <script>
-                    function myfunction(){
-                        document.getElementById("summit").disabled = false;
-                    }
-                </script>
+    <div class="container" id="container">
+        <header class="major special">
+            <h3>Acerca tu dispositivo al codigo QR del establecimiento</h3>
+            <h1><asset:image src="logotipo_color.png"/></h1>
+            <div>
+                <video id="sourcevid">
+                    <p>This application requires an HTML5 <code>&lt;video&gt;</code> capable browser…</p>
+                </video>
             </div>
-        </div>
+            <div id="out"></div>
+            <g:uploadForm controller="visit" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
+                <div class="row" align="center">
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-1" style="text-align: center">
+                            <g:textField id="qrCode" class="form-control" name="qrCode"></g:textField>
+                        </div>
+                </div>
+                <g:submitButton id="submit" name="summit" type="submit" value="Enviar" class="btn btn-lg btn-success btn-block" tabindex="-1" disabled=""></g:submitButton>
+            </g:uploadForm>
+        </header>
     </div>
-
-
 </section>
 <asset:javascript src="options.js"/>
 <footer id="footer">

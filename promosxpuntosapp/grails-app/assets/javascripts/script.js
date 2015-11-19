@@ -26,6 +26,7 @@ var qry = {
 			} else {
 				qry.out.innerHTML = qry.found;
 				qry.qrCode.value = qry.found;
+                document.getElementById('submit').disabled = false;
 			}
 			/* canvas.style.width = video.clientWidth+'px'; // doesn't work with current nesting used */
 			qry.canvas.style.height = qry.video.clientHeight+'px'; 
