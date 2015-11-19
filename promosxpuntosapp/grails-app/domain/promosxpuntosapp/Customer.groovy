@@ -4,7 +4,7 @@ class Customer extends User{
     String identification
     String name
     String contractNumber
-    Object logo
+    byte[] logo
     String description
 
     static hasMany = [
@@ -17,6 +17,6 @@ class Customer extends User{
         name(size: 5..50, nullable: true)
         contractNumber(size: 7..20)
         description(maxSize: 500, nullable: true)
-        logo(nullable: true)
+        logo(nullable: true, blank: true, maxSize: 4194304)//4MB
     }
 }

@@ -7,7 +7,6 @@ class UrlMappings {
             }
         }
 
-
         "/customersIndex"(view:"/faces/customersIndex")
         "/index"(view:"/faces/index")
         "/profile"(view:"/faces/profile")
@@ -20,6 +19,8 @@ class UrlMappings {
         "/rewardDone"(view: "/faces/rewardDone")
         "/profileCustomer"(view:"/faces/profileCustomer")
         "/profileCustomer/codeQRgenerate"(view:"/faces/codeQRgenerate")
+        "/establishmentList"(view:"/faces/establishmentList")
+        "/customerList"(view:"/faces/customerList")
 
         "/"(view:"/faces/index")
         "500"(view:'/error')

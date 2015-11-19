@@ -27,6 +27,7 @@
         <li><a href="/promosxpuntosapp/profile/editStandardUser">Editar Perfil</a></li>
         <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar Visita</a></li>
         <li><a href="#">Ver Historial</a></li>
+        <li><a href="/promosxpuntosapp/customerList">Catalogo de Clientes</a></li>
         <li><a href="#">Redimir Puntos</a></li>
     </ul>
 </nav>

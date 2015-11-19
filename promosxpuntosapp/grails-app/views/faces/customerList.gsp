@@ -1,3 +1,5 @@
+<%@ page import="promosxpuntosapp.Customer" contentType="text/html;charset=UTF-8" %>
+
 <!DOCTYPE HTML>
 <!--
 	Retrospect by TEMPLATED
@@ -16,7 +18,6 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
-    <a>${session.user.nickname}</a>
     <a href="#nav">Menu</a>
 </header>
 
@@ -32,38 +33,14 @@
 <!-- Main -->
 <section id="main" class="wrapper">
     <div class="container">
-
         <header class="major special">
             <h2>Bienvenido</h2>
-            <figure>
-                <g:if test="${session.user.logo != null}">
-                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'Customer', action:'displayPicture', params: [nickname:session.user.nickname])}" />
-                </g:if>
-                <g:else>
-                    <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
-                </g:else>
-            </figure>
-            <p> ${session.user.name}</p>
-            <g:uploadForm controller="customer" action="logOut" method="post">
-                <ul class="actions">
-                    <a href="/promosxpuntosapp/profileCustomer/createEstablishment" class="button special">Crear establecimiento</a>
-                    <a href="#" class="button special">Listar establecimientos</a>
-                    <g:submitButton name="summit" type="submit" value="Cerrar Sesión" class="special" tabindex="-1"></g:submitButton>
-                </ul>
-            </g:uploadForm>
         </header>
 
-        <h2>Datos de Usuario</h2>
-        <div class="table-wrapper">
-            <table>
-                <tr><th> NIT:</th> <th>${session.user.identification}</th></tr>
-                <tr><th> Nombres:</th> <th>${session.user.name}</th></tr>
-                <tr><th> Numero de Contrato:</th> <th>${session.user.contractNumber}</th></tr>
-                <tr><th> Correo electrónico:</th> <th>${session.user.email}</th></tr>
-                <tr><th> Nombre de usuario de cliente:</th> <th>${session.user.nickname}</th></tr>
-                <tr><th> Descripción:</th> <th>${session.user.description}</th></tr>
-            </table>
-        </div>
+        <g:each in="${customers}">
+            Animal: ${it.name} <br/>
+        </g:each>
+        <h2>Bienvenido</h2>
     </div>
 </section>
 

@@ -9,6 +9,11 @@ class CustomerController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def customerList() {
+        def listadoCustomer = Customer.list()
+        [customers:listadoCustomer]
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Customer.list(params), model: [customerInstanceCount: Customer.count()]
@@ -53,7 +58,7 @@ class CustomerController {
             return
         }
         if (customerInstance.hasErrors()) {
-            redirect controller: "customersIndex", fragment: "subscribir"
+            respond customerInstance.errors, view: "/faces/customersIndex", fragment: "subscribe"
             return
         }
         customerInstance.save flush: true
@@ -69,6 +74,20 @@ class CustomerController {
 
     def edit(Customer customerInstance) {
         respond customerInstance
+    }
+
+    def displayPicture = {
+        def customerPicture = Customer.findByNickname((String) params.nickname)
+        if (!customerPicture || !customerPicture.logo) {
+            response.sendError(404)
+            return
+        }
+        response.contentType = customerPicture.logo
+        response.contentLength = customerPicture.logo.size()
+        OutputStream out = response.outputStream
+        out.write(customerPicture.logo)
+        out.write(customerPicture.logo)
+        out.close()
     }
 
     @Transactional

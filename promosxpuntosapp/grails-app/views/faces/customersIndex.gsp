@@ -195,6 +195,13 @@
                         <g:textField id="description" name="description" required="" placeholder="Descripción"></g:textField>
                         <label class="control-label list-group-item-danger img-rounded">Telefono malo</label>
                     </g:else>
+                    <div class="12u$">
+                        <label>Logo del Cliente</label>
+                    </div>
+                    <div class="12u$">
+                        <input type="file" name="logo"/>
+                        <p>Tu logo es opcional, pero es más fácil identificarte con este!.</p>
+                    </div>
                 </div>
             </div>
             <ul class="actions">
