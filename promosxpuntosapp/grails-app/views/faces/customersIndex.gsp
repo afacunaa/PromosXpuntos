@@ -30,7 +30,7 @@
 </nav>
 
 
-<section id="banner2" class="style3">
+<section id="banner2">
     <asset:image src="logotipo.png"/>
     <p>PromosXPuntos - Para que te diviertas ganando</p>
     <ul class="actions">
@@ -176,25 +176,6 @@
                     <div class="6u$ 12u$(xsmall)">
                         <input name="repeatpass" placeholder="Repita la contraseña" type="password" />
                     </div>
-
-                    <g:if test="${!hasErrors(field: 'contractNumber','error')}">
-                        <div class="12u$">
-                            <g:textField id="contractNumber" name="contractNumber" required="" placeholder="Número de contrato"></g:textField>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <g:textField id="contractNumber" name="contractNumber" required="" placeholder="Número de contrato"></g:textField>
-                        <label class="control-label list-group-item-danger img-rounded">Telefono malo</label>
-                    </g:else>
-                    <g:if test="${!hasErrors(field: 'description','error')}">
-                        <div class="12u$">
-                            <g:textField id="description" name="description" required="" placeholder="Descripción"></g:textField>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <g:textField id="description" name="description" required="" placeholder="Descripción"></g:textField>
-                        <label class="control-label list-group-item-danger img-rounded">Telefono malo</label>
-                    </g:else>
                     <div class="12u$">
                         <label>Logo del Cliente</label>
                     </div>

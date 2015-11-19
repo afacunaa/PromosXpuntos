@@ -31,7 +31,7 @@ class EstablishmentController {
         }
 
         if (establishmentInstance.hasErrors()) {
-            respond establishmentInstance.errors, view: 'create'
+            respond establishmentInstance.errors, view: '/faces/createEstablishment'
             return
         }
 
@@ -101,4 +101,10 @@ class EstablishmentController {
             '*' { render status: NOT_FOUND }
         }
     }
+
+    def logOut(){
+        session.establishment=null
+        redirect controller: "customersIndex"
+    }
+
 }

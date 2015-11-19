@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-	<title>Promos x Puntos</title>
+	<title>Promos x Puntos - crear Establecimiento</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<asset:stylesheet src="template.css"/>
@@ -24,15 +24,6 @@
 <!-- Nav -->
 <nav id="nav">
 	<ul class="links">
-		<li><a href="index.html">Principal</a></li>
-		<li><a href="section.html">Seccion 1</a></li>
-		<li><a href="section.html">Seccion 2</a></li>
-	</ul>
-</nav>
-
-<!-- Nav -->
-<nav id="nav">
-	<ul class="links">
 		<li><a href="">Principal</a></li>
 		<li><a href="users-module">usuarios</a></li>
 		<li><a href="#subscribe">Registrar usuario</a></li>
@@ -43,9 +34,6 @@
 	</ul>
 </nav>
 
-<!-- Two -->
-
-<!-- Three -->
 
 <!-- Four -->
 <section id="subscribe" class="wrapper style4 special">
@@ -92,14 +80,14 @@
 				<div class="container 75%">
 					<div class="row uniform 50%">
 						<div class="6u 12u$(xsmall)">
-							<g:if test="${!hasErrors(field: 'nickname','error')}">
+							<g:if test="${!hasErrors(field: 'nicknameEstablishment','error')}">
 								<div class="12u$">
-									<g:textField id="managerNickname" name="managerNickname"  placeholder="Nombre de usuario del gerente"></g:textField>
+									<g:textField id="nicknameEstablishment" name="nicknameEstablishment"  placeholder="Nombre de usuario del gerente"></g:textField>
 								</div>
 							</g:if>
 							<g:else>
 								<div class="12u$">
-									<g:textField id="managerNickname" name="managerNickname"  placeholder="Nombre de usuario del gerente"></g:textField>
+									<g:textField id="nicknameEstablishment" name="nicknameEstablishment"  placeholder="Nombre de usuario del gerente"></g:textField>
 								</div>
 							</g:else>
 						</div>
@@ -115,7 +103,6 @@
 								</div>
 							</g:else>
 						</div>
-						<p>${params.managerNickname} </p>
 					</div>
 				</div>
 			</div>

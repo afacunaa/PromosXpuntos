@@ -1,5 +1,6 @@
 package promosxpuntosapp
 
+import org.apache.commons.lang.RandomStringUtils
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -24,6 +25,14 @@ class VisitController {
 
     @Transactional
     def save(Visit visitInstance) {
+
+        def qrCode = params.qrCode.split("|")
+
+        Establishment establishment = Establishment.findByName(qrCode[0])
+
+        visitInstance.estabishment = establishment
+        visitInstance.estabishment.id =Establishment.findById(establishment.id)
+
         if (visitInstance == null) {
             notFound()
             return
@@ -33,9 +42,6 @@ class VisitController {
             respond visitInstance.errors, view: '/faces/QRScanner'
             return
         }
-
-
-        visitInstance.dateVisit =
 
 
         visitInstance.save flush: true
@@ -104,4 +110,17 @@ class VisitController {
             '*' { render status: NOT_FOUND }
         }
     }
+
+    def randomString(){
+        def establishment = Establishment.findByName((String) params.establishment)
+
+        String randomString = establishment
+        randomString += "|"
+        RandomStringUtils randomCreator =  new RandomStringUtils()
+        randomString += randomCreator.random( 10, 'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+
+        return randomString
+    }
+
+
 }

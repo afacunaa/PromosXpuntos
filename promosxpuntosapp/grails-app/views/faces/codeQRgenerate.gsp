@@ -28,21 +28,20 @@
 <nav id="nav">
     <ul class="links">
         <li><a href="/faces/profileEstablishment">Volver al establecimiento</a></li>
-        <li><a href="">recargar la pagina</a></li>
+        <li><a href="/profileCustomer/codeQRgenerate">recargar la pagina</a></li>
     </ul>
 </nav>
 
 <!-- Main -->
 <section id="main" class="wrapper">
     <div class="container">
-        <g:set var="qrCode" value="${createLink(controller:'ShopRecord', action:'randomString', params: [establishment:session.establishment.name])}" />
+        <g:set var="qrCode" value="${createLink(controller:'Visit', action:'randomString', params: [establishment:session.establishment.name])}" />
         <header class="major special">
         <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x3000&chl=${qrCode}&chld=H|0" alt="QRCode">
         <h2 class="nonStyletext">
             ${qrCode}
         </h2>
-
-            <g:uploadForm controller="customer" action="logOut" method="post">
+            <g:uploadForm controller="establishment" action="logOut" method="post">
                 <ul class="actions">
                     <g:submitButton name="summit" type="submit" value="Regresar al perfil" class="special" tabindex="-1"></g:submitButton>
                 </ul>
@@ -84,6 +83,7 @@
 REFRESH PAGE AFTER 15 seconds
 <meta http-equiv=refresh content=15>
 -->
+<meta http-equiv=refresh content=15>
 
 </body>
 </html>

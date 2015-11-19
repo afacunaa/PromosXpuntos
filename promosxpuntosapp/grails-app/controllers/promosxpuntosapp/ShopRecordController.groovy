@@ -1,9 +1,5 @@
 package promosxpuntosapp
 
-import org.apache.commons.lang.RandomStringUtils
-
-import java.text.Format
-import java.text.SimpleDateFormat
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional

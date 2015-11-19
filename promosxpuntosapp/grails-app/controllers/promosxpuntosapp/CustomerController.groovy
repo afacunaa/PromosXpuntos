@@ -28,21 +28,41 @@ class CustomerController {
     }
 
     def logIn(){
-        def cliente = Customer.findByNickname(params.nickname)
-        if (cliente){
-            if (cliente.password==params.password){
-                session.user=cliente
-                redirect controller: "profileCustomer"
-                return
+        if (Establishment.findByNicknameEstablishment(params.nickname)!=null){
+            def establishment = Establishment.findByNicknameEstablishment(params.nickname)
+            if (establishment){
+                if (establishment.password==params.password){
+                    session.establishment=establishment
+                    redirect controller: "profileEstablishment"
+                    return
+                }else{
+                    redirect controller: "customersIndex", fragment: "ingreso"
+                    flash.message = "Contraseña incorrecta"
+                    return
+                }
             }else{
                 redirect controller: "customersIndex", fragment: "ingreso"
-                flash.message = "Contraseña incorrecta"
+                flash.message = "Nombre de Usuario incorrecto"
                 return
             }
-        }else{
-            redirect controller: "customersIndex", fragment: "ingreso"
-            flash.message = "Nombre de Usuario incorrecto"
-            return
+        }
+        else {
+            def cliente = Customer.findByNickname(params.nickname)
+            if (cliente){
+                if (cliente.password==params.password){
+                    session.user=cliente
+                    redirect controller: "profileCustomer"
+                    return
+                }else{
+                    redirect controller: "customersIndex", fragment: "ingreso"
+                    flash.message = "Contraseña incorrecta"
+                    return
+                }
+            }else{
+                redirect controller: "customersIndex", fragment: "ingreso"
+                flash.message = "Nombre de Usuario incorrecto"
+                return
+            }
         }
     }
 

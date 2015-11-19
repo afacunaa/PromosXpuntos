@@ -42,8 +42,14 @@
             <g:uploadForm controller="visit" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
                 <div class="row" align="center">
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-1" style="text-align: center">
-                            <g:textField id="qrCode" class="form-control" name="qrCode"></g:textField>
+                            <g:textField id="qrCode" class="form-control" name="qrCode" hidden=""></g:textField>
                         </div>
+                </div>
+                <select id="standardUser" name="user.id" required="" class="many-to-one" >
+                    <option value="${session.user?.id}" hidden="">${session.user?.name}</option>
+                </select>
+                <div class="6u 12u$(xsmall)">
+                    <g:textField id="dateVisit" value="${new Date()}" name="dateVisit" hidden=""></g:textField>
                 </div>
                 <g:submitButton id="submit" name="summit" type="submit" value="Enviar" class="btn btn-lg btn-success btn-block" tabindex="-1" disabled=""></g:submitButton>
             </g:uploadForm>

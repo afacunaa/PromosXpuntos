@@ -15,7 +15,7 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="">Promos x Puntos</a></h1>
     <a>${session.user.nickname}</a>
     <a href="#nav">Menu</a>
 </header>
@@ -35,14 +35,6 @@
 
         <header class="major special">
             <h2>Bienvenido</h2>
-            <figure>
-                <g:if test="${session.user.logo != null}">
-                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'Customer', action:'displayPicture', params: [nickname:session.user.nickname])}" />
-                </g:if>
-                <g:else>
-                    <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
-                </g:else>
-            </figure>
             <p> ${session.user.name}</p>
             <g:uploadForm controller="customer" action="logOut" method="post">
                 <ul class="actions">
@@ -53,15 +45,17 @@
             </g:uploadForm>
         </header>
 
+
         <h2>Datos de Usuario</h2>
+        <span class="image right">
+            <img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.user.nickname])}" width="150px" height="200px" class="rigth">
+        </span>
         <div class="table-wrapper">
             <table>
                 <tr><th> NIT:</th> <th>${session.user.identification}</th></tr>
                 <tr><th> Nombres:</th> <th>${session.user.name}</th></tr>
-                <tr><th> Numero de Contrato:</th> <th>${session.user.contractNumber}</th></tr>
                 <tr><th> Correo electrónico:</th> <th>${session.user.email}</th></tr>
                 <tr><th> Nombre de usuario de cliente:</th> <th>${session.user.nickname}</th></tr>
-                <tr><th> Descripción:</th> <th>${session.user.description}</th></tr>
             </table>
         </div>
     </div>
