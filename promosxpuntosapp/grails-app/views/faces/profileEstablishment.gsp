@@ -41,8 +41,9 @@
                 <ul class="actions">
                     <a class="button special" href="/promosxpuntosapp/createdReward">Crear Recompensa</a>
                     <a class="button special" href="/promosxpuntosapp/profileCustomer/codeQRgenerate">Generar QR</a>
-                    <a class="button special" href="#">Validar Compra</a>
+                    <a class="button special" href="/promosxpuntosapp/profileEstablishment/validateShopRecord">Validar Compra</a>
                     <g:submitButton name="summit" type="submit" value="Cerrar Sesión" class="special" tabindex="-1"></g:submitButton>
+
                 </ul>
             </g:uploadForm>
         </header>

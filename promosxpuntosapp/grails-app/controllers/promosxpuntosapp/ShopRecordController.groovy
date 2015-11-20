@@ -22,6 +22,21 @@ class ShopRecordController {
         respond new ShopRecord(params)
     }
 
+    def validacion(){
+        def shop = ShopRecord.findByConsecutive(params.consecutive)
+        if (shop){
+            def usuario = StandardUser.findById(ShopRecord.findByConsecutive(params.consecutive).standardUserId)
+            session.foundU = usuario
+            session.foundS = shop
+            //shop.delete flush: true
+            redirect controller: "profileEstablishment", action: "validateShopRecord"
+        }else{
+            session.foundU = null
+            session.foundS = null
+            redirect controller: "profileEstablishment", action: "validateShopRecord"
+        }
+    }
+
     @Transactional
     def save(ShopRecord shopRecordInstance) {
         if (shopRecordInstance == null) {
@@ -81,7 +96,6 @@ class ShopRecordController {
         }
 
         shopRecordInstance.delete flush: true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'ShopRecord.label', default: 'ShopRecord'), shopRecordInstance.id])
