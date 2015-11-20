@@ -23,9 +23,12 @@
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="index.html">Principal</a></li>
-        <li><a href="section.html">Seccion 1</a></li>
-        <li><a href="section.html">Seccion 2</a></li>
+        <li><a href="${createLink(controller:'StandardUser', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
+        <li><a href="/promosxpuntosapp/profile/editStandardUser">Editar Perfil</a></li>
+        <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar Visita</a></li>
+        <li><a href="#">Ver Historial</a></li>
+        <li><a href="/promosxpuntosapp/customerList">Catalogo de Clientes</a></li>
+        <li><a href="#">Redimir Puntos</a></li>
     </ul>
 </nav>
 
@@ -35,28 +38,35 @@
 
         <header class="major special">
             <h2>Bienvenido</h2>
-            <figure>
-                <g:if test="${session.user.picture != null}">
-                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'StandardUser', action:'displayPicture', params: [nickname:session.user.nickname])}" />
-                </g:if>
-                <g:else>
-                    <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
-                </g:else>
-            </figure>
-            <p>  ${session.user.name} ${session.user.lastname} </p>
-            <p> Correo electrónico: ${session.user.email} </p>
-            <p> Fecha de nacimiento: ${session.user.birthday.format('d MMMM, yyyy')} </p>
-            <p> Genero: ${session.user.gender} </p>
-            <p> Teléfono: ${session.user.telephone} </p>
-
-    <g:uploadForm controller="standardUser" action="logOut" method="post">
-        <ul class="actions">
-            <g:submitButton name="summit" type="submit" value="Salir" class="special" tabindex="-1"></g:submitButton>
-            <a href="/promosxpuntosapp/profile/editStandardUser" class="button special">Editar datos</a>
-            <a href="/promosxpuntosapp/profile/QRScanner" class="button special">Marcar una visita</a>
-        </ul>
-    </g:uploadForm>
+            <p>${session.user.name} ${session.user.lastname}</p>
+            <g:uploadForm controller="standardUser" action="logOut" method="post">
+                <ul class="actions">
+                    <a href="/promosxpuntosapp/profile/QRScanner" class="button special">Registrar Visita</a>
+                    <a href="/promosxpuntosapp/customerList" class="button special">Catalogo de Clientes</a>
+                    <a href="#" class="button special">Redimir Puntos</a>
+                    <g:submitButton name="summit" type="submit" value="Cerrar Sesión" class="default" tabindex="-1"></g:submitButton>
+                </ul>
+            </g:uploadForm>
         </header>
+
+        <h2>Datos de Usuario</h2>
+        <span class="image right">
+            <img src="${createLink(controller:'StandardUser', action:'displayPicture', params: [nickname:session.user.nickname])}" width="150px" height="200px" class="rigth">
+        </span>
+        <div class="table-wrapper">
+            <table>
+                <tr><th> Nombres:</th> <th>${session.user.name}</th></tr>
+                <tr><th> Apellidos:</th> <th>${session.user.lastname}</th></tr>
+                <tr><th> Correo electrónico:</th> <th>${session.user.email}</th></tr>
+                <tr><th> Fecha de nacimiento:</th> <th>${session.user.birthday.format('d MMMM, yyyy')}</th></tr>
+                <tr><th> Genero:</th> <th>${session.user.gender}</th></tr>
+                <tr><th> Teléfono:</th> <th>${session.user.telephone}</th></tr>
+            </table>
+        </div>
+        <ul class="actions">
+            <a href="/promosxpuntosapp/profile/editStandardUser" class="button special">Editar Perfil</a>
+            <a href="#" class="button special">Ver Historial</a>
+        </ul>
     </div>
 </section>
 

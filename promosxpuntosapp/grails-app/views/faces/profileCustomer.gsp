@@ -15,7 +15,7 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="">Promos x Puntos</a></h1>
     <a>${session.user.nickname}</a>
     <a href="#nav">Menu</a>
 </header>
@@ -23,9 +23,9 @@
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="index.html">Principal</a></li>
-        <li><a href="section.html">Seccion 1</a></li>
-        <li><a href="section.html">Seccion 2</a></li>
+        <li><a href="${createLink(controller:'customer', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
+        <li><a href="/promosxpuntosapp/profileCustomer/createEstablishment">Crear establecimiento</a></li>
+        <li><a href="#">Listar establecimientos</a></li>
     </ul>
 </nav>
 
@@ -36,14 +36,28 @@
         <header class="major special">
             <h2>Bienvenido</h2>
             <p> ${session.user.name}</p>
-            <p> Correo electrónico: ${session.user.email} </p>
-
             <g:uploadForm controller="customer" action="logOut" method="post">
                 <ul class="actions">
-                    <g:submitButton name="summit" type="submit" value="Salir" class="special" tabindex="-1"></g:submitButton>
+                    <a href="/promosxpuntosapp/profileCustomer/createEstablishment" class="button special">Crear establecimiento</a>
+                    <a href="#" class="button special">Listar establecimientos</a>
+                    <g:submitButton name="summit" type="submit" value="Cerrar Sesión" class="special" tabindex="-1"></g:submitButton>
                 </ul>
             </g:uploadForm>
         </header>
+
+
+        <h2>Datos de Usuario</h2>
+        <span class="image right">
+            <img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.user.nickname])}" width="150px" height="200px" class="rigth">
+        </span>
+        <div class="table-wrapper">
+            <table>
+                <tr><th> NIT:</th> <th>${session.user.identification}</th></tr>
+                <tr><th> Nombres:</th> <th>${session.user.name}</th></tr>
+                <tr><th> Correo electrónico:</th> <th>${session.user.email}</th></tr>
+                <tr><th> Nombre de usuario de cliente:</th> <th>${session.user.nickname}</th></tr>
+            </table>
+        </div>
     </div>
 </section>
 

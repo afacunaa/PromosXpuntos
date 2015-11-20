@@ -1,11 +1,7 @@
 package promosxpuntosapp
 
-import org.apache.commons.lang.RandomStringUtils
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
-import java.util.Random
-import java.lang.Object
 
 @Transactional(readOnly = true)
 class RewardController {
@@ -31,51 +27,6 @@ class RewardController {
             notFound()
             return
         }
-"""
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-mm-yyyy")
-        Date creationDate = null
-        Date dueDate = null
-        try {
-            creationDate =  simpleDateFormat.parse(params.creationDateReward)
-            dueDate = simpleDateFormat.parse(params.dueDateReward)
-        } catch (ParseException e) {
-            e.printStackTra                                 ce();
-        }
-
-
-        def creation = params.creationDateReward
-        def due = params.dueDateReward
-
-        print creation
-        print due
-
-        def creationArr = creation.split('-')
-        def dueArr = due.split('-')
-
-        //creationArr[2] = Integer.parseInt(creationArr[2]) - 1900
-        //dueArr[2] = Integer.parseInt(dueArr[2]) - 1900
-
-        print creationArr[2]
-        print creationArr[1]
-        print creationArr[0]
-
-
-        //rewardInstance.creationDateReward = new Date( year: Integer.parseInt(creationArr[2]), month:Integer.parseInt(creationArr[1]), date: Integer.parseInt(creationArr[0]) )
-        //rewardInstance.dueDateReward = new Date(year: Integer.parseInt(dueArr[2]), month:  Integer.parseInt(dueArr[1]), date:  Integer.parseInt(dueArr[0]))
-
-        //rewardInstance.creationDateReward = new GregorianCalendar(Integer.parseInt(creationArr[2]), Integer.parseInt(creationArr[1]), Integer.parseInt(creationArr[0]))
-
-
-        rewardInstance.dueDateReward = new GregorianCalendar(Integer.parseInt(creationArr[2]),Integer.parseInt(creationArr[1]), Integer.parseInt(creationArr[0]),0,0)
-
-        rewardInstance.creationDateReward = new GregorianCalendar().setTime(new Date())
-        // .set(Integer.parseInt(creationArr[2]),Integer.parseInt(creationArr[1]), Integer.parseInt(creationArr[0]))
-
-        print rewardInstance.dueDateReward
-
-        print new Date().year
-
-"""
         if (rewardInstance.hasErrors()) {
             respond rewardInstance.errors, view: "/faces/createdReward"
             return

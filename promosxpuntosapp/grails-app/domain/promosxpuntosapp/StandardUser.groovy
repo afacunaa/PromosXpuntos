@@ -8,7 +8,8 @@ class StandardUser extends User{
     def points = [:]
 
     static hasMany = [
-            shopRecords : ShopRecord
+            shopRecords : ShopRecord,
+            rewards : Reward
     ]
 
     static constraints = {

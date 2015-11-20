@@ -1,9 +1,5 @@
 package promosxpuntosapp
 
-import org.apache.commons.lang.RandomStringUtils
-
-import java.text.Format
-import java.text.SimpleDateFormat
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -24,6 +20,21 @@ class ShopRecordController {
 
     def create() {
         respond new ShopRecord(params)
+    }
+
+    def validacion(){
+        def shop = ShopRecord.findByConsecutive(params.consecutive)
+        if (shop){
+            def usuario = StandardUser.findById(ShopRecord.findByConsecutive(params.consecutive).standardUserId)
+            session.foundU = usuario
+            session.foundS = shop
+            //shop.delete flush: true
+            redirect controller: "profileEstablishment", action: "validateShopRecord"
+        }else{
+            session.foundU = null
+            session.foundS = null
+            redirect controller: "profileEstablishment", action: "validateShopRecord"
+        }
     }
 
     @Transactional
@@ -85,7 +96,6 @@ class ShopRecordController {
         }
 
         shopRecordInstance.delete flush: true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'ShopRecord.label', default: 'ShopRecord'), shopRecordInstance.id])
@@ -103,22 +113,5 @@ class ShopRecordController {
             }
             '*' { render status: NOT_FOUND }
         }
-    }
-
-    def randomString(){
-        RandomStringUtils randomCreator =  new RandomStringUtils()
-        String randomString = randomCreator.random( 5,  'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
-
-        randomString += "-"
-
-
-        Format formatter = new SimpleDateFormat("dd-mm-yyyy-HH");
-        String s = formatter.format(new Date());
-
-        randomString += s
-        //10.times {
-//            randomString += "([a-zA-Z0-9])".charAt(Random.nextInt(Integer.parseInt(/([a-zA-Z0-9])/.size()+1)))
-        //}
-        return randomString
     }
 }

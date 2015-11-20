@@ -5,7 +5,7 @@ class ShopRecord {
     String consecutive
 
     static belongsTo = [
-            user : StandardUser,
+            standardUser : StandardUser,
             establishment : Establishment
     ]
 

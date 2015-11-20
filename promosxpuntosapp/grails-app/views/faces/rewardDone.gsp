@@ -37,7 +37,7 @@
         <header class="major special">
             <figure>
                 <g:if test="${session.reward.picture != null}">
-                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'reward', action:'displayPicture', params: [rewardName:session.reward.rewardName])}" />
+                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'reward', action:'displayPicture', params: [rewardName:session.reward.rewardName])}" width="500px"/>
                 </g:if>
                 <g:else>
                     <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>

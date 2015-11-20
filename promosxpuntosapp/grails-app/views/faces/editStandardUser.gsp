@@ -23,9 +23,12 @@
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="index.html">Principal</a></li>
-        <li><a href="section.html">Seccion 1</a></li>
-        <li><a href="section.html">Seccion 2</a></li>
+        <li><a href="${createLink(controller:'StandardUser', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
+        <li><a href="/promosxpuntosapp/profile/editStandardUser">Editar Perfil</a></li>
+        <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar Visita</a></li>
+        <li><a href="#">Ver Historial</a></li>
+        <li><a href="/promosxpuntosapp/customerList">Catalogo de Clientes</a></li>
+        <li><a href="#">Redimir Puntos</a></li>
     </ul>
 </nav>
 
@@ -105,18 +108,18 @@
                             <g:datePicker years="${1915..2015}" name="birthday" id="birthday" precision="day" class="form-control" value="${session.user.birthday}"  noSelection="['':'Selecciona']"/>
                         </div>
                     </g:if>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-2  list-group-item img-rounded">
-                            <legend>Imagen de Perfil</legend>
-                            <input type="file" name="picture"/>
-                            <div style="font-size:0.8em; margin: 1.0em;">
-                                <p>Tu imagen es opcional, pero es más fácil identificarte con ella!.</p>
-                            </div>
-                        </div>
+                    <div class="12u$">
+                        <label>Imagen de Usuario</label>
+                    </div>
+                    <div class="12u$">
+                        <input type="file" name="picture"/>
+                        <p>Tu imagen es opcional, pero es más fácil identificarte con ella!.</p>
                     </div>
                 </div>
             </div>
-            <g:submitButton name="summit" type="submit" value="Actualizar" class="special" tabindex="-1"></g:submitButton>
+            <ul class="actions">
+                <g:submitButton name="summit" type="submit" value="Actualizar" class="special" tabindex="-1"></g:submitButton>
+            </ul>
         </g:uploadForm>
 
     </div>

@@ -15,65 +15,31 @@
 
 <!-- Header -->
 <header id="header" class="alt">
-    <h1><a href="">Promos x Puntos</a></h1>
+    <h1><a href="index">Promos x Puntos</a></h1>
     <a href="#nav">Menu</a>
 </header>
 
 <!-- Nav -->
 <nav name="nav" id="nav">
     <ul class="links">
-        <li><a href="customersIndex">Principal</a></li>
-        <li><a href="customers-module/">Empresas</a></li>
-        <li><a href="#subscribe">Registrar empresa</a></li>
-        <li><a href="../promosxpuntosapp">Para usuarios</a></li>
+        <li><a href="index">Principal</a></li>
+        <li><a href="#login">Iniciar sesion</a></li>
+        <li><a href="#subscribe">Registrar Empresa</a></li>
+        <li><a href="../promosxpuntosapp">Para Usuarios</a></li>
     </ul>
 </nav>
 
 
-
-<!-- Banner -->
-<section id="banner" class="style3">
-    <img src="images/logotipo.png" alt="promosxpuntos"/>
+<section id="banner2">
+    <asset:image src="logotipo.png"/>
     <p>PromosXPuntos - Para que te diviertas ganando</p>
     <ul class="actions">
-        <li><a href="#subscribir" class="button big special">Registra tu empresa</a></li>
-        <li><a href="#ingreso" class="button big special">Ingresa como empresa</a></li>
+        <li><a href="#subscribe" class="button big special">Registra tu empresa</a></li>
+        <li><a href="#login" class="button big special">Ingresa como empresa</a></li>
     </ul>
 </section>
 
-<!-- One -->
-<section id="one" class="wrapper style1">
-    <div class="inner">
-        <article class="feature left">
-            <span class="image"><img src="images/pic01.jpg" alt="" width="500px"/></span>
-            <div class="content">
-                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
-                <ul class="actions">
-                    <li>
-                        <a href="#" class="button alt">Ipsum</a>
-                    </li>
-                </ul>
-            </div>
-        </article>
-        <article class="feature right">
-            <span class="image"><img src="images/pic02.jpg" alt="" width="500px"/></span>
-            <div class="content">
-                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
-                <ul class="actions">
-                    <li>
-                        <a href="#" class="button alt">Lorem</a>
-                    </li>
-                </ul>
-            </div>
-        </article>
-    </div>
-</section>
-
-
-<!-- Two -->
-<section id="ingreso" class="wrapper style4 special">
+<section id="login" class="wrapper style4 special">
     <div class="inner">
         <header class="major narrow">
             <h2>Ingresa</h2>
@@ -88,23 +54,23 @@
                     <div class="6u 12u$(xsmall)">
                         <g:if test="${!hasErrors(field: 'nickname','error')}">
                             <div class="12u$">
-                                <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
+                                <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario de cliente"></g:textField>
                             </div>
                         </g:if>
                         <g:else>
                             <div class="12u$">
-                                <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario"></g:textField>
+                                <g:textField id="nickname" name="nickname"  placeholder="Nombre de usuario de cliente"></g:textField>
                             </div>
                         </g:else>
                     </div>
                     <div class="6u$ 12u$(xsmall)">
                         <g:if test="${!hasErrors(field: 'password','error')}">
-                            <div class="6u 12u$">
+                            <div class="12u$">
                                 <g:passwordField id="password" name="password" placeholder="Contraseña"></g:passwordField>
                             </div>
                         </g:if>
                         <g:else>
-                            <div class="6u 12u$">
+                            <div class="12u$">
                                 <g:passwordField id="password" name="password" placeholder="Contraseña"></g:passwordField>
                             </div>
                         </g:else>
@@ -118,20 +84,36 @@
     </div>
 </section>
 
-<!-- Three -->
-<section id="three" class="wrapper style3 special">
+
+<section id="descriptions" class="wrapper style1">
     <div class="inner">
-        <header class="major narrow	">
-            <h2>Manten a tus clientes cerca y tus ingresos en aumento.</h2>
-            <p>Con Promos X Puntos tendrás a la mano una herramienta de fidelización y marketing para tu compañia.</p>
-        </header>
-        <ul class="actions">
-            <li><a href="customersIndex" class="button big alt">PromosXPuntos para Empresas</a></li>
-        </ul>
+        <article class="feature left">
+            <span class="image"><asset:image src="fid01.jpg" width="500px"/></span>
+            <div class="content">
+                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
+                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
+                <ul class="actions">
+                    <li>
+                        <a href="#" class="button alt">Ipsum</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="feature right">
+            <span class="image"><asset:image src="fid02.jpg" width="500px"/></span>
+            <div class="content">
+                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
+                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
+                <ul class="actions">
+                    <li>
+                        <a href="#" class="button alt">Lorem</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
     </div>
 </section>
 
-<!-- Four -->
 <section id="subscribe" class="wrapper style4 special">
     <div class="inner">
         <header class="major narrow">
@@ -144,24 +126,24 @@
             <div class="container 75%">
                 <div class="row uniform 50%">
                     <div class="12u$">
-                        <h1>Datos del encargado de la empresa</h1>
+                        <h1>Datos de la empresa</h1>
                     </div>
                     <g:if test="${!hasErrors(field: 'name','error')}">
                         <div class="6u 12u$(xsmall)">
-                            <g:textField id="name" name="name" required="" placeholder="Nombres"></g:textField>
+                            <g:textField id="name" name="name" required="" placeholder="Nombre del cliente"></g:textField>
                         </div>
                     </g:if>
                     <g:else>
-                        <g:textField id="name" name="name" required="" placeholder="Nombres"></g:textField>
+                        <g:textField id="name" name="name" required="" placeholder="Nombre del cliente"></g:textField>
                         <label class="control-label list-group-item-danger img-rounded">Nombre malo</label>
                     </g:else>
                     <g:if test="${!hasErrors(field: 'identification','error')}">
                         <div class="6u 12u$(xsmall)">
-                            <g:textField id="identification" name="identification" required="" placeholder="Identificación"></g:textField>
+                            <g:textField id="identification" name="identification" required="" placeholder="NIT"></g:textField>
                         </div>
                     </g:if>
                     <g:else>
-                        <g:textField id="identification" name="identification" required="" placeholder="Identificación"></g:textField>
+                        <g:textField id="identification" name="identification" required="" placeholder="NIT"></g:textField>
                         <label class="control-label list-group-item-danger img-rounded">Identificación Incorrecta</label>
                     </g:else>
                     <g:if test="${!hasErrors(field: 'email','error')}">
@@ -175,11 +157,11 @@
                     </g:else>
                     <g:if test="${!hasErrors(field: 'nickname','error')}">
                         <div class="12u$">
-                            <g:textField id="nickname" name="nickname" required="" placeholder="Nombre de usuario"></g:textField>
+                            <g:textField id="nickname" name="nickname" required="" placeholder="Nombre de usuario de cliente"></g:textField>
                         </div>
                     </g:if>
                     <g:else>
-                        <g:textField id="nickname" name="nickname" required="" placeholder="Nombre de usuario"></g:textField>
+                        <g:textField id="nickname" name="nickname" required="" placeholder="Nombre de usuario de cliente"></g:textField>
                         <label class="control-label list-group-item-danger img-rounded">Nombre de usuario malo</label>
                     </g:else>
                     <g:if test="${!hasErrors(field: 'password','error')}">
@@ -194,68 +176,19 @@
                     <div class="6u$ 12u$(xsmall)">
                         <input name="repeatpass" placeholder="Repita la contraseña" type="password" />
                     </div>
-
-                    <g:if test="${!hasErrors(field: 'contractNumber','error')}">
-                        <div class="12u$">
-                            <g:textField id="contractNumber" name="contractNumber" required="" placeholder="Número de contrato (?)"></g:textField>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <g:textField id="contractNumber" name="contractNumber" required="" placeholder="Número de contrato"></g:textField>
-                        <label class="control-label list-group-item-danger img-rounded">Telefono malo</label>
-                    </g:else>
-                    <g:if test="${!hasErrors(field: 'description','error')}">
-                        <div class="12u$">
-                            <g:textField id="description" name="description" required="" placeholder="Descripción"></g:textField>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <g:textField id="description" name="description" required="" placeholder="Descripción"></g:textField>
-                        <label class="control-label list-group-item-danger img-rounded">Telefono malo</label>
-                    </g:else>
                     <div class="12u$">
-                        <h1>Datos de la empresa</h1>
+                        <label>Logo del Cliente</label>
+                    </div>
+                    <div class="12u$">
+                        <input type="file" name="logo"/>
+                        <p>Tu logo es opcional, pero es más fácil identificarte con este!.</p>
                     </div>
                 </div>
             </div>
-            <g:submitButton name="summit" type="submit" value="Registrarse" class="special" tabindex="-1"></g:submitButton>
+            <ul class="actions">
+                <g:submitButton name="summit" type="submit" value="Registrarse" class="special" tabindex="-1"></g:submitButton>
+            </ul>
         </g:uploadForm>
-    <!--
-        <g:uploadForm controller="Establishment" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
-            <div class="container 75%">
-                <div class="row uniform 50%">
-                    <g:if test="${!hasErrors(field: 'name','error')}">
-                        <div class="6u 12u$(xsmall)">
-                            <g:textField id="name" name="name" required="" placeholder="Nombre"></g:textField>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <g:textField id="name" name="name" required="" placeholder="Nombre"></g:textField>
-                        <label class="control-label list-group-item-danger img-rounded">Nombre malo</label>
-                    </g:else>
-                    <g:if test="${!hasErrors(field: 'telephoneNumber','error')}">
-                        <div class="6u 12u$(xsmall)">
-                            <g:textField id="telephoneNumber" name="telephoneNumber" required="" placeholder="Telefono"></g:textField>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <g:textField id="telephoneNumber" name="telephoneNumber" required="" placeholder="Telefono"></g:textField>
-                        <label class="control-label list-group-item-danger img-rounded">Nombre malo</label>
-                    </g:else>
-                    <g:if test="${!hasErrors(field: 'address','error')}">
-                        <div class="12u$">
-                            <g:textField id="address" name="address" required="" placeholder="Dirección"></g:textField>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <g:textField id="address" name="address" required="" placeholder="Nombre"></g:textField>
-                        <label class="control-label list-group-item-danger img-rounded">Nombre malo</label>
-                    </g:else>
-
-                </div>
-            </div>
-        </g:uploadForm>
-    -->
     </div>
 </section>
 

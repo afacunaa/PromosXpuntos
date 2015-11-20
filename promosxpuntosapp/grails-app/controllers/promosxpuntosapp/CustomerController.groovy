@@ -18,26 +18,52 @@ class CustomerController {
         respond customerInstance
     }
 
+    def establecimientos = {
+        def custom = Customer.findByNickname((String) params.nickname)
+        session.customer = custom
+        redirect controller: "establishmentList"
+    }
+
     def create() {
         respond new Customer(params)
     }
 
     def logIn(){
-        def cliente = Customer.findByNickname(params.nickname)
-        if (cliente){
-            if (cliente.password==params.password){
-                session.user=cliente
-                redirect controller: "profileCustomer"
-                return
+        if (Establishment.findByNicknameEstablishment(params.nickname)!=null){
+            def establishment = Establishment.findByNicknameEstablishment(params.nickname)
+            if (establishment){
+                if (establishment.password==params.password){
+                    session.establishment=establishment
+                    redirect controller: "profileEstablishment"
+                    return
+                }else{
+                    redirect controller: "customersIndex", fragment: "ingreso"
+                    flash.message = "Contraseña incorrecta"
+                    return
+                }
             }else{
                 redirect controller: "customersIndex", fragment: "ingreso"
-                flash.message = "Contraseña incorrecta"
+                flash.message = "Nombre de Usuario incorrecto"
                 return
             }
-        }else{
-            redirect controller: "customersIndex", fragment: "ingreso"
-            flash.message = "Nombre de Usuario incorrecto"
-            return
+        }
+        else {
+            def cliente = Customer.findByNickname(params.nickname)
+            if (cliente){
+                if (cliente.password==params.password){
+                    session.user=cliente
+                    redirect controller: "profileCustomer"
+                    return
+                }else{
+                    redirect controller: "customersIndex", fragment: "ingreso"
+                    flash.message = "Contraseña incorrecta"
+                    return
+                }
+            }else{
+                redirect controller: "customersIndex", fragment: "ingreso"
+                flash.message = "Nombre de Usuario incorrecto"
+                return
+            }
         }
     }
 
@@ -53,7 +79,7 @@ class CustomerController {
             return
         }
         if (customerInstance.hasErrors()) {
-            redirect controller: "customersIndex", fragment: "subscribir"
+            respond customerInstance.errors, view: "/faces/customersIndex", fragment: "subscribe"
             return
         }
         customerInstance.save flush: true
@@ -69,6 +95,20 @@ class CustomerController {
 
     def edit(Customer customerInstance) {
         respond customerInstance
+    }
+
+    def displayPicture = {
+        def customerPicture = Customer.findByNickname((String) params.nickname)
+        if (!customerPicture || !customerPicture.logo) {
+            response.sendError(404)
+            return
+        }
+        response.contentType = customerPicture.logo
+        response.contentLength = customerPicture.logo.size()
+        OutputStream out = response.outputStream
+        out.write(customerPicture.logo)
+        out.write(customerPicture.logo)
+        out.close()
     }
 
     @Transactional

@@ -10,6 +10,8 @@ class Reward{
     int point
     int available
 
+    static belongsTo = [establishment:Establishment]
+
     static constraints = {
         rewardName(blank: false,unique: true,minSize: 5,maxSize: 30)
         description(blank: false, unique: true, minSize: 20)

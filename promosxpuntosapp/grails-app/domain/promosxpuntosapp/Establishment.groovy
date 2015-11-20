@@ -4,9 +4,13 @@ class Establishment {
     String name
     String address
     String telephoneNumber
+    String password
+    String nicknameEstablishment
 
     static hasMany = [
-            shopRecords : ShopRecord
+            shopRecords : ShopRecord,
+            rewards: Reward,
+            visits: Visit
     ]
 
     static belongsTo = [
