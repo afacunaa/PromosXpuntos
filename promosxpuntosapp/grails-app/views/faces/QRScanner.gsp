@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html class=" mz-js mz-no-flexbox mz-canvas mz-canvastext mz-no-webgl mz-no-touch mz-geolocation mz-postmessage mz-websqldatabase mz-indexeddb mz-hashchange mz-history mz-draganddrop mz-websockets mz-rgba mz-hsla mz-multiplebgs mz-backgroundsize mz-borderimage mz-borderradius mz-boxshadow mz-textshadow mz-opacity mz-cssanimations mz-csscolumns mz-cssgradients mz-cssreflections mz-csstransforms mz-csstransforms3d mz-csstransitions mz-fontface mz-generatedcontent mz-video mz-audio mz-localstorage mz-sessionstorage mz-webworkers mz-applicationcache mz-svg mz-inlinesvg mz-smil mz-svgclippaths mz-no-bgrepeatround mz-no-bgrepeatspace mz-getusermedia mz-no-pagedcontent mz-fullscreen mz-pagevisibility"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<head>
-    <title>Promos x Puntos - Leer codigo QR</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=480, user-scalable=no">
-    <asset:stylesheet src="template.css"/>
+    <head>
+        <title>Promos x Puntos - Leer codigo QR</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=480, user-scalable=no">
+        <asset:stylesheet src="template.css"/>
 
 
-</head>
+    </head>
 <body>
 <!-- Header -->
 <header id="header">
@@ -31,27 +31,36 @@
 <section id="main" class="wrapper">
     <div class="container" id="container">
         <header class="major special">
-            <h3>Acerca tu dispositivo al codigo QR del establecimiento</h3>
-            <h1><asset:image src="logotipo_color.png"/></h1>
+            <h2>Registrar Visita</h2>
+            <p>Acerca tu dispositivo al codigo QR del establecimiento</p>
             <div>
-                <video id="sourcevid">
+                <video id="sourcevid" width="400" height="400">
                     <p>This application requires an HTML5 <code>&lt;video&gt;</code> capable browser…</p>
                 </video>
             </div>
             <div id="out"></div>
             <g:uploadForm controller="visit" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
-                <div class="row" align="center">
-                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-offset-1" style="text-align: center">
-                            <g:textField id="qrCode" class="form-control" name="qrCode" hidden=""></g:textField>
+                <div class="container 75%">
+                    <div class="row uniform 50%">
+                        <div class="12u$">
+                            <g:submitButton id="submit" name="summit" type="submit" value="Enviar" class="special" tabindex="-1" disabled=""></g:submitButton><g:textField id="dateVisit" value="${new Date()}" name="dateVisit" style="display: none"></g:textField>
                         </div>
+                        <div class="12u$">
+                            <g:textField id="qrCode" class="form-control" name="qrCode" style="display: none"></g:textField>
+                        </div>
+                        <div class="12u$">
+                            <select id="standardUser" name="user.id" required="" class="many-to-one" style="display: none">
+                                <option value="${session.user?.id}" hidden="">${session.user?.name}</option>
+                            </select>
+                        </div>
+                        <div class="12u$">
+                            <g:textField id="dateVisit" value="${new Date()}" name="dateVisit" style="display: none"></g:textField>
+                        </div>
+                        <div class="12u$">
+                            <g:textField id="dateVisit" value="${new Date()}" name="dateVisit" style="display: none"></g:textField>
+                        </div>
+                    </div>
                 </div>
-                <select id="standardUser" name="user.id" required="" class="many-to-one" >
-                    <option value="${session.user?.id}" hidden="">${session.user?.name}</option>
-                </select>
-                <div class="6u 12u$(xsmall)">
-                    <g:textField id="dateVisit" value="${new Date()}" name="dateVisit" hidden=""></g:textField>
-                </div>
-                <g:submitButton id="submit" name="summit" type="submit" value="Enviar" class="btn btn-lg btn-success btn-block" tabindex="-1" disabled=""></g:submitButton>
             </g:uploadForm>
         </header>
     </div>

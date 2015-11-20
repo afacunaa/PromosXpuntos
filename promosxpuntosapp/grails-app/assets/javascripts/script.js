@@ -29,7 +29,7 @@ var qry = {
                 document.getElementById('submit').disabled = false;
 			}
 			/* canvas.style.width = video.clientWidth+'px'; // doesn't work with current nesting used */
-			qry.canvas.style.height = qry.video.clientHeight+'px'; 
+			qry.canvas.style.height = qry.video.clientHeight+'px';
 			qry.container.removeChild(qry.video);
 			qry.container.appendChild(qry.canvas);
 		}
