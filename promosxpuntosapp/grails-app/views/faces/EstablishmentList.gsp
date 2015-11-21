@@ -37,12 +37,14 @@
         <header class="major special">
             <h2> ${session.customer.name}</h2>
             <figure>
+                <span class="image fit">
                 <g:if test="${session.customer.logo != null}">
                     <img class="img-responsive img-thumbnail" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" />
                 </g:if>
                 <g:else>
                     <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
                 </g:else>
+                    </span>
             </figure>
         </header>
         <div class="container 75%">
@@ -53,7 +55,7 @@
                             <table>
                                 <tr><th> Nombre:</th> <th>${c?.name}</th></tr>
                                 <tr><th> Direccion:</th> <th>${c?.address}</th></tr>
-                                <tr><th> Numeero telefonico:</th> <th>${c?.telephoneNumber}</th></tr>
+                                <tr><th> Numero telefonico:</th> <th>${c?.telephoneNumber}</th></tr>
                             </table>
                         </div>
                     </div>
