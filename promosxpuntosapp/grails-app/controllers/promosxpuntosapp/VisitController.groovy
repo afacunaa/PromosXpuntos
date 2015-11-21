@@ -26,12 +26,44 @@ class VisitController {
     @Transactional
     def save(Visit visitInstance) {
 
-        def qrCode = params.qrCode.split("|")
+        def qrCode = params.qrCode
 
-        Establishment establishment = Establishment.findByName(qrCode[0])
+        def nicknameEstablishment = qrCode.split("-")
 
-        visitInstance.estabishment = establishment
-        visitInstance.estabishment.id =Establishment.findById(establishment.id)
+        try{
+            visitInstance.establishment = (Establishment?.findByNicknameEstablishment(nicknameEstablishment[0]))
+
+        }catch (NullPointerException e){
+            print "sssssssss"
+        }
+
+        visitInstance.dateVisit = new Date()
+
+        def standardUser = StandardUser?.findById(params."standardUser.id")
+
+        print(standardUser.name)
+
+        print(nicknameEstablishment[0])
+        print(visitInstance.establishment.nicknameEstablishment)
+
+        def customer = Customer?.findById(Establishment?.findByNicknameEstablishment(nicknameEstablishment[0]).customerId)
+
+        print(customer.id)
+
+        print(standardUser.points)
+
+        print(standardUser.points.containsValue(customer.id))
+
+        if (standardUser.points.containsValue(customer.id)) {
+            def actual = Integer.parseInt(standardUser.points[customer.id])
+            print (actual)
+            standardUser.points[customer.id] = actual + 1
+        }
+        else{
+            standardUser.points[customer.id] = 1
+        }
+
+        print(standardUser.points)
 
         if (visitInstance == null) {
             notFound()
@@ -39,17 +71,20 @@ class VisitController {
         }
 
         if (visitInstance.hasErrors()) {
+            print("askjñdfgñajskdgfsadjkfñg")
+            print(visitInstance.errors.fieldError)
             respond visitInstance.errors, view: '/faces/QRScanner'
             return
         }
-
 
         visitInstance.save flush: true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'visit.label', default: 'Visit'), visitInstance.id])
-                redirect visitInstance
+                session.visit=visitInstance
+                redirect controller: "visitDone"
+                standardUser.save()
             }
             '*' { respond visitInstance, [status: CREATED] }
         }
@@ -109,17 +144,6 @@ class VisitController {
             }
             '*' { render status: NOT_FOUND }
         }
-    }
-
-    def randomString(){
-        def establishment = Establishment.findByName((String) params.establishment)
-
-        String randomString = establishment
-        randomString += "|"
-        RandomStringUtils randomCreator =  new RandomStringUtils()
-        randomString += randomCreator.random( 10, 'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
-
-        return randomString
     }
 
 

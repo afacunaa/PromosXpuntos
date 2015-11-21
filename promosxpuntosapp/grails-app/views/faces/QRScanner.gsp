@@ -43,21 +43,15 @@
                 <div class="container 75%">
                     <div class="row uniform 50%">
                         <div class="12u$">
-                            <g:submitButton id="submit" name="summit" type="submit" value="Enviar" class="special" tabindex="-1" disabled=""></g:submitButton><g:textField id="dateVisit" value="${new Date()}" name="dateVisit" style="display: none"></g:textField>
+                            <g:submitButton id="submit" name="summit" type="submit" value="Enviar" class="special" tabindex="-1" disabled=""></g:submitButton>
                         </div>
                         <div class="12u$">
                             <g:textField id="qrCode" class="form-control" name="qrCode" style="display: none"></g:textField>
                         </div>
                         <div class="12u$">
-                            <select id="standardUser" name="user.id" required="" class="many-to-one" style="display: none">
+                            <select id="standardUser" name="standardUser.id" required="" class="many-to-one" style="display: none">
                                 <option value="${session.user?.id}" hidden="">${session.user?.name}</option>
                             </select>
-                        </div>
-                        <div class="12u$">
-                            <g:textField id="dateVisit" value="${new Date()}" name="dateVisit" style="display: none"></g:textField>
-                        </div>
-                        <div class="12u$">
-                            <g:textField id="dateVisit" value="${new Date()}" name="dateVisit" style="display: none"></g:textField>
                         </div>
                     </div>
                 </div>
