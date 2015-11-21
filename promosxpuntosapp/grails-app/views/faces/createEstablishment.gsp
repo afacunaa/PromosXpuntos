@@ -17,7 +17,7 @@
 <!-- Header -->
 <header id="header">
 	<h1><a href="index.html">Promos x Puntos</a></h1>
-	<a>${session.user.nickname}</a>
+	<a>${session.customer.nickname}</a>
 	<a href="#nav">Menu</a>
 </header>
 
@@ -48,7 +48,7 @@
 		<div class="container 75%">
 			<div class="row uniform 50%">
 				<select id="customer" name="customer.id" required="" class="many-to-one" >
-					<option value="${session.user?.id}">${session.user?.name}</option>
+					<option value="${session.customer?.id}">${session.customer?.name}</option>
 				</select>
 				<g:if test="${!hasErrors(field: 'name','error')}">
 					<div class="6u 12u$(xsmall)">

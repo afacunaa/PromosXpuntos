@@ -51,7 +51,7 @@ class CustomerController {
             def cliente = Customer.findByNickname(params.nickname)
             if (cliente){
                 if (cliente.password==params.password){
-                    session.user=cliente
+                    session.customer=cliente
                     redirect controller: "profileCustomer"
                     return
                 }else{
@@ -86,7 +86,7 @@ class CustomerController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])
-                session.user=customerInstance
+                session.customer=customerInstance
                 redirect controller: "profileCustomer"
             }
             '*' { respond customerInstance, [status: CREATED] }

@@ -40,7 +40,7 @@ class EstablishmentController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'establishment.label', default: 'Establishment'), establishmentInstance.id])
-                redirect establishmentInstance
+                redirect controller: "profileCustomer"
             }
             '*' { respond establishmentInstance, [status: CREATED] }
         }
