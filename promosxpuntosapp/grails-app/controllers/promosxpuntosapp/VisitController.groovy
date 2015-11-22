@@ -100,17 +100,17 @@ class VisitController {
         visitInstance.qrCode = qrCode
 
         def standardUser = StandardUser?.findById(params."standardUser.id")
-        def customer = Customer?.findById(Establishment?.findByNicknameEstablishment(nicknameEstablishment[0]).customerId)
+        def customer = Customer?.findById(visitInstance.establishment.customerId)
 
         if (standardUser.points==null){
             standardUser.points = new TreeMap<Integer, Integer>()
         }
-        if (standardUser.points.containsKey(visitInstance.establishmentId)) {
-            def actual = standardUser.points.get(visitInstance.establishmentId)
-            standardUser.points[visitInstance.establishmentId] = actual + 1
+        if (standardUser.points.containsKey(customer.id)) {
+            def actual = standardUser.points.get(customer.id)
+            standardUser.points[customer.id] = actual + 1
         }
         else{
-            standardUser.points[visitInstance.establishmentId] = 1
+            standardUser.points[customer.id] = 1
         }
         visitInstance.standardUser=standardUser
 

@@ -5,7 +5,7 @@
   Time: 07:47 PM
 --%>
 
-<%@ page import="promosxpuntosapp.Visit" contentType="text/html;charset=UTF-8" %>
+<%@ page import="promosxpuntosapp.Customer; promosxpuntosapp.Visit" contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE HTML>
 <!--
 	Retrospect by TEMPLATED
@@ -28,9 +28,9 @@
         <header class="major special">
             <h2>¡Visita exitosa!</h2>
             <p> Usuario: ${session.user.name} </p>
-            <p> Establecimiento: ${promosxpuntosapp.Establishment.findById(session.visit.establishmentId).name} </p>
-            <p> Ya tienes <h2>${session.user.points[(Long)session.visit.establishmentId]}</h2> </p>
-            <p> punto(s) en este establecimiento</p>
+            <p> Cliente: ${promosxpuntosapp.Customer.findById((Long)session.visit.establishment.customerId).name} </p>
+            <p> Ya tienes <h2>${session.user.points[(Long)session.visit.establishment.customerId]}</h2> </p>
+            <p> punto(s) en este cliente</p>
             <p> Fecha:  ${session.visit.dateVisit} </p>
             <p> qrCode:  ${session.visit.qrCode} </p>
         </header>
