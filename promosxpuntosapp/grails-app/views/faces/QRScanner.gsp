@@ -39,7 +39,7 @@
                 </video>
             </div>
             <div id="out"></div>
-            <g:uploadForm controller="visit" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
+            <g:uploadForm controller="visit" action="guardar" method="post" accept-charset="UTF-8" role="form" class="form-signup">
                 <div class="container 75%">
                     <div class="row uniform 50%">
                         <div class="12u$">
@@ -51,6 +51,8 @@
                         <div class="12u$">
                             <select id="standardUser" name="standardUser.id" required="" class="many-to-one" style="display: none">
                                 <option value="${session.user?.id}" hidden="">${session.user?.name}</option>
+                            </select>
+                            <select id="establishment" name="establishment.id" class="many-to-one" style="display: none">
                             </select>
                         </div>
                     </div>

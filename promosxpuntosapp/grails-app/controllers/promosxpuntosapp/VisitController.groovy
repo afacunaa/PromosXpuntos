@@ -90,6 +90,37 @@ class VisitController {
         }
     }
 
+    def guardar(){
+        def visitInstance = new Visit()
+        def qrCode = params.qrCode
+        def nicknameEstablishment = qrCode.split("-")
+
+        visitInstance.establishment = Establishment?.findByNicknameEstablishment(nicknameEstablishment[0])
+        visitInstance.dateVisit = new Date()
+        visitInstance.qrCode = qrCode
+
+        def standardUser = StandardUser?.findById(params."standardUser.id")
+        def customer = Customer?.findById(Establishment?.findByNicknameEstablishment(nicknameEstablishment[0]).customerId)
+
+        if (standardUser.points==null){
+            standardUser.points = new TreeMap<Integer, Integer>()
+        }
+        if (standardUser.points.containsKey(visitInstance.establishmentId)) {
+            def actual = standardUser.points.get(visitInstance.establishmentId)
+            standardUser.points[visitInstance.establishmentId] = actual + 1
+        }
+        else{
+            standardUser.points[visitInstance.establishmentId] = 1
+        }
+        visitInstance.standardUser=standardUser
+
+        session.user = standardUser
+        session.visit = visitInstance
+        visitInstance.save flush: true
+        standardUser.save flush: true
+        redirect controller: "visitDone"
+    }
+
     def edit(Visit visitInstance) {
         respond visitInstance
     }

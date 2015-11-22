@@ -5,7 +5,7 @@ class StandardUser extends User{
     String gender
     Date birthday
     String telephone
-    def points = [:]
+    TreeMap<Integer,Integer> points
 
     static hasMany = [
             shopRecords : ShopRecord,
@@ -16,6 +16,7 @@ class StandardUser extends User{
         lastname(blank: false)
         gender(inList: ['Hombre', 'Mujer'])
         telephone(size: 7..10)
+        points(nullable: true)
     }
 }
 
