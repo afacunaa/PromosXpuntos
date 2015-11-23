@@ -1,4 +1,4 @@
-<%@ page import="promosxpuntosapp.RewardController" %>
+<%@ page import="promosxpuntosapp.VisitController" %>
 <!DOCTYPE HTML>
 <!--
 	Retrospect by TEMPLATED
@@ -15,6 +15,7 @@
     <style>
     .nonStyletext { font-weight:normal; text-transform: none }
     </style>
+
 </head>
 <body>
 
@@ -35,12 +36,13 @@
 <!-- Main -->
 <section id="main" class="wrapper">
     <div class="container">
-        <g:set var="qrCode" value="${createLink(controller:'Visit', action:'randomString', params: [establishment:session.establishment.name])}" />
+    </div><div class="container">
+        <g:set var="qrCode" value="${new promosxpuntosapp.RewardController().randomString(session.establishment.nicknameEstablishment)}" />
         <header class="major special">
-        <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x3000&chl=${qrCode}&chld=H|0" alt="QRCode">
-        <h2 class="nonStyletext">
-            ${qrCode}
-        </h2>
+
+        <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=${qrCode}&chls=H|0"/>
+
+        <h2 class="nonStyletext">${qrCode}</h2>
             <g:uploadForm controller="establishment" action="logOut" method="post">
                 <ul class="actions">
                     <g:submitButton name="summit" type="submit" value="Regresar al perfil" class="special" tabindex="-1"></g:submitButton>
@@ -83,7 +85,6 @@
 REFRESH PAGE AFTER 15 seconds
 <meta http-equiv=refresh content=15>
 -->
-<meta http-equiv=refresh content=15>
 
 </body>
 </html>

@@ -88,6 +88,7 @@ class StandardUserController {
         redirect controller: "profile"
     }
 
+
     def displayPicture = {
         def userPicture = StandardUser.findByNickname((String) params.nickname)
         if (!userPicture || !userPicture.picture) {

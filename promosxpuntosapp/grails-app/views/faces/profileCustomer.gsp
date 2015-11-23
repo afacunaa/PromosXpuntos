@@ -16,7 +16,7 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="">Promos x Puntos</a></h1>
-    <a>${session.user.nickname}</a>
+    <a>${session.customer.nickname}</a>
     <a href="#nav">Menu</a>
 </header>
 
@@ -35,11 +35,11 @@
 
         <header class="major special">
             <h2>Bienvenido</h2>
-            <p> ${session.user.name}</p>
+            <p> ${session.customer.name}</p>
             <g:uploadForm controller="customer" action="logOut" method="post">
                 <ul class="actions">
                     <a href="/promosxpuntosapp/profileCustomer/createEstablishment" class="button special">Crear establecimiento</a>
-                    <a href="#" class="button special">Listar establecimientos</a>
+                    <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:session.customer?.nickname])}" class="button special">Listar establecimientos</a>
                     <g:submitButton name="summit" type="submit" value="Cerrar Sesión" class="special" tabindex="-1"></g:submitButton>
                 </ul>
             </g:uploadForm>
@@ -48,14 +48,14 @@
 
         <h2>Datos de Usuario</h2>
         <span class="image right">
-            <img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.user.nickname])}" width="150px" height="200px" class="rigth">
+            <img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" width="150px" height="200px" class="rigth">
         </span>
         <div class="table-wrapper">
             <table>
-                <tr><th> NIT:</th> <th>${session.user.identification}</th></tr>
-                <tr><th> Nombres:</th> <th>${session.user.name}</th></tr>
-                <tr><th> Correo electrónico:</th> <th>${session.user.email}</th></tr>
-                <tr><th> Nombre de usuario de cliente:</th> <th>${session.user.nickname}</th></tr>
+                <tr><th> NIT:</th> <th>${session.customer.identification}</th></tr>
+                <tr><th> Nombres:</th> <th>${session.customer.name}</th></tr>
+                <tr><th> Correo electrónico:</th> <th>${session.customer.email}</th></tr>
+                <tr><th> Nombre de usuario de cliente:</th> <th>${session.customer.nickname}</th></tr>
             </table>
         </div>
     </div>

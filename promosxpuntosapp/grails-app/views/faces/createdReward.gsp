@@ -57,6 +57,9 @@
         <g:uploadForm controller="reward" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
             <div class="container 75%">
                 <div class="row uniform 50%">
+                    <select id="establishment" name="establishment.id" required="" class="many-to-one" style="display: none" >
+                        <option value="${session.establishment?.id}">${session.establishment?.name}</option>
+                    </select>
                     <g:if test="${!hasErrors(field: 'rewardName','error')}">
                         <div class="12u$">
                             <g:textField id="rewardName" class="form-control" name="rewardName"  placeholder="Nombre"></g:textField>

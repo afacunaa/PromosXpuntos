@@ -7,7 +7,7 @@
 -->
 <html>
 <head>
-    <title>Promos x Puntos - Modulo de Usuario</title>
+    <title>Promos x Puntos - recompensa exitosa</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <asset:stylesheet src="template.css"/>
@@ -19,17 +19,8 @@
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
     <a>${session.reward.rewardName}</a>
-    <a href="#nav">Menu</a>
 </header>
 
-<!-- Nav -->
-<nav id="nav">
-    <ul class="links">
-        <li><a href="index.html">Principal</a></li>
-        <li><a href="section.html">Seccion 1</a></li>
-        <li><a href="section.html">Seccion 2</a></li>
-    </ul>
-</nav>
 
 <!-- Main -->
 <section id="main" class="wrapper">
@@ -50,8 +41,8 @@
             <p> Disponibilidad: ${session.reward.available} </p>
             <p> Fecha de creacion:  ${session.reward.creationDateReward} </p>
             <p> Fecha de duracion: ${session.reward.dueDateReward} </p>
-
         </header>
+        <a href="promosxpuntosapp/"></a>
     </div>
 </section>
 

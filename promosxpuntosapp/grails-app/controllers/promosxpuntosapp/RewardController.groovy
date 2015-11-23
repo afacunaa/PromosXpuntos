@@ -1,5 +1,7 @@
 package promosxpuntosapp
 
+import org.apache.commons.lang.RandomStringUtils
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -114,4 +116,15 @@ class RewardController {
         out.close()
     }
 
+    def randomString(def something) {
+        def establishment = Establishment.findByNicknameEstablishment((String) something)
+
+        String randomString = establishment.nicknameEstablishment
+
+        randomString += "-"
+        RandomStringUtils randomCreator =  new RandomStringUtils()
+        randomString += randomCreator.random( 10, 'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+
+        return randomString
+    }
 }

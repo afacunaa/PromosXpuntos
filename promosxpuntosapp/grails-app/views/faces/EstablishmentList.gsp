@@ -47,7 +47,7 @@
         </header>
         <div class="container 75%">
             <div class="row uniform 50%">
-                <g:each var="c" in="${session.customer.establishment}">
+                <g:each var="c" in="${promosxpuntosapp.Establishment.findAllByCustomer(session.customer)}">
                     <div class="6u 12u$(xsmall)">
                         <div class="table-wrapper">
                             <table>
