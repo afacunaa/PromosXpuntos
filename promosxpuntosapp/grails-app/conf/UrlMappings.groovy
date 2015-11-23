@@ -24,6 +24,8 @@ class UrlMappings {
         "/profileCustomer/codeQRgenerate"(view:"/faces/codeQRgenerate")
         "/establishmentList"(view:"/faces/EstablishmentList")
         "/customerList"(view:"/faces/customerList")
+        "/standardUserList"(view:"/faces/standardUserList")
+
 
         "/"(view:"/faces/index")
         "500"(view:'/error')

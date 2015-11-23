@@ -41,6 +41,8 @@
                     <a href="/promosxpuntosapp/profileCustomer/createEstablishment" class="button special">Crear establecimiento</a>
                     <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:session.customer?.nickname])}" class="button special">Listar establecimientos</a>
                     <a class="button special" href="/promosxpuntosapp/createdReward">Crear Recompensa</a>
+                    <a href="${createLink(controller:'customer', action:'standardUserList', params:[nickname:session.customer?.nickname])}" class="button special">Usuarios con visitas</a>
+
                 </ul>
             </g:uploadForm>
         </header>

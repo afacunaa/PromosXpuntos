@@ -88,6 +88,9 @@ class VisitController {
             }
             '*' { respond visitInstance, [status: CREATED] }
         }
+
+
+
     }
 
     def guardar(){
@@ -119,6 +122,7 @@ class VisitController {
         visitInstance.save flush: true
         standardUser.save flush: true
         redirect controller: "visitDone"
+        print Visit.list().establishment
     }
 
     def edit(Visit visitInstance) {

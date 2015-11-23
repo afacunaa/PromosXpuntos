@@ -1,5 +1,6 @@
 package promosxpuntosapp
 
+import net.sf.ehcache.store.compound.factories.AATreeSet
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -23,6 +24,19 @@ class CustomerController {
         session.customer = custom
         redirect controller: "establishmentList"
     }
+
+
+    def standardUserList = {
+        def customer = Customer.findByNickname((String) params.nickname)
+        session.customer = customer
+        redirect controller: "standardUserList"
+        def asd = Visit.list().standardUser.toSet()
+        asd.each {if (it.points.containsKey(customer.id)) print it.name}
+        print asd
+    }
+
+
+
 
     def create() {
         respond new Customer(params)

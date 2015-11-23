@@ -17,7 +17,7 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="">Promos x Puntos</a></h1>
     <a href="#nav">Menu</a>
 </header>
 

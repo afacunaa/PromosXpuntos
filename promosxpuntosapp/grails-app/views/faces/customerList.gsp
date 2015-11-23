@@ -17,7 +17,7 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="">Promos x Puntos</a></h1>
     <a href="#nav">Menu</a>
 </header>
 
@@ -38,17 +38,33 @@
     <div class="container">
         <header class="major special">
         </header>
-        <h1>¡Conoce nuestros clientes! Da Click en alguno de ellos para ver sus establecimientos</h1>
-        <div class="container 75%">
+        <h3 style="text-align: center">¡Conoce nuestros clientes! Da Click en alguno de ellos para ver sus establecimientos</h3>
+        <div class="container 50%">
             <div class="row uniform 50%">
-                <g:each var="c" in="${Customer.list()}">
-                    <div class="6u 12u$(xsmall)">
-                        <h1>${c.name} </h1>
-                        <span class="image left" style="text-align: center">
-                            <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:c?.nickname])}"><img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="200px" height="130px"></a>
-                        </span>
+                    <div class="12u$">
+                        <table style="align-items: center">
+                            <g:each var="c" in="${Customer.list()}">
+                                <tr>
+                                    <th>
+                                        <h3 style="text-align: center">${c.name} </h3>
+                                    </th>
+                                    <th>
+                                        <span class="image" style="text-align: center">
+                                        <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:c?.nickname])}"><img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="150px" height="150px"></a>
+                                    </span>
+                                    </th>
+                                    <th>
+                                        <g:if test="${session.user.points.containsKey(c.id)}">
+                                            <h3 style="text-align: center">Puntos acumulados:  ${session.user.points[c.id]}</h3>
+                                        </g:if>
+                                        <g:else>
+                                            <h3 style="text-align: center">Puntos acumulados:  0</h3>
+                                        </g:else>
+                                    </th>
+                                </tr>
+                            </g:each>
+                        </table>
                     </div>
-                </g:each>
             </div>
         </div>
     </div>
