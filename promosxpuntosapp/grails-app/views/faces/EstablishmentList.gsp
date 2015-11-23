@@ -17,18 +17,9 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="">Promos x Puntos</a></h1>
-    <a href="#nav">Menu</a>
+    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <a href="/promosxpuntosapp/customerList" class="button special">Volver</a>
 </header>
-
-<!-- Nav -->
-<nav id="nav">
-    <ul class="links">
-        <li><a href="${createLink(controller:'customer', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
-        <li><a href="/promosxpuntosapp/profileCustomer/createEstablishment">Crear establecimiento</a></li>
-        <li><a href="#">Listar establecimientos</a></li>
-    </ul>
-</nav>
 
 
 <!-- Main -->
@@ -38,7 +29,8 @@
             <h2> ${session.customer.name}</h2>
             <figure>
                 <g:if test="${session.customer.logo != null}">
-                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" />
+                    <img class="img-responsive img-thumbnail" width="250px" height="250px"
+                         src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" />
                 </g:if>
                 <g:else>
                     <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>

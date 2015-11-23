@@ -18,22 +18,8 @@
 <header id="header">
 	<h1><a href="index.html">Promos x Puntos</a></h1>
 	<a>${session.customer.nickname}</a>
-	<a href="#nav">Menu</a>
+	<a href="/promosxpuntosapp/profileCustomer" class="button special">Volver</a>
 </header>
-
-<!-- Nav -->
-<nav id="nav">
-	<ul class="links">
-		<li><a href="">Principal</a></li>
-		<li><a href="users-module">usuarios</a></li>
-		<li><a href="#subscribe">Registrar usuario</a></li>
-		<li><a href="customersIndex">Para empresas</a></li>
-		<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-			<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
-		</g:each>
-	</ul>
-</nav>
-
 
 <!-- Four -->
 <section id="subscribe" class="wrapper style4 special">
@@ -47,7 +33,7 @@
 	<g:uploadForm controller="establishment" action="save" method="post" accept-charset="UTF-8" role="form" class="form-signup">
 		<div class="container 75%">
 			<div class="row uniform 50%">
-				<select id="customer" name="customer.id" required="" class="many-to-one" >
+				<select id="customer" name="customer.id" required="" class="many-to-one" style="display: none">
 					<option value="${session.customer?.id}">${session.customer?.name}</option>
 				</select>
 				<g:if test="${!hasErrors(field: 'name','error')}">

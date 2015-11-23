@@ -38,10 +38,8 @@
             <p> ${session.establishment.name}</p>
             <g:uploadForm controller="establishment" action="logOut" method="post">
                 <ul class="actions">
-                    <a class="button special" href="/promosxpuntosapp/profileCustomer/codeQRgenerate">Generar QR</a>
-                    <a class="button special" href="/promosxpuntosapp/profileEstablishment/validateShopRecord">Validar Compra</a>
-                    <g:submitButton name="summit" type="submit" value="Cerrar Sesión" class="special" tabindex="-1"></g:submitButton>
-
+                    <li><a class="button special" href="/promosxpuntosapp/profileCustomer/codeQRgenerate">Generar QR</a></li>
+                    <li><a class="button special" href="/promosxpuntosapp/profileEstablishment/validateShopRecord">Validar Compra</a></li>
                 </ul>
             </g:uploadForm>
         </header>

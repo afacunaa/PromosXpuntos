@@ -22,7 +22,8 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
-    <a href="#nav">Menu</a>
+    <a>${session.establishment.name}</a>
+    <a href="/promosxpuntosapp/profileEstablishment" class="button special">Volver</a>
 </header>
 
 <!-- Nav -->
@@ -43,11 +44,6 @@
         <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=${qrCode}&chls=H|0"/>
 
         <h2 class="nonStyletext">${qrCode}</h2>
-            <g:uploadForm controller="establishment" action="logOut" method="post">
-                <ul class="actions">
-                    <g:submitButton name="summit" type="submit" value="Regresar al perfil" class="special" tabindex="-1"></g:submitButton>
-                </ul>
-            </g:uploadForm>
         </header>
     </div>
 </section>

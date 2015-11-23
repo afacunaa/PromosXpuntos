@@ -51,12 +51,12 @@ class CustomerController {
                     redirect controller: "profileEstablishment"
                     return
                 }else{
-                    redirect controller: "customersIndex", fragment: "ingreso"
+                    redirect controller: "customersIndex", fragment: "login"
                     flash.message = "Contraseña incorrecta"
                     return
                 }
             }else{
-                redirect controller: "customersIndex", fragment: "ingreso"
+                redirect controller: "customersIndex", fragment: "login"
                 flash.message = "Nombre de Usuario incorrecto"
                 return
             }
@@ -69,12 +69,12 @@ class CustomerController {
                     redirect controller: "profileCustomer"
                     return
                 }else{
-                    redirect controller: "customersIndex", fragment: "ingreso"
+                    redirect controller: "customersIndex", fragment: "login"
                     flash.message = "Contraseña incorrecta"
                     return
                 }
             }else{
-                redirect controller: "customersIndex", fragment: "ingreso"
+                redirect controller: "customersIndex", fragment: "login"
                 flash.message = "Nombre de Usuario incorrecto"
                 return
             }

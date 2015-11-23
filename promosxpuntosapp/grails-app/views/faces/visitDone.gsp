@@ -21,21 +21,26 @@
 
 </head>
 <body>
-
+<!-- Header -->
+<header id="header">
+    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <a>${session.user.nickname}</a>
+    <a href="/promosxpuntosapp/profile" class="button special">Volver</a>
+</header>
 <!-- Main -->
 <section id="main" class="wrapper">
-    <div class="container" style="text-align: justify">
-        <header class="major special">
-            <h2>¡Visita exitosa!</h2>
-            <p> Usuario: ${session.user.name} </p>
-            <p> Cliente: ${promosxpuntosapp.Customer.findById((Long)session.visit.establishment.customerId).name} </p>
-            <p> Ya tienes <h2>${session.user.points[(Long)session.visit.establishment.customerId]}</h2> </p>
-            <p> punto(s) en este cliente</p>
-            <p> Fecha:  ${session.visit.dateVisit} </p>
-            <p> qrCode:  ${session.visit.qrCode} </p>
-        </header>
-        <a href="promosxpuntosapp/"></a>
-    </div>
+        <div class="container" style="text-align: justify">
+            <header class="major special">
+                <h2>¡Visita exitosa!</h2>
+                <p> Usuario: ${session.user.name} </p>
+                <p> Cliente: ${promosxpuntosapp.Customer.findById((Long)session.visit.establishment.customerId).name} </p>
+                <p> Ya tienes <h2>${session.user.points[(Long)session.visit.establishment.customerId]}</h2> </p>
+                <p> punto(s) en este cliente</p>
+                <p> Fecha:  ${session.visit.dateVisit} </p>
+                <p> qrCode:  ${session.visit.qrCode} </p>
+            </header>
+            <a href="promosxpuntosapp/"></a>
+        </div>
 </section>
 
 <!-- Footer -->

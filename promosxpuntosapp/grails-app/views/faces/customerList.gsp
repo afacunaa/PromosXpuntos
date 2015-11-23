@@ -18,27 +18,17 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="">Promos x Puntos</a></h1>
-    <a href="#nav">Menu</a>
+    <a>${session.user.nickname}</a>
+    <a href="/promosxpuntosapp/profile" class="button special">Volver</a>
 </header>
-
-<!-- Nav -->
-<nav id="nav">
-    <ul class="links">
-        <li><a href="${createLink(controller:'StandardUser', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
-        <li><a href="/promosxpuntosapp/profile/editStandardUser">Editar Perfil</a></li>
-        <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar Visita</a></li>
-        <li><a href="#">Ver Historial</a></li>
-        <li><a href="/promosxpuntosapp/customerList">Catalogo de Clientes</a></li>
-        <li><a href="#">Redimir Puntos</a></li>
-    </ul>
-</nav>
 
 <!-- Main -->
 <section id="main" class="wrapper">
     <div class="container">
         <header class="major special">
+            <h2>Catalogo de Clientes</h2>
+            <p>¡Conoce nuestros clientes! Da Click en alguno de ellos para ver sus establecimientos</p>
         </header>
-        <h3 style="text-align: center">¡Conoce nuestros clientes! Da Click en alguno de ellos para ver sus establecimientos</h3>
         <div class="container 50%">
             <div class="row uniform 50%">
                     <div class="12u$">
@@ -49,12 +39,13 @@
                                         <h3 style="text-align: center">${c.name} </h3>
                                     </th>
                                     <th>
-                                        <span class="image" style="text-align: center">
-                                        <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:c?.nickname])}"><img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="150px" height="150px"></a>
+                                        <span class="image" style="vertical-align: middle">
+                                        <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:c?.nickname])}"><img style="padding-top: 10px;" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="150px" height="150px"></a>
+
                                     </span>
                                     </th>
                                     <th>
-                                        <g:if test="${session.user.points.containsKey(c.id)}">
+                                        <g:if test="${session.user.points?.containsKey(c.id)}">
                                             <h3 style="text-align: center">Puntos acumulados:  ${session.user.points[c.id]}</h3>
                                         </g:if>
                                         <g:else>

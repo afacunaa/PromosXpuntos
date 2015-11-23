@@ -28,6 +28,7 @@
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
     <a>${session.customer.name}</a>
+    <a href="/promosxpuntosapp/profileCustomer" class="button special">Volver</a>
 </header>
 
 
