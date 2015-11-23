@@ -41,10 +41,10 @@
             <p>${session.user.name} ${session.user.lastname}</p>
             <g:uploadForm controller="standardUser" action="logOut" method="post">
                 <ul class="actions">
-                    <a href="/promosxpuntosapp/profile/QRScanner" class="button special">Registrar Visita</a>
-                    <a href="/promosxpuntosapp/customerList" class="button special">Catalogo de Clientes</a>
-                    <a href="#" class="button special">Redimir Puntos</a>
-                    <g:submitButton name="summit" type="submit" value="Cerrar Sesión" class="default" tabindex="-1"></g:submitButton>
+                    <li><a href="/promosxpuntosapp/profile/QRScanner" class="button special">Registrar Visita</a></li>
+                    <li><a href="/promosxpuntosapp/customerList" class="button special">Catalogo de Clientes</a></li>
+                    <li><a href="#" class="button special">Redimir Puntos</a></li>
+                    <li><a href="#" class="button special">Ver Historial</a></li>
                 </ul>
             </g:uploadForm>
         </header>
@@ -63,10 +63,6 @@
                 <tr><th> Teléfono:</th> <th>${session.user.telephone}</th></tr>
             </table>
         </div>
-        <ul class="actions">
-            <a href="/promosxpuntosapp/profile/editStandardUser" class="button special">Editar Perfil</a>
-            <a href="#" class="button special">Ver Historial</a>
-        </ul>
     </div>
 </section>
 
