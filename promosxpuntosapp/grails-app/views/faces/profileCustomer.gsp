@@ -40,7 +40,7 @@
                 <ul class="actions">
                     <a href="/promosxpuntosapp/profileCustomer/createEstablishment" class="button special">Crear establecimiento</a>
                     <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:session.customer?.nickname])}" class="button special">Listar establecimientos</a>
-                    <g:submitButton name="summit" type="submit" value="Cerrar Sesión" class="special" tabindex="-1"></g:submitButton>
+                    <a class="button special" href="/promosxpuntosapp/createdReward">Crear Recompensa</a>
                 </ul>
             </g:uploadForm>
         </header>

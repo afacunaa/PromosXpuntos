@@ -39,10 +39,12 @@
             <p> ${session.reward.description} </p>
             <p> Numero de puntos: ${session.reward.point} </p>
             <p> Disponibilidad: ${session.reward.available} </p>
-            <p> Fecha de creacion:  ${session.reward.creationDateReward} </p>
-            <p> Fecha de duracion: ${session.reward.dueDateReward} </p>
+            <p> Fecha de creacion:  ${session.reward.creationDateReward.format('d MMMM, yyyy')} </p>
+            <p> Fecha de duracion: ${session.reward.dueDateReward.format('d MMMM, yyyy')} </p>
         </header>
-        <a href="promosxpuntosapp/"></a>
+    </div>
+    <div>
+        <a href="promosxpuntosapp/profileCustomer" class="special"></a>
     </div>
 </section>
 

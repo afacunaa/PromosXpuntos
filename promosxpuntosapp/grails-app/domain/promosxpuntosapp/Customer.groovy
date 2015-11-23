@@ -6,7 +6,9 @@ class Customer extends User{
 
     static hasMany = [
             establishment : Establishment,
+            reward: Reward
     ]
+
     static mapping = {establishment fetch:"join"}
 
     static constraints = {
