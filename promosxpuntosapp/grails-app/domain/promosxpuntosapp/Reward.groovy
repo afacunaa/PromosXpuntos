@@ -11,6 +11,7 @@ class Reward{
     int available
 
     static belongsTo = [customer:Customer]
+    static hasMany = [shoprecord : ShopRecord]
 
     static constraints = {
         rewardName(blank: false,unique: true,minSize: 5,maxSize: 30)

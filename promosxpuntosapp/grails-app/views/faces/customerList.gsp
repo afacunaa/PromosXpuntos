@@ -47,7 +47,7 @@
                                 </th>
                                 <th>
                                     <span class="image" style="vertical-align: middle">
-                                        <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:c?.nickname])}"><img style="padding-top: 10px;" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="150px" height="150px"></a>
+                                        <a href="${createLink(controller:'customer', action:'establecimientosUser', params:[nickname:c?.nickname])}"><img style="padding-top: 10px;" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="150px" height="150px"></a>
 
                                     </span>
                                 </th>

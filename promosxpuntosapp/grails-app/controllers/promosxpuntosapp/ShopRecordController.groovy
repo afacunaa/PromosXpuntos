@@ -1,6 +1,6 @@
 package promosxpuntosapp
 
-
+import org.apache.commons.lang.RandomStringUtils
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -34,6 +34,38 @@ class ShopRecordController {
             session.foundU = null
             session.foundS = null
             redirect controller: "profileEstablishment", action: "validateShopRecord"
+        }
+    }
+
+    def redimir(){
+        def user = session.user
+        def customer = session.customer
+        def reward = Reward.findById((Long)params."reward.id")
+        def date = new Date()
+        print user.points
+        print user.points[customer.id]
+        print customer.name
+        print reward.rewardName
+        print reward.point
+
+        if (user.points[customer.id] >= reward.point && reward.available > 0){
+            //puede redimir
+            user.points[customer.id] -= reward.point
+            reward.available -= 1
+            def shopRecordinstance= new ShopRecord()
+            shopRecordinstance.standardUser = user
+            shopRecordinstance.customer = customer
+            shopRecordinstance.reward = reward
+            shopRecordinstance.date = date
+            shopRecordinstance.consecutive = new RandomStringUtils().random( 10, 'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+            shopRecordinstance.save flush:true
+            user.save flush:true
+            reward.save flush:true
+            session.shopRecord = shopRecordinstance
+        }else{
+            //no puede
+            redirect controller: "EstablishmentListUser"
+            flash.message = "Nombre de Usuario incorrecto"
         }
     }
 
