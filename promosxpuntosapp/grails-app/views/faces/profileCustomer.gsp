@@ -45,6 +45,8 @@
                     <li><a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:session.customer?.nickname])}" class="button special">Listar establecimientos</a></li>
                     <li><a class="button special" href="/promosxpuntosapp/createdReward">Crear Recompensa</a></li>
                     <li><a href="${createLink(controller:'customer', action:'standardUserList', params:[nickname:session.customer?.nickname])}" class="button special">Usuarios con visitas</a></li>
+                    <li><p>          .</p></li>
+                    <li><a href="${createLink(controller:'customer', action:'rewardsest', params:[nickname:session.customer?.nickname])}" class="button special">Lista de recompensas</a></li>
 
                 </ul>
             </g:uploadForm>
