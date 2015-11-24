@@ -90,11 +90,11 @@
         <article class="feature left">
             <span class="image"><asset:image src="fid01.jpg" width="500px"/></span>
             <div class="content">
-                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
+                <h2>¡Puedes calificar nuestra app!</h2>
+                <p>Si te gusto nuestra aplicación, pasa por nuestra pagina de facebook y comentanos tu experiencia con PromosXPuntos</p>
                 <ul class="actions">
                     <li>
-                        <a href="#" class="button alt">Ipsum</a>
+                        <a href="https://www.facebook.com/Promosxpuntos-865416263565823/" class="button alt">Visitanos</a>
                     </li>
                 </ul>
             </div>
@@ -102,11 +102,11 @@
         <article class="feature right">
             <span class="image"><asset:image src="fid02.jpg" width="500px"/></span>
             <div class="content">
-                <h2>Integer vitae libero acrisus egestas placerat  sollicitudin</h2>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.</p>
+                <h2>Comparte lo mejor de PromoXPuntos en tus redes</h2>
+                <p>Cuentale a todos tus amigos las maravillosas promociones que encuentras en PromosXPuntos</p>
                 <ul class="actions">
                     <li>
-                        <a href="#" class="button alt">Lorem</a>
+                        <a href="https://www.facebook.com/Promosxpuntos-865416263565823/" class="button alt">Comparte</a>
                     </li>
                 </ul>
             </div>

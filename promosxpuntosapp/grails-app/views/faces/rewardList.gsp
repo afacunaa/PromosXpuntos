@@ -17,9 +17,9 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="">Promos x Puntos</a></h1>
+    <h1><a href="index.html">Promos x Puntos</a></h1>
     <a>${session.customer.nickname}</a>
-    <a href="/promosxpuntosapp/customerList" class="button special">Volver</a>
+    <a href="/promosxpuntosapp/profileCustomer" class="button special">Volver</a>
 </header>
 
 
@@ -40,18 +40,19 @@
         </header>
 
         <div class="container 75%">
-            <h2>Lista de establecimientos</h2>
+            <h2>Lista de Recompensas</h2>
             <div class="row uniform 50%">
-                <g:each var="c" in="${promosxpuntosapp.Establishment.findAllByCustomer(session.customer)}">
+                <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
                     <div class="6u 12u$(xsmall)">
                         <div class="table-wrapper">
                             <table>
-                                <tr><th> Nombre:</th> <th>${c?.name}</th></tr>
-                                <tr><th> Direccion:</th> <th>${c?.address}</th></tr>
-                                <tr><th> Numeero telefonico:</th> <th>${c?.telephoneNumber}</th></tr>
-                                <iframe style="height:100%;width:100%;border:0;" frameborder="0"
-                                        src="https://www.google.com/maps/embed/v1/place?q=${c?.address},+${c?.name},+Colombia&amp;key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU">
-                                </iframe>
+                                <tr><th> Nombre:</th> <th>${c?.rewardName}</th></tr>
+                                <tr><th> Descripcion:</th> <th>${c?.description}</th></tr>
+                                <tr><th> Fecha de creación:</th> <th>${c?.creationDateReward}</th></tr>
+                                <tr><th> Fecha de vencimiento:</th> <th>${c?.dueDateReward}</th></tr>
+                                <tr><th> Puntos:</th> <th>${c?.point}</th></tr>
+                                <tr><th> Disponible:</th> <th>${c?.available}</th></tr>
+
                             </table>
                         </div>
                     </div>
