@@ -38,9 +38,13 @@ class ShopRecordController {
     }
 
     def redimir(){
-        def user = session.user
-        def customer = session.customer
-        def reward = Reward.findById((Long)params."reward.id")
+        def user = StandardUser?.findById(params."standardUser.id")
+        def customer = Customer?.findById(params."customer.id")
+        print user
+        print customer
+        def asd = Integer.parseInt(params."reward.id")
+        print asd
+        def reward = Reward.findById(asd)
         def date = new Date()
         print user.points
         print user.points[customer.id]
@@ -48,22 +52,24 @@ class ShopRecordController {
         print reward.rewardName
         print reward.point
 
+        def shopRecordinstance= new ShopRecord( )
+        shopRecordinstance.standardUser = user
+        shopRecordinstance.customer = customer
+        shopRecordinstance.reward = reward
+        shopRecordinstance.date = date
+        shopRecordinstance.consecutive = new RandomStringUtils().random( 10, 'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
         if (user.points[customer.id] >= reward.point && reward.available > 0){
             //puede redimir
             user.points[customer.id] -= reward.point
             reward.available -= 1
-            def shopRecordinstance= new ShopRecord()
-            shopRecordinstance.standardUser = user
-            shopRecordinstance.customer = customer
-            shopRecordinstance.reward = reward
-            shopRecordinstance.date = date
-            shopRecordinstance.consecutive = new RandomStringUtils().random( 10, 'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
             shopRecordinstance.save flush:true
-            user.save flush:true
+            user.save update:true, flush:true
             reward.save flush:true
             session.shopRecord = shopRecordinstance
+            redirect controller: "ShopRecordDone"
         }else{
             //no puede
+            print shopRecordInstance.errors
             redirect controller: "EstablishmentListUser"
             flash.message = "Nombre de Usuario incorrecto"
         }

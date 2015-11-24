@@ -7,7 +7,7 @@ class ShopRecord {
     static belongsTo = [
             reward : Reward,
             standardUser : StandardUser,
-            establishment : Establishment
+            customer : Customer
     ]
 
     static constraints = {

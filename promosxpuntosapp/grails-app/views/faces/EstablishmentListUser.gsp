@@ -38,7 +38,7 @@
             <h2> ${session.customer.name}</h2>
             <figure>
                 <g:if test="${session.customer.logo != null}">
-                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" />
+                    <img class="img-responsive img-thumbnail" width=250px" height="250px" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" />
                 </g:if>
                 <g:else>
                     <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
@@ -51,12 +51,12 @@
             <div class="row uniform 50%">
                 <g:uploadForm controller="shopRecord" action="redimir" method="post" accept-charset="UTF-8" role="form" class="form-signup">
                     <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
-                        <div class="6u 12u$(xsmall)">
+                        <div class="12u$">
                             <div class="table-wrapper">
                                 <g:if test="${flash.message}">
                                     <div class="message" role="status">${flash.message}</div>
                                 </g:if>
-                                <table>
+                                <table style="vertical-align: middle">
                                     <tr><th> Nombre:</th> <th>${c?.rewardName}</th></tr>
                                     <tr><th> Puntos requeridos:</th> <th>${c?.point}</th></tr>
                                     <tr><th> Disponibilidad:</th> <th>${c?.available}</th></tr>
@@ -66,10 +66,16 @@
                         </div>
                     </g:each>
                     <select id="reward" name="reward.id">
-                        <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
-                            <option value="${c.id}">${c.rewardName}</option>
+                        <g:each var="x" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
+                            <option value="${x.id}">${x.rewardName} ${x.version}</option>
                         </g:each>
                     </select>
+                    <div class="12u$">
+                        <g:textField id="customer" value="${session.customer.id}" class="form-control" name="customer.id" style="display: none"></g:textField>
+                    </div>
+                    <div class="12u$">
+                        <g:textField id="standardUser" value="${session.user.id}" class="form-control" name="standardUser.id" style="display: none"></g:textField>
+                    </div>
                     <g:submitButton name="summit" type="submit" value="Registrarse" class="special" tabindex="-1"></g:submitButton>
                 </g:uploadForm>
             </div>
