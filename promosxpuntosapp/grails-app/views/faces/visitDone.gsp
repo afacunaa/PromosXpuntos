@@ -22,6 +22,13 @@
 </head>
 <body>
 
+<!-- Header -->
+<header id="header">
+    <h1><a href="">Promos x Puntos</a></h1>
+    <a>${session.user.nickname}</a>
+    <a href="/promosxpuntosapp/profile" class="button special">Volver</a>
+</header>
+
 <!-- Main -->
 <section id="main" class="wrapper">
     <div class="container" style="text-align: justify">
@@ -34,8 +41,7 @@
             <p> Fecha:  ${session.visit.dateVisit} </p>
             <p> qrCode:  ${session.visit.qrCode} </p>
         </header>
-        <a href="promosxpuntosapp/"></a>
-    </div>
+        </div>
 </section>
 
 <!-- Footer -->

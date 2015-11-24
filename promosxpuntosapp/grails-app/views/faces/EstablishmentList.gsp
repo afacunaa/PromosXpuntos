@@ -17,7 +17,7 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="">Promos x Puntos</a></h1>
     <a href="/promosxpuntosapp/customerList" class="button special">Volver</a>
 </header>
 
