@@ -49,8 +49,7 @@
         <div class="container 75%">
             <h2>Recompenzas vigentes</h2>
             <div class="row uniform 50%">
-                <g:uploadForm controller="shopRecord" action="redimir" method="post" accept-charset="UTF-8" role="form" class="form-signup">
-                    <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
+                <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
                         <div class="6u 12u$(xsmall)">
                             <div class="table-wrapper">
                                 <g:if test="${flash.message}">
@@ -64,14 +63,7 @@
                                 </table>
                             </div>
                         </div>
-                    </g:each>
-                    <select id="reward" name="reward.id">
-                        <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
-                            <option value="${c.id}">${c.rewardName}</option>
-                        </g:each>
-                    </select>
-                    <g:submitButton name="summit" type="submit" value="Registrarse" class="special" tabindex="-1"></g:submitButton>
-                </g:uploadForm>
+                </g:each>
             </div>
         </div>
 

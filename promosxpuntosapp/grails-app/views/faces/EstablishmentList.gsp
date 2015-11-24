@@ -18,7 +18,6 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="">Promos x Puntos</a></h1>
-    <a>${session.customer.nickname}</a>
     <a href="/promosxpuntosapp/customerList" class="button special">Volver</a>
 </header>
 
