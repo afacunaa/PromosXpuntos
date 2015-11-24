@@ -21,9 +21,14 @@ class UrlMappings {
         "/profileEstablishment"(view:"/faces/profileEstablishment")
         "/profileEstablishment/validateShopRecord"(view:"/faces/validateShopRecord")
         "/profileCustomer"(view:"/faces/profileCustomer")
+        "/shopRecordDone"(view:"/faces/ShopRecordDone")
         "/profileCustomer/codeQRgenerate"(view:"/faces/codeQRgenerate")
-        "/establishmentList"(view:"/faces/EstablishmentList")
         "/customerList"(view:"/faces/customerList")
+        "/profileCustomer/establishmentList"(view:"/faces/EstablishmentList")
+        "/establishmentListUser"(view:"/faces/EstablishmentListUser")
+        "/standardUserList"(view:"/faces/standardUserList")
+        "/rewardList"(view:"/faces/rewardList")
+
 
         "/"(view:"/faces/index")
         "500"(view:'/error')

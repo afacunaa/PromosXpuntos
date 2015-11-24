@@ -24,8 +24,10 @@
 <nav id="nav">
     <ul class="links">
         <li><a href="${createLink(controller:'customer', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
-        <li><a href="/promosxpuntosapp/profileCustomer/createEstablishment">Crear establecimiento</a></li>
-        <li><a href="#">Listar establecimientos</a></li>
+        <li><a href="${createLink(controller:'customer', action:'standardUserList', params:[nickname:session.customer?.nickname])}">Usuarios con visitas</a></li>
+        <li><a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:session.customer?.nickname])}" >Lista de establecimientos</a></li>
+        <li><a href="${createLink(controller:'customer', action:'rewardsest', params:[nickname:session.customer?.nickname])}" >Lista de recompensas</a></li>
+
     </ul>
 </nav>
 
@@ -35,21 +37,20 @@
 
         <header class="major special">
             <h2>Bienvenido</h2>
+            <img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" width="200px" height="200px" class="rigth">
             <p> ${session.customer.name}</p>
             <g:uploadForm controller="customer" action="logOut" method="post">
                 <ul class="actions">
-                    <a href="/promosxpuntosapp/profileCustomer/createEstablishment" class="button special">Crear establecimiento</a>
-                    <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:session.customer?.nickname])}" class="button special">Listar establecimientos</a>
-                    <g:submitButton name="summit" type="submit" value="Cerrar Sesión" class="special" tabindex="-1"></g:submitButton>
+                    <li><a href="/promosxpuntosapp/profileCustomer/createEstablishment" class="button special">Crear establecimiento</a></li>
+                    <li><a class="button special" href="/promosxpuntosapp/createdReward">Crear Recompensa</a></li>
+                    <li><a href="${createLink(controller:'customer', action:'standardUserList', params:[nickname:session.customer?.nickname])}" class="button special">Usuarios con visitas</a></li>
+
                 </ul>
             </g:uploadForm>
         </header>
 
 
         <h2>Datos de Usuario</h2>
-        <span class="image right">
-            <img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" width="150px" height="200px" class="rigth">
-        </span>
         <div class="table-wrapper">
             <table>
                 <tr><th> NIT:</th> <th>${session.customer.identification}</th></tr>

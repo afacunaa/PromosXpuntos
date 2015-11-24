@@ -1,4 +1,4 @@
-<%@ page import="promosxpuntosapp.VisitController" %>
+<%@ page import="promosxpuntosapp.Reward" contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE HTML>
 <!--
 	Retrospect by TEMPLATED
@@ -7,11 +7,10 @@
 -->
 <html>
 <head>
-    <title>Promos x Puntos - Modulo de Usuario</title>
+    <title>Promos x Puntos - recompensa exitosa</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <asset:stylesheet src="template.css"/>
-
     <style>
     .nonStyletext { font-weight:normal; text-transform: none }
     </style>
@@ -22,29 +21,24 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
-    <a>${session.establishment.name}</a>
-    <a href="/promosxpuntosapp/profileEstablishment" class="button special">Volver</a>
+    <a>${session.user.nickname}</a>
+    <a href="/promosxpuntosapp/profile" class="button special">Volver</a>
 </header>
 
-<!-- Nav -->
-<nav id="nav">
-    <ul class="links">
-        <li><a href="/faces/profileEstablishment">Volver al establecimiento</a></li>
-        <li><a href="/profileCustomer/codeQRgenerate">recargar la pagina</a></li>
-    </ul>
-</nav>
 
 <!-- Main -->
 <section id="main" class="wrapper">
-    <div class="container">
-    </div><div class="container">
-        <g:set var="qrCode" value="${new promosxpuntosapp.RewardController().randomString(session.establishment.nicknameEstablishment)}" />
+    <div class="container" style="text-align: justify">
         <header class="major special">
-
-        <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=${qrCode}&chls=H|0"/>
-
-        <h2 class="nonStyletext">${qrCode}</h2>
+            <h2> ¡Felicidades ${session.user.name}! </h2>
+            <p> Has redimido un: <b>${session.shopRecord.reward.rewardName}</b> </p>
+            <p> Este es tu codigo de verificación: </p>
+            <h2 class="nonStyletext"> ${session.shopRecord.consecutive} </h2>
+            <p> Presentalo en un establecimiento autorizado para que te entreguen tu promocion</p>
         </header>
+    </div>
+    <div>
+        <a href="promosxpuntosapp/profileCustomer" class="special"></a>
     </div>
 </section>
 
@@ -73,14 +67,11 @@
     </div>
 </footer>
 
+
+<!-- Scripts -->
 <asset:javascript src="jquery.min.js"/>
 <asset:javascript src="skel.min.js"/>
 <asset:javascript src="util.js"/>
 <asset:javascript src="main.js"/>
-<!--
-REFRESH PAGE AFTER 15 seconds
-<meta http-equiv=refresh content=15>
--->
-
 </body>
 </html>

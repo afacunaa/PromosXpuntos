@@ -13,7 +13,7 @@
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
     <a>${session.establishment.nicknameEstablishment}</a>
-    <a href="#nav">Menu</a>
+    <a href="/promosxpuntosapp/profileEstablishment" class="button special">Volver</a>
 </header>
 
 <section id="subscribe" class="wrapper style4 special">
@@ -22,8 +22,12 @@
             <h2>Validar Premio</h2>
         </header>
         <g:uploadForm controller="ShopRecord" action="validacion" method="post" accept-charset="UTF-8" role="form" class="form-signup">
-            <div class="6u$ 12u$(xsmall)">
-                <g:textField id="consecutive" name="consecutive" required="" placeholder="Código de confirmación"></g:textField>
+            <div class="container 50%">
+                <div class="row uniform 50%">
+                    <div class="12u$">
+                        <g:textField id="consecutive" name="consecutive" required="" placeholder="Código de confirmación"></g:textField>
+                    </div>
+                </div>
             </div>
             <ul class="actions">
                 <g:submitButton name="submit" type="submit" value="Buscar" class="special" tabindex="-1"></g:submitButton>
@@ -32,7 +36,7 @@
         <g:if test="${session.foundU != null}">
             <label>${session.foundU.name} ${session.foundU.lastname}</label>
             <label>${session.foundU.nickname}</label>
-            <label>Redención en establecimiento: ${promosxpuntosapp.Establishment.findById(session.foundS.establishmentId).name} / En: ${session.foundS.date}</label>
+            <label>Redención en establecimiento: ${promosxpuntosapp.Establishment.findById(session.foundS.customerId).name} / En: ${session.foundS.date}</label>
             <g:uploadForm controller="ShopRecord" action="" method="" accept-charset="UTF-8" role="form" class="form-signup">
                 <g:submitButton name="submit" type="submit" value="Validar" class="special" tabindex="-1"></g:submitButton>
             </g:uploadForm>

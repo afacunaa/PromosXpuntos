@@ -1,4 +1,11 @@
-<%@ page import="promosxpuntosapp.Customer" contentType="text/html;charset=UTF-8" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: japrietov
+  Date: 23/11/15
+  Time: 02:55 PM
+--%>
+
+<%@ page import="promosxpuntosapp.Visit" contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE HTML>
 <!--
@@ -8,7 +15,7 @@
 -->
 <html>
 <head>
-    <title>Promos x Puntos - Modulo de Cliente</title>
+    <title>Promos x Puntos - Consulta de clientes</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <asset:stylesheet src="template.css"/>
@@ -18,9 +25,9 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="">Promos x Puntos</a></h1>
+    <a>${session.customer.nickname}</a>
     <a href="/promosxpuntosapp/profileCustomer" class="button special">Volver</a>
 </header>
-
 
 <!-- Main -->
 <section id="main" class="wrapper">
@@ -29,32 +36,26 @@
             <h2> ${session.customer.name}</h2>
             <figure>
                 <g:if test="${session.customer.logo != null}">
-                    <img class="img-responsive img-thumbnail" width="250px" height="250px"
-                         src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" />
+                    <img class="img-responsive img-thumbnail" width=250px" height="250px" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" />
                 </g:if>
                 <g:else>
                     <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
                 </g:else>
             </figure>
         </header>
-
         <div class="container 75%">
-            <h2>Lista de establecimientos</h2>
             <div class="row uniform 50%">
-                <g:each var="c" in="${promosxpuntosapp.Establishment.findAllByCustomer(session.customer)}">
-                    <div class="6u 12u$(xsmall)">
+                    <div class="12u$">
                         <div class="table-wrapper">
-                            <table>
-                                <tr><th> Nombre:</th> <th>${c?.name}</th></tr>
-                                <tr><th> Direccion:</th> <th>${c?.address}</th></tr>
-                                <tr><th> Numeero telefonico:</th> <th>${c?.telephoneNumber}</th></tr>
-                                <iframe style="height:100%;width:100%;border:0;" frameborder="0"
-                                        src="https://www.google.com/maps/embed/v1/place?q=${c?.address},+${c?.name},+Colombia&amp;key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU">
-                                </iframe>
+                            <table style="vertical-align: middle;">
+                                <g:each var="c" in="${Visit.list().standardUser.toSet()}">
+                                    <g:if test="${c.points.containsKey(session.customer.id)}">
+                                        <tr><th>${c.name}</th><th> ${c.points[session.customer.id]}</th></tr>
+                                    </g:if>
+                                </g:each>
                             </table>
                         </div>
                     </div>
-                </g:each>
             </div>
         </div>
     </div>

@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: japrietov
+  Date: 23/11/15
+  Time: 09:17 PM
+--%>
+
 <%@ page import="promosxpuntosapp.Customer" contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE HTML>
@@ -17,38 +24,45 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
-    <a href="#nav">Menu</a>
+    <h1><a href="">Promos x Puntos</a></h1>
+    <a>${session.user.nickname}</a>
+    <a href="/promosxpuntosapp/profile" class="button special">Volver</a>
 </header>
-
-<!-- Nav -->
-<nav id="nav">
-    <ul class="links">
-        <li><a href="${createLink(controller:'StandardUser', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
-        <li><a href="/promosxpuntosapp/profile/editStandardUser">Editar Perfil</a></li>
-        <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar Visita</a></li>
-        <li><a href="#">Ver Historial</a></li>
-        <li><a href="/promosxpuntosapp/customerList">Catalogo de Clientes</a></li>
-        <li><a href="#">Redimir Puntos</a></li>
-    </ul>
-</nav>
 
 <!-- Main -->
 <section id="main" class="wrapper">
     <div class="container">
         <header class="major special">
+            <h2>Catalogo de Clientes</h2>
+            <p>¡Conoce nuestros clientes! Da Click en alguno de ellos para ver sus establecimientos</p>
         </header>
-        <h1>¡Conoce nuestros clientes! Da Click en alguno de ellos para ver sus establecimientos</h1>
-        <div class="container 75%">
+        <div class="container 50%">
             <div class="row uniform 50%">
-                <g:each var="c" in="${Customer.list()}">
-                    <div class="6u 12u$(xsmall)">
-                        <h1>${c.name} </h1>
-                        <span class="image left" style="text-align: center">
-                            <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:c?.nickname])}"><img src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="200px" height="130px"></a>
-                        </span>
-                    </div>
-                </g:each>
+                <div class="12u$">
+                    <table style="align-items: center">
+                        <g:each var="c" in="${Customer.list()}">
+                            <tr>
+                                <th>
+                                    <h3 style="text-align: center">${c.name} </h3>
+                                </th>
+                                <th>
+                                    <span class="image" style="vertical-align: middle">
+                                        <a href="${createLink(controller:'customer', action:'establecimientosUser', params:[nickname:c?.nickname])}"><img style="padding-top: 10px;" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="150px" height="150px"></a>
+
+                                    </span>
+                                </th>
+                                <th>
+                                    <g:if test="${session.user.points?.containsKey(c.id)}">
+                                        <h3 style="text-align: center">Puntos acumulados:  ${session.user.points[c.id]}</h3>
+                                    </g:if>
+                                    <g:else>
+                                        <h3 style="text-align: center">Puntos acumulados:  0</h3>
+                                    </g:else>
+                                </th>
+                            </tr>
+                        </g:each>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

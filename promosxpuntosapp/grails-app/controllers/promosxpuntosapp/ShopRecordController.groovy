@@ -1,6 +1,6 @@
 package promosxpuntosapp
 
-
+import org.apache.commons.lang.RandomStringUtils
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -24,16 +24,56 @@ class ShopRecordController {
 
     def validacion(){
         def shop = ShopRecord.findByConsecutive(params.consecutive)
-        if (shop){
+        if (shop & shop.validate){
             def usuario = StandardUser.findById(ShopRecord.findByConsecutive(params.consecutive).standardUserId)
             session.foundU = usuario
             session.foundS = shop
-            //shop.delete flush: true
+            shop.validate = false
+            shop.save flush: true
             redirect controller: "profileEstablishment", action: "validateShopRecord"
         }else{
             session.foundU = null
             session.foundS = null
             redirect controller: "profileEstablishment", action: "validateShopRecord"
+        }
+    }
+
+    def redimir(){
+        def user = StandardUser?.findById(params."standardUser.id")
+        def customer = Customer?.findById(params."customer.id")
+        print user
+        print customer
+        def asd = Integer.parseInt(params."reward.id")
+        print asd
+        def reward = Reward.findById(asd)
+        def date = new Date()
+        print user.points
+        print user.points[customer.id]
+        print customer.name
+        print reward.rewardName
+        print reward.point
+
+        def shopRecordinstance= new ShopRecord( )
+        shopRecordinstance.standardUser = user
+        shopRecordinstance.customer = customer
+        shopRecordinstance.reward = reward
+        shopRecordinstance.date = date
+        shopRecordinstance.consecutive = new RandomStringUtils().random( 10, 'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+        shopRecordinstance.validate = true
+        if (user.points[customer.id] >= reward.point && reward.available > 0){
+            //puede redimir
+            user.points[customer.id] -= reward.point
+            reward.available -= 1
+            shopRecordinstance.save flush:true
+            user.save update:true, flush:true
+            reward.save flush:true
+            session.user=user
+            session.shopRecord = shopRecordinstance
+            redirect controller: "ShopRecordDone"
+        }else{
+            //no puede
+            redirect controller: "EstablishmentListUser"
+            flash.message = "No tienes puntos suficientes o no hay disponibilidad"
         }
     }
 

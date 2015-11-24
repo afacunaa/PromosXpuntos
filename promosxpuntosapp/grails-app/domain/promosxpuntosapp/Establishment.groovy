@@ -9,7 +9,6 @@ class Establishment {
 
     static hasMany = [
             shopRecords : ShopRecord,
-            rewards: Reward,
             visits: Visit
     ]
 

@@ -30,6 +30,7 @@ class RewardController {
             return
         }
         if (rewardInstance.hasErrors()) {
+            print rewardInstance.errors
             respond rewardInstance.errors, view: "/faces/createdReward"
             return
         }

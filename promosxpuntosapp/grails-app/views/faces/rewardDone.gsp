@@ -18,7 +18,8 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
-    <a>${session.reward.rewardName}</a>
+    <a>${session.customer.nickname}</a>
+    <a href="/promosxpuntosapp/profileCustomer" class="button special">Volver</a>
 </header>
 
 
@@ -28,7 +29,7 @@
         <header class="major special">
             <figure>
                 <g:if test="${session.reward.picture != null}">
-                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'reward', action:'displayPicture', params: [rewardName:session.reward.rewardName])}" width="500px"/>
+                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'reward', action:'displayPicture', params: [rewardName:session.reward.rewardName])}" width="300px"/>
                 </g:if>
                 <g:else>
                     <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
@@ -39,10 +40,12 @@
             <p> ${session.reward.description} </p>
             <p> Numero de puntos: ${session.reward.point} </p>
             <p> Disponibilidad: ${session.reward.available} </p>
-            <p> Fecha de creacion:  ${session.reward.creationDateReward} </p>
-            <p> Fecha de duracion: ${session.reward.dueDateReward} </p>
+            <p> Fecha de creacion:  ${session.reward.creationDateReward.format('d MMMM, yyyy')} </p>
+            <p> Fecha de duracion: ${session.reward.dueDateReward.format('d MMMM, yyyy')} </p>
         </header>
-        <a href="promosxpuntosapp/"></a>
+    </div>
+    <div>
+        <a href="promosxpuntosapp/profileCustomer" class="special"></a>
     </div>
 </section>
 

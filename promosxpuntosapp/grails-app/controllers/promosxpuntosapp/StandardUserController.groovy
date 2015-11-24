@@ -29,12 +29,12 @@ class StandardUserController {
                 redirect controller: "profile"
                 return
             }else{
-                redirect controller: "index", fragment: "two"
+                redirect controller: "index", fragment: "login"
                 flash.message = "Contrasena incorrecta"
                 return
             }
         }else{
-            redirect controller: "index", fragment: "two"
+            redirect controller: "index", fragment: "login"
             flash.message = "Nombre de Usuario incorrecto"
             return
         }

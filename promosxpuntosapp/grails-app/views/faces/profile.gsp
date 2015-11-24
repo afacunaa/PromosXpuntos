@@ -15,7 +15,7 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="">Promos x Puntos</a></h1>
     <a>${session.user.nickname}</a>
     <a href="#nav">Menu</a>
 </header>
@@ -27,8 +27,7 @@
         <li><a href="/promosxpuntosapp/profile/editStandardUser">Editar Perfil</a></li>
         <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar Visita</a></li>
         <li><a href="#">Ver Historial</a></li>
-        <li><a href="/promosxpuntosapp/customerList">Catalogo de Clientes</a></li>
-        <li><a href="#">Redimir Puntos</a></li>
+        <li><a href="/promosxpuntosapp/customerList">Redimir Puntos</a></li>
     </ul>
 </nav>
 
@@ -38,21 +37,18 @@
 
         <header class="major special">
             <h2>Bienvenido</h2>
+            <img src="${createLink(controller:'StandardUser', action:'displayPicture', params: [nickname:session.user.nickname])}" width="200px" height="200px" class="rigth">
             <p>${session.user.name} ${session.user.lastname}</p>
             <g:uploadForm controller="standardUser" action="logOut" method="post">
                 <ul class="actions">
-                    <a href="/promosxpuntosapp/profile/QRScanner" class="button special">Registrar Visita</a>
-                    <a href="/promosxpuntosapp/customerList" class="button special">Catalogo de Clientes</a>
-                    <a href="#" class="button special">Redimir Puntos</a>
-                    <g:submitButton name="summit" type="submit" value="Cerrar Sesión" class="default" tabindex="-1"></g:submitButton>
+                    <li><a href="/promosxpuntosapp/profile/QRScanner" class="button special">Registrar Visita</a></li>
+                    <li><a href="/promosxpuntosapp/customerList" class="button special">Redimir Puntos</a></li>
+                    <li><a href="#" class="button special">Ver Historial</a></li>
                 </ul>
             </g:uploadForm>
         </header>
 
         <h2>Datos de Usuario</h2>
-        <span class="image right">
-            <img src="${createLink(controller:'StandardUser', action:'displayPicture', params: [nickname:session.user.nickname])}" width="150px" height="200px" class="rigth">
-        </span>
         <div class="table-wrapper">
             <table>
                 <tr><th> Nombres:</th> <th>${session.user.name}</th></tr>
@@ -63,10 +59,6 @@
                 <tr><th> Teléfono:</th> <th>${session.user.telephone}</th></tr>
             </table>
         </div>
-        <ul class="actions">
-            <a href="/promosxpuntosapp/profile/editStandardUser" class="button special">Editar Perfil</a>
-            <a href="#" class="button special">Ver Historial</a>
-        </ul>
     </div>
 </section>
 

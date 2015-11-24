@@ -1,5 +1,6 @@
 package promosxpuntosapp
 
+import net.sf.ehcache.store.compound.factories.AATreeSet
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -21,9 +22,29 @@ class CustomerController {
     def establecimientos = {
         def custom = Customer.findByNickname((String) params.nickname)
         session.customer = custom
-        redirect controller: "establishmentList"
+        redirect controller: "profileCustomer", action: "establishmentList"
     }
 
+    def establecimientosUser = {
+        def custom = Customer.findByNickname((String) params.nickname)
+        session.customer = custom
+        redirect controller: "establishmentListUser"
+    }
+
+    def standardUserList = {
+        def customer = Customer.findByNickname((String) params.nickname)
+        session.customer = customer
+        redirect controller: "standardUserList"
+        def asd = Visit.list().standardUser.toSet()
+        asd.each {if (it.points.containsKey(customer.id)) print it.name}
+        print asd
+    }
+
+    def rewardsest ={
+        def custom = Customer.findByNickname((String) params.nickname)
+        session.customer = custom
+        redirect controller: "rewardList"
+    }
     def create() {
         respond new Customer(params)
     }
@@ -34,15 +55,17 @@ class CustomerController {
             if (establishment){
                 if (establishment.password==params.password){
                     session.establishment=establishment
+                    session.foundS = null
+                    session.foundU = null
                     redirect controller: "profileEstablishment"
                     return
                 }else{
-                    redirect controller: "customersIndex", fragment: "ingreso"
+                    redirect controller: "customersIndex", fragment: "login"
                     flash.message = "Contraseña incorrecta"
                     return
                 }
             }else{
-                redirect controller: "customersIndex", fragment: "ingreso"
+                redirect controller: "customersIndex", fragment: "login"
                 flash.message = "Nombre de Usuario incorrecto"
                 return
             }
@@ -55,12 +78,12 @@ class CustomerController {
                     redirect controller: "profileCustomer"
                     return
                 }else{
-                    redirect controller: "customersIndex", fragment: "ingreso"
+                    redirect controller: "customersIndex", fragment: "login"
                     flash.message = "Contraseña incorrecta"
                     return
                 }
             }else{
-                redirect controller: "customersIndex", fragment: "ingreso"
+                redirect controller: "customersIndex", fragment: "login"
                 flash.message = "Nombre de Usuario incorrecto"
                 return
             }
@@ -68,7 +91,10 @@ class CustomerController {
     }
 
     def logOut(){
-        session.customer=null
+        session.customer = null
+        session.establishment = null
+        session.foundS = null
+        session.foundU = null
         redirect controller: "customersIndex"
     }
 
