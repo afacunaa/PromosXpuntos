@@ -25,6 +25,11 @@ class CustomerController {
         redirect controller: "establishmentList"
     }
 
+    def establecimientosUser = {
+        def custom = Customer.findByNickname((String) params.nickname)
+        session.customer = custom
+        redirect controller: "establishmentListUser"
+    }
 
     def standardUserList = {
         def customer = Customer.findByNickname((String) params.nickname)
@@ -33,12 +38,7 @@ class CustomerController {
         def asd = Visit.list().standardUser.toSet()
         asd.each {if (it.points.containsKey(customer.id)) print it.name}
         print asd
-
-
     }
-
-
-
 
     def create() {
         respond new Customer(params)
