@@ -33,6 +33,8 @@ class CustomerController {
         def asd = Visit.list().standardUser.toSet()
         asd.each {if (it.points.containsKey(customer.id)) print it.name}
         print asd
+
+
     }
 
 

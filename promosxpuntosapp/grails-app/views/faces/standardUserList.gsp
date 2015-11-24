@@ -45,11 +45,10 @@
             <div class="row uniform 50%">
                     <div class="12u$">
                         <div class="table-wrapper">
-                            <table>
+                            <table style="vertical-align: middle;">
                                 <g:each var="c" in="${Visit.list().standardUser.toSet()}">
                                     <g:if test="${c.points.containsKey(session.customer.id)}">
-                                        <tr><th>Hello ${c.name}!</th><th> ${c.points[session.customer.id]}</th></tr>
-
+                                        <tr><th>${c.name}</th><th> ${c.points[session.customer.id]}</th></tr>
                                     </g:if>
                                 </g:each>
                             </table>

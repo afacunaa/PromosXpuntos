@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: japrietov
+  Date: 23/11/15
+  Time: 09:17 PM
+--%>
+
 <%@ page import="promosxpuntosapp.Customer" contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE HTML>
@@ -31,31 +38,31 @@
         </header>
         <div class="container 50%">
             <div class="row uniform 50%">
-                    <div class="12u$">
-                        <table style="align-items: center">
-                            <g:each var="c" in="${Customer.list()}">
-                                <tr>
-                                    <th>
-                                        <h3 style="text-align: center">${c.name} </h3>
-                                    </th>
-                                    <th>
-                                        <span class="image" style="vertical-align: middle">
+                <div class="12u$">
+                    <table style="align-items: center">
+                        <g:each var="c" in="${Customer.list()}">
+                            <tr>
+                                <th>
+                                    <h3 style="text-align: center">${c.name} </h3>
+                                </th>
+                                <th>
+                                    <span class="image" style="vertical-align: middle">
                                         <a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:c?.nickname])}"><img style="padding-top: 10px;" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:c?.nickname])}"width="150px" height="150px"></a>
 
                                     </span>
-                                    </th>
-                                    <th>
-                                        <g:if test="${session.user.points?.containsKey(c.id)}">
-                                            <h3 style="text-align: center">Puntos acumulados:  ${session.user.points[c.id]}</h3>
-                                        </g:if>
-                                        <g:else>
-                                            <h3 style="text-align: center">Puntos acumulados:  0</h3>
-                                        </g:else>
-                                    </th>
-                                </tr>
-                            </g:each>
-                        </table>
-                    </div>
+                                </th>
+                                <th>
+                                    <g:if test="${session.user.points?.containsKey(c.id)}">
+                                        <h3 style="text-align: center">Puntos acumulados:  ${session.user.points[c.id]}</h3>
+                                    </g:if>
+                                    <g:else>
+                                        <h3 style="text-align: center">Puntos acumulados:  0</h3>
+                                    </g:else>
+                                </th>
+                            </tr>
+                        </g:each>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
