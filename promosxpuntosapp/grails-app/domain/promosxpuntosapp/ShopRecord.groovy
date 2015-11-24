@@ -3,6 +3,7 @@ package promosxpuntosapp
 class ShopRecord {
     Date date
     String consecutive
+    boolean validate
 
     static belongsTo = [
             reward : Reward,
@@ -12,5 +13,6 @@ class ShopRecord {
 
     static constraints = {
         consecutive(blank: false)
+        validate(blank: false)
     }
 }

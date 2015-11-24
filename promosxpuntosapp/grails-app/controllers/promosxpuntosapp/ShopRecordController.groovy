@@ -24,11 +24,12 @@ class ShopRecordController {
 
     def validacion(){
         def shop = ShopRecord.findByConsecutive(params.consecutive)
-        if (shop){
+        if (shop & shop.validate){
             def usuario = StandardUser.findById(ShopRecord.findByConsecutive(params.consecutive).standardUserId)
             session.foundU = usuario
             session.foundS = shop
-            //shop.delete flush: true
+            shop.validate = false
+            shop.save flush: true
             redirect controller: "profileEstablishment", action: "validateShopRecord"
         }else{
             session.foundU = null
@@ -58,6 +59,7 @@ class ShopRecordController {
         shopRecordinstance.reward = reward
         shopRecordinstance.date = date
         shopRecordinstance.consecutive = new RandomStringUtils().random( 10, 'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+        shopRecordinstance.validate = true
         if (user.points[customer.id] >= reward.point && reward.available > 0){
             //puede redimir
             user.points[customer.id] -= reward.point

@@ -11,6 +11,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <asset:stylesheet src="template.css"/>
+    <style>
+    .nonStyletext { font-weight:normal; text-transform: none }
+    </style>
 
 </head>
 <body>
@@ -30,7 +33,7 @@
             <h2> ¡Felicidades ${session.user.name}! </h2>
             <p> Has redimido un: <b>${session.shopRecord.reward.rewardName}</b> </p>
             <p> Este es tu codigo de verificación: </p>
-            <h2> ${session.shopRecord.consecutive} </h2>
+            <h2 class="nonStyletext"> ${session.shopRecord.consecutive} </h2>
             <p> Presentalo en un establecimiento autorizado para que te entreguen tu promocion</p>
         </header>
     </div>
