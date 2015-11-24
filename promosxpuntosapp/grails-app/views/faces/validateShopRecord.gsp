@@ -36,7 +36,7 @@
         <g:if test="${session.foundU != null}">
             <label>${session.foundU.name} ${session.foundU.lastname}</label>
             <label>${session.foundU.nickname}</label>
-            <label>Redención en establecimiento: ${promosxpuntosapp.Establishment.findById(session.foundS.establishmentId).name} / En: ${session.foundS.date}</label>
+            <label>Redención en establecimiento: ${promosxpuntosapp.Establishment.findById(session.foundS.customerId).name} / En: ${session.foundS.date}</label>
             <g:uploadForm controller="ShopRecord" action="" method="" accept-charset="UTF-8" role="form" class="form-signup">
                 <g:submitButton name="submit" type="submit" value="Validar" class="special" tabindex="-1"></g:submitButton>
             </g:uploadForm>

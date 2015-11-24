@@ -18,6 +18,8 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
+    <a>${session.user.nickname}</a>
+    <a href="/promosxpuntosapp/customerList" class="button special">Volver</a>
     <a href="#nav">Menu</a>
 </header>
 
@@ -25,8 +27,8 @@
 <nav id="nav">
     <ul class="links">
         <li><a href="${createLink(controller:'customer', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
-        <li><a href="/promosxpuntosapp/profileCustomer/createEstablishment">Crear establecimiento</a></li>
-        <li><a href="#">Listar establecimientos</a></li>
+        <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar visita</a></li>
+        <li><a href="#">Ver historial</a></li>
     </ul>
 </nav>
 
@@ -49,7 +51,7 @@
         <div class="container 75%">
             <h2>Recompenzas vigentes</h2>
             <div class="row uniform 50%">
-                <g:uploadForm controller="shopRecord" action="redimir" method="post" accept-charset="UTF-8" role="form" class="form-signup">
+                <g:uploadForm controller="shopRecord" action="redimir" method="post" accept-charset="UTF-8" role="form" >
                     <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
                         <div class="12u$">
                             <div class="table-wrapper">
@@ -76,7 +78,7 @@
                     <div class="12u$">
                         <g:textField id="standardUser" value="${session.user.id}" class="form-control" name="standardUser.id" style="display: none"></g:textField>
                     </div>
-                    <g:submitButton name="summit" type="submit" value="Registrarse" class="special" tabindex="-1"></g:submitButton>
+                    <g:submitButton name="summit" type="submit" value="Redimir" class="special" tabindex="-1"></g:submitButton>
                 </g:uploadForm>
             </div>
         </div>

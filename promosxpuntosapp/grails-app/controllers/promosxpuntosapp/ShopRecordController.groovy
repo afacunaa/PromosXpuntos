@@ -65,13 +65,13 @@ class ShopRecordController {
             shopRecordinstance.save flush:true
             user.save update:true, flush:true
             reward.save flush:true
+            session.user=user
             session.shopRecord = shopRecordinstance
             redirect controller: "ShopRecordDone"
         }else{
             //no puede
-            print shopRecordInstance.errors
             redirect controller: "EstablishmentListUser"
-            flash.message = "Nombre de Usuario incorrecto"
+            flash.message = "No tienes puntos suficientes o no hay disponibilidad"
         }
     }
 

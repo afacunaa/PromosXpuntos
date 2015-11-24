@@ -42,7 +42,7 @@
             <g:uploadForm controller="customer" action="logOut" method="post">
                 <ul class="actions">
                     <li><a href="/promosxpuntosapp/profileCustomer/createEstablishment" class="button special">Crear establecimiento</a></li>
-                    <li><a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:session.customer?.nickname])}" class="button special">Listar establecimientos</a></li>
+                    <li><a href="/promosxpuntosapp/profileCustomer/establishmentList" class="button special">Listar establecimientos</a></li>
                     <li><a class="button special" href="/promosxpuntosapp/createdReward">Crear Recompensa</a></li>
                     <li><a href="${createLink(controller:'customer', action:'standardUserList', params:[nickname:session.customer?.nickname])}" class="button special">Usuarios con visitas</a></li>
                     <li><p>          .</p></li>
