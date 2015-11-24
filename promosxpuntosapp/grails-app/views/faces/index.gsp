@@ -92,25 +92,16 @@
             <span class="image"><asset:image src="pic01.jpg" width="500px"/></span>
 
             <div class="content">
-                <h2>Con promos x puntos..</h2>
+                <h2>Con promos x puntos.</h2>
                 <p>Podrás conocer el estado de tus puntos, encontrar establecimientos asociados y conocer si tienes premios disponibles.</p>
-                <ul class="actions">
-                    <li>
-                        <a href="#" class="button alt">Ipsum</a>
-                    </li>
-                </ul>
+
             </div>
         </article>
         <article class="feature right">
             <span class="image"><asset:image src="pic02.jpg" width="500px"/></span>
             <div class="content">
-                <h2>Conoce las promociones a</h2>
-                <p>Conozca el estado de las promociones y recibe ofertas especiales de tus tiendas preferidas</p>
-                <ul class="actions">
-                    <li>
-                        <a href="#" class="button alt">Lorem</a>
-                    </li>
-                </ul>
+                <h2>Conoce las promociones</h2>
+                <p>Conoce el estado de todas nuestras promociones y recibe ofertas especiales de tus tiendas preferidas, ven y disfruta del mejor sitio web para redimir tus puntos</p>
             </div>
         </article>
     </div>
