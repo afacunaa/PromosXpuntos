@@ -22,7 +22,7 @@ class CustomerController {
     def establecimientos = {
         def custom = Customer.findByNickname((String) params.nickname)
         session.customer = custom
-        redirect controller: "profileCustomer", action: "establishmentList"
+        redirect controller: "establishmentList"
     }
 
     def establecimientosUser = {
