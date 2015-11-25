@@ -43,7 +43,7 @@ class CustomerController {
     def rewardsest ={
         def custom = Customer.findByNickname((String) params.nickname)
         session.customer = custom
-        redirect controller: "rewardList"
+        redirect controller: "rewardListCustomer"
     }
     def create() {
         respond new Customer(params)
