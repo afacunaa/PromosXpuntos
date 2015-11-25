@@ -55,6 +55,8 @@ class CustomerController {
             if (establishment){
                 if (establishment.password==params.password){
                     session.establishment=establishment
+                    session.foundS = null
+                    session.foundU = null
                     redirect controller: "profileEstablishment"
                     return
                 }else{
@@ -89,7 +91,10 @@ class CustomerController {
     }
 
     def logOut(){
-        session.customer=null
+        session.customer = null
+        session.establishment = null
+        session.foundS = null
+        session.foundU = null
         redirect controller: "customersIndex"
     }
 

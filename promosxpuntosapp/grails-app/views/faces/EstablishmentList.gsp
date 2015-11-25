@@ -18,7 +18,7 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="">Promos x Puntos</a></h1>
-    <a href="/promosxpuntosapp/customerList" class="button special">Volver</a>
+    <a href="/promosxpuntosapp/profileCustomer" class="button special">Volver</a>
 </header>
 
 
@@ -47,7 +47,7 @@
                             <table>
                                 <tr><th> Nombre:</th> <th>${c?.name}</th></tr>
                                 <tr><th> Direccion:</th> <th>${c?.address}</th></tr>
-                                <tr><th> Numeero telefonico:</th> <th>${c?.telephoneNumber}</th></tr>
+                                <tr><th> Numero telefonico:</th> <th>${c?.telephoneNumber}</th></tr>
                                 <iframe style="height:100%;width:100%;border:0;" frameborder="0"
                                         src="https://www.google.com/maps/embed/v1/place?q=${c?.address},+${c?.name},+Colombia&amp;key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU">
                                 </iframe>

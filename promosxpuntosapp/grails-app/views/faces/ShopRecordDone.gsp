@@ -11,6 +11,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <asset:stylesheet src="template.css"/>
+    <style>
+    .nonStyletext { font-weight:normal; text-transform: none }
+    </style>
 
 </head>
 <body>
@@ -18,6 +21,8 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
+    <a>${session.user.nickname}</a>
+    <a href="/promosxpuntosapp/profile" class="button special">Volver</a>
 </header>
 
 
@@ -26,9 +31,9 @@
     <div class="container" style="text-align: justify">
         <header class="major special">
             <h2> ¡Felicidades ${session.user.name}! </h2>
-            <p> Has redimido un: ${session.shopRecord.reward.nameReward} </p>
+            <p> Has redimido un: <b>${session.shopRecord.reward.rewardName}</b> </p>
             <p> Este es tu codigo de verificación: </p>
-            <h2> ${session.reward.consecutive} </h2>
+            <h2 class="nonStyletext"> ${session.shopRecord.consecutive} </h2>
             <p> Presentalo en un establecimiento autorizado para que te entreguen tu promocion</p>
         </header>
     </div>

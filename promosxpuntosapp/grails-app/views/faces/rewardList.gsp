@@ -50,8 +50,8 @@
                             <table>
                                 <tr><th> Nombre:</th> <th>${c?.rewardName}</th></tr>
                                 <tr><th> Descripcion:</th> <th>${c?.description}</th></tr>
-                                <tr><th> Fecha de creación:</th> <th>${c?.creationDateReward}</th></tr>
-                                <tr><th> Fecha de vencimiento:</th> <th>${c?.dueDateReward}</th></tr>
+                                <tr><th> Fecha de creación:</th> <th>${c?.creationDateReward.format('d, MMMM yyyy')}</th></tr>
+                                <tr><th> Fecha de vencimiento:</th> <th>${c?.dueDateReward.format('d, MMMM yyyy')}</th></tr>
                                 <tr><th> Puntos:</th> <th>${c?.point}</th></tr>
                                 <tr><th> Disponible:</th> <th>${c?.available}</th></tr>
 

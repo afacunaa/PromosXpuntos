@@ -18,6 +18,8 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
+    <a>${session.user.nickname}</a>
+    <a href="/promosxpuntosapp/customerList" class="button special">Volver</a>
     <a href="#nav">Menu</a>
 </header>
 
@@ -25,8 +27,8 @@
 <nav id="nav">
     <ul class="links">
         <li><a href="${createLink(controller:'customer', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
-        <li><a href="/promosxpuntosapp/profileCustomer/createEstablishment">Crear establecimiento</a></li>
-        <li><a href="#">Listar establecimientos</a></li>
+        <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar visita</a></li>
+        <li><a href="#">Ver historial</a></li>
     </ul>
 </nav>
 
@@ -38,7 +40,7 @@
             <h2> ${session.customer.name}</h2>
             <figure>
                 <g:if test="${session.customer.logo != null}">
-                    <img class="img-responsive img-thumbnail" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" />
+                    <img class="img-responsive img-thumbnail" width=250px" height="250px" src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" />
                 </g:if>
                 <g:else>
                     <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
@@ -49,13 +51,14 @@
         <div class="container 75%">
             <h2>Recompenzas vigentes</h2>
             <div class="row uniform 50%">
-                <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
-                        <div class="6u 12u$(xsmall)">
+                <g:uploadForm controller="shopRecord" action="redimir" method="post" accept-charset="UTF-8" role="form" >
+                    <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
+                        <div class="12u$">
                             <div class="table-wrapper">
                                 <g:if test="${flash.message}">
                                     <div class="message" role="status">${flash.message}</div>
                                 </g:if>
-                                <table>
+                                <table style="vertical-align: middle">
                                     <tr><th> Nombre:</th> <th>${c?.rewardName}</th></tr>
                                     <tr><th> Puntos requeridos:</th> <th>${c?.point}</th></tr>
                                     <tr><th> Disponibilidad:</th> <th>${c?.available}</th></tr>
@@ -63,7 +66,20 @@
                                 </table>
                             </div>
                         </div>
-                </g:each>
+                    </g:each>
+                    <select id="reward" name="reward.id">
+                        <g:each var="x" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
+                            <option value="${x.id}">${x.rewardName} ${x.version}</option>
+                        </g:each>
+                    </select>
+                    <div class="12u$">
+                        <g:textField id="customer" value="${session.customer.id}" class="form-control" name="customer.id" style="display: none"></g:textField>
+                    </div>
+                    <div class="12u$">
+                        <g:textField id="standardUser" value="${session.user.id}" class="form-control" name="standardUser.id" style="display: none"></g:textField>
+                    </div>
+                    <g:submitButton name="summit" type="submit" value="Redimir" class="special" tabindex="-1"></g:submitButton>
+                </g:uploadForm>
             </div>
         </div>
 
@@ -76,7 +92,7 @@
                             <table>
                                 <tr><th> Nombre:</th> <th>${c?.name}</th></tr>
                                 <tr><th> Direccion:</th> <th>${c?.address}</th></tr>
-                                <tr><th> Numeero telefonico:</th> <th>${c?.telephoneNumber}</th></tr>
+                                <tr><th> Numero telefonico:</th> <th>${c?.telephoneNumber}</th></tr>
                                 <iframe style="height:100%;width:100%;border:0;" frameborder="0"
                                         src="https://www.google.com/maps/embed/v1/place?q=${c?.address},+${c?.name},+Colombia&amp;key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU">
                                 </iframe>
