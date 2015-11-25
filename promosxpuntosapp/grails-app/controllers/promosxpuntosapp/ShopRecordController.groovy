@@ -22,20 +22,28 @@ class ShopRecordController {
         respond new ShopRecord(params)
     }
 
-    def validacion(){
-        def shop = ShopRecord.findByConsecutive(params.consecutive)
-        if (shop & shop.validate){
-            def usuario = StandardUser.findById(ShopRecord.findByConsecutive(params.consecutive).standardUserId)
-            session.foundU = usuario
-            session.foundS = shop
-            shop.validate = false
-            shop.save flush: true
-            redirect controller: "profileEstablishment", action: "validateShopRecord"
+    def search(){
+        def shop = ShopRecord.findByConsecutive((String) params.consecutive)
+        print params.consecutive
+        def validator = shop.validate
+        print validator
+        if (validator){
+            session.shopRecord = shop
+            redirect controller: "validateSuccess"
+            print (shop)
         }else{
-            session.foundU = null
-            session.foundS = null
+            flash.message = "Usuario no encontrado o recompensa no valida"
             redirect controller: "profileEstablishment", action: "validateShopRecord"
+
         }
+    }
+
+    def validateShop(){
+        def shop = ShopRecord.findByConsecutive((String) params.consecutive)
+        print shop
+        shop.validate = false
+        shop.save flush: true
+        redirect controller: "profileEstablishment"
     }
 
     def redimir(){

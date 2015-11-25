@@ -69,7 +69,7 @@
                     </g:each>
                     <select id="reward" name="reward.id">
                         <g:each var="x" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
-                            <option value="${x.id}">${x.rewardName} ${x.version}</option>
+                            <option value="${x.id}">${x.rewardName}</option>
                         </g:each>
                     </select>
                     <div class="12u$">

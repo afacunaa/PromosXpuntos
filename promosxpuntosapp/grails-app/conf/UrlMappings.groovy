@@ -28,8 +28,7 @@ class UrlMappings {
         "/establishmentListUser"(view:"/faces/EstablishmentListUser")
         "/standardUserList"(view:"/faces/standardUserList")
         "/rewardList"(view:"/faces/rewardList")
-
-
+        "/validateSuccess"(view:"/faces/validateSuccess")
         "/"(view:"/faces/index")
         "500"(view:'/error')
 	}
