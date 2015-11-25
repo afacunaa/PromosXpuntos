@@ -21,6 +21,9 @@
         <header class="major narrow">
             <h2>Validar Premio</h2>
         </header>
+        <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+        </g:if>
         <g:uploadForm controller="shopRecord" action="search" method="post" accept-charset="UTF-8" role="form" class="form-signup">
             <div class="container 50%">
                 <div class="row uniform 50%">

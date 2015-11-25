@@ -27,14 +27,21 @@ class ShopRecordController {
         print params.consecutive
         def validator = shop.validate
         print validator
-        if (validator){
-            session.shopRecord = shop
-            redirect controller: "validateSuccess"
-            print (shop)
-        }else{
+
+        if(shop == null){
             flash.message = "Usuario no encontrado o recompensa no valida"
             redirect controller: "profileEstablishment", action: "validateShopRecord"
+        }
+        else {
+            if (validator) {
+                session.shopRecord = shop
+                redirect controller: "validateSuccess"
+                print(shop)
+            } else {
+                flash.message = "Usuario no encontrado o recompensa no valida"
+                redirect controller: "profileEstablishment", action: "validateShopRecord"
 
+            }
         }
     }
 
@@ -45,6 +52,15 @@ class ShopRecordController {
         shop.save flush: true
         redirect controller: "profileEstablishment"
     }
+
+    def showHistory(){
+        def user = ShopRecord.findByStandardUser(StandardUser.findById(params.userId))
+        print (user)
+        session.user = user
+    }
+
+
+
 
     def redimir(){
         def user = StandardUser?.findById(params."standardUser.id")
