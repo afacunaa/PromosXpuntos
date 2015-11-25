@@ -12,6 +12,7 @@ class UrlMappings {
         "/profile"(view:"/faces/profile")
         "/profile/editStandardUser"(view:"/faces/editStandardUser")
         "/profile/QRScanner"(view:"/faces/QRScanner")
+        "/profile/rewardList"(view:"/faces/rewardList")
         "/profileCustomer/createEstablishment"(view:"/faces/createEstablishment")
         "/customers-module"(view: "/faces/customers-module")
         "/users-module"(view: "/faces/users-module")
@@ -27,8 +28,8 @@ class UrlMappings {
         "/establishmentList"(view:"/faces/EstablishmentList")
         "/establishmentListUser"(view:"/faces/EstablishmentListUser")
         "/standardUserList"(view:"/faces/standardUserList")
-        "/rewardList"(view:"/faces/rewardList")
-        "/validateSuccess"(view:"/faces/validateSuccess")
+
+
         "/"(view:"/faces/index")
         "500"(view:'/error')
 	}

@@ -26,8 +26,6 @@
         <li><a href="${createLink(controller:'customer', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
         <li><a href="${createLink(controller:'customer', action:'standardUserList', params:[nickname:session.customer?.nickname])}">Usuarios con visitas</a></li>
         <li><a href="${createLink(controller:'customer', action:'establecimientos', params:[nickname:session.customer?.nickname])}" >Lista de establecimientos</a></li>
-        <li><a href="${createLink(controller:'customer', action:'rewardsest', params:[nickname:session.customer?.nickname])}" >Lista de recompensas</a></li>
-
     </ul>
 </nav>
 

@@ -20,8 +20,8 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="index.html">Promos x Puntos</a></h1>
-    <a>${session.customer.nickname}</a>
-    <a href="/promosxpuntosapp/profileCustomer" class="button special">Volver</a>
+    <a>${session.user.nickname}</a>
+    <a href="/promosxpuntosapp/profile" class="button special">Volver</a>
 </header>
 
 
@@ -29,11 +29,11 @@
 <section id="main" class="wrapper">
     <div class="container">
         <header class="major special">
-            <h2> ${session.customer.name}</h2>
+            <h2> ${session.user.name}</h2>
             <figure>
-                <g:if test="${session.customer.logo != null}">
+                <g:if test="${session.user.picture != null}">
                     <img class="img-responsive img-thumbnail" width="250px" height="250px"
-                         src="${createLink(controller:'customer', action:'displayPicture', params: [nickname:session.customer.nickname])}" />
+                         src="${createLink(controller:'StandardUser', action:'displayPicture', params: [nickname:session.user.nickname])}" />
                 </g:if>
                 <g:else>
                     <g:img dir="images" file="logotipo.png" class="img-responsive img-thumbnail"/>
@@ -42,7 +42,7 @@
         </header>
 
         <div class="container 75%">
-            <h2>Lista de Recompensas</h2>
+            <h2>Historial de Recompensas</h2>
             <div class="row uniform 50%">
                 <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
                     <div class="6u 12u$(xsmall)">
