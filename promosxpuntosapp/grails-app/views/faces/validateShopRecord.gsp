@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class=" mz-js mz-no-flexbox mz-canvas mz-canvastext mz-no-webgl mz-no-touch mz-geolocation mz-postmessage mz-websqldatabase mz-indexeddb mz-hashchange mz-history mz-draganddrop mz-websockets mz-rgba mz-hsla mz-multiplebgs mz-backgroundsize mz-borderimage mz-borderradius mz-boxshadow mz-textshadow mz-opacity mz-cssanimations mz-csscolumns mz-cssgradients mz-cssreflections mz-csstransforms mz-csstransforms3d mz-csstransitions mz-fontface mz-generatedcontent mz-video mz-audio mz-localstorage mz-sessionstorage mz-webworkers mz-applicationcache mz-svg mz-inlinesvg mz-smil mz-svgclippaths mz-no-bgrepeatround mz-no-bgrepeatspace mz-getusermedia mz-no-pagedcontent mz-fullscreen mz-pagevisibility"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <head>
-        <title>Promos x Puntos - Leer codigo QR</title>
+        <title>Promos x Puntos - Buscar consecutivo</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=480, user-scalable=no">
         <asset:stylesheet src="template.css"/>
@@ -11,7 +11,7 @@
 <body>
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="">Promos x Puntos</a></h1>
     <a>${session.establishment.nicknameEstablishment}</a>
     <a href="/promosxpuntosapp/profileEstablishment" class="button special">Volver</a>
 </header>
@@ -21,7 +21,10 @@
         <header class="major narrow">
             <h2>Validar Premio</h2>
         </header>
-        <g:uploadForm controller="ShopRecord" action="validacion" method="post" accept-charset="UTF-8" role="form" class="form-signup">
+        <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+        </g:if>
+        <g:uploadForm controller="shopRecord" action="search" method="post" accept-charset="UTF-8" role="form" class="form-signup">
             <div class="container 50%">
                 <div class="row uniform 50%">
                     <div class="12u$">
@@ -33,14 +36,6 @@
                 <g:submitButton name="submit" type="submit" value="Buscar" class="special" tabindex="-1"></g:submitButton>
             </ul>
         </g:uploadForm>
-        <g:if test="${session.foundU != null}">
-            <label>${session.foundU.name} ${session.foundU.lastname}</label>
-            <label>${session.foundU.nickname}</label>
-            <label>Redención en establecimiento: ${promosxpuntosapp.Establishment.findById(session.foundS.customerId).name} / En: ${session.foundS.date}</label>
-            <g:uploadForm controller="ShopRecord" action="" method="" accept-charset="UTF-8" role="form" class="form-signup">
-                <g:submitButton name="submit" type="submit" value="Validar" class="special" tabindex="-1"></g:submitButton>
-            </g:uploadForm>
-        </g:if>
     </div>
 </section>
 

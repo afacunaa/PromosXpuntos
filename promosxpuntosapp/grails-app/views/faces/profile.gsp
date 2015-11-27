@@ -43,7 +43,7 @@
                 <ul class="actions">
                     <li><a href="/promosxpuntosapp/profile/QRScanner" class="button special">Registrar Visita</a></li>
                     <li><a href="/promosxpuntosapp/customerList" class="button special">Redimir Puntos</a></li>
-                    <li><a href="#" class="button special">Ver Historial</a></li>
+                    <li><a href="${createLink(controller:'shopRecord', action:'showHistory', params: [userId: session.user.id])}" class="button special">Ver historial</a></li>
                 </ul>
             </g:uploadForm>
         </header>

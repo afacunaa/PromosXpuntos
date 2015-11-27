@@ -69,7 +69,7 @@
                     </g:each>
                     <select id="reward" name="reward.id">
                         <g:each var="x" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">
-                            <option value="${x.id}">${x.rewardName} ${x.version}</option>
+                            <option value="${x.id}">${x.rewardName}</option>
                         </g:each>
                     </select>
                     <div class="12u$">
@@ -92,7 +92,7 @@
                             <table>
                                 <tr><th> Nombre:</th> <th>${c?.name}</th></tr>
                                 <tr><th> Direccion:</th> <th>${c?.address}</th></tr>
-                                <tr><th> Numeero telefonico:</th> <th>${c?.telephoneNumber}</th></tr>
+                                <tr><th> Numero telefonico:</th> <th>${c?.telephoneNumber}</th></tr>
                                 <iframe style="height:100%;width:100%;border:0;" frameborder="0"
                                         src="https://www.google.com/maps/embed/v1/place?q=${c?.address},+${c?.name},+Colombia&amp;key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU">
                                 </iframe>
