@@ -4,6 +4,7 @@ class ShopRecord {
     Date date
     String consecutive
     boolean validate
+    String placeValidate
 
     static belongsTo = [
             reward : Reward,
@@ -14,5 +15,6 @@ class ShopRecord {
     static constraints = {
         consecutive(blank: false)
         validate(blank: false)
+        placeValidate(nullable: true)
     }
 }

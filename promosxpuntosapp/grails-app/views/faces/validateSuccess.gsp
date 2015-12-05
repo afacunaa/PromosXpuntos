@@ -32,6 +32,7 @@
             <label>Redención en establecimiento: ${promosxpuntosapp.Establishment.findById(session.shopRecord.customerId).name} / En: ${session.shopRecord.date}</label>
             <g:uploadForm controller="shopRecord" action="validateShop" accept-charset="UTF-8" role="form" class="form-signup">
                 <g:textField id="consecutive" name="consecutive" style="display: none" value="${session.shopRecord.consecutive}"></g:textField>
+                <g:textField id="nickname" name="nickname" style="display: none" value="${session.establishment.nicknameEstablishment}"></g:textField>
                 <g:submitButton name="submit" type="submit" value="Validar" class="special" tabindex="-1"></g:submitButton>
             </g:uploadForm>
         </header>

@@ -49,6 +49,7 @@ class ShopRecordController {
         def shop = ShopRecord.findByConsecutive((String) params.consecutive)
         print shop
         shop.validate = false
+        shop.placeValidate = Establishment.findByNicknameEstablishment((String) params.nickname)
         shop.save flush: true
         redirect controller: "profileEstablishment"
     }
@@ -84,6 +85,7 @@ class ShopRecordController {
         shopRecordinstance.date = date
         shopRecordinstance.consecutive = new RandomStringUtils().random( 10, 'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
         shopRecordinstance.validate = true
+        shopRecordinstance.placeValidate = ""
         if (user.points[customer.id] >= reward.point && reward.available > 0){
             //puede redimir
             user.points[customer.id] -= reward.point
