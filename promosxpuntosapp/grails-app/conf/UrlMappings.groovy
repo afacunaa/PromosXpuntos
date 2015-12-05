@@ -31,6 +31,8 @@ class UrlMappings {
         "/rewardListCustomer"(view:"/faces/rewardListCustomer")
         "/validateSuccess"(view: "faces/validateSuccess")
         "/shopRecord/showHistory"(view: "faces/historyShopRecord")
+        "/profileCustomer/searchUserReward"(view: "faces/searchUserReward")
+        "/profileCustomer/listUserFounded"(view: "faces/listUserFounded")
 
         "/"(view:"/faces/index")
         "500"(view:'/error')

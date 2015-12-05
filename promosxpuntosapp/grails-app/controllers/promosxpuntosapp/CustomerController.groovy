@@ -137,6 +137,28 @@ class CustomerController {
         out.close()
     }
 
+    def searchUserReward={
+        def query = (String) params.nombre
+        if (query.length()<4){
+            redirect controller: "profileCustomer", action: "searchUserReward"
+            flash.message = "Busqueda invalida, minimo 4 letras para la busqueda."
+        }
+        else{
+            def usuarios = StandardUser.list()
+            def target = [:]
+            usuarios.each {target.put(it.id,it.name + " " + it.lastname)}
+            print target
+            def listUser  = []
+            for (i in target){
+                if (i.value.toLowerCase().contains(query.toLowerCase())) listUser.add(i.key)
+            }
+            print ShopRecord?.findAllByStandardUser(StandardUser?.findById(listUser[0]))
+            render view: '/faces/listUserFounded', model: [listUser:listUser]
+        }
+    }
+
+
+
     @Transactional
     def update(Customer customerInstance) {
         if (customerInstance == null) {

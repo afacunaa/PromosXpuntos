@@ -59,7 +59,7 @@
             <div class="row uniform 50%">
                 <div class="12u$">
                     <div class="table-wrapper">
-                        <table style="vertical-align: middle;">
+                        <table style="vertical-align: middle; ">
                             <tr><th> RECOMPENSA </th> <th>FECHA</th> <th>CLIENTE</th></tr>
                             <g:each var="c" in="${promosxpuntosapp.ShopRecord.findAllByStandardUser(session.user)}">
                                 <g:if test="${!c.validate}">
