@@ -3,8 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PromosXpuntos.iml" filepath="$PROJECT_DIR$/PromosXpuntos.iml" />
-      <module fileurl="file://$PROJECT_DIR$/promosxpuntosapp/promosxpuntosapp.iml" filepath="$PROJECT_DIR$/promosxpuntosapp/promosxpuntosapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/promosxpuntosapp/promosxpuntosapp-grailsPlugins.iml" filepath="$PROJECT_DIR$/promosxpuntosapp/promosxpuntosapp-grailsPlugins.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PromosXpuntos-grailsPlugins.iml" filepath="$PROJECT_DIR$/PromosXpuntos-grailsPlugins.iml" />
     </modules>
   </component>
 </project>
